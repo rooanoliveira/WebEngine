@@ -139,11 +139,10 @@ if($checkConfigs) {
 	
 	# required configs
 	if(!check_value($config['SQL_DB_HOST'])) throw new Exception('The database host configuration is required to connect to your database.');
-	if(!check_value($config['SQL_DB_NAME'])) throw new Exception('The database name configuration is required to connect to your database.');
+	if(!check_value($config['SQL_DB_WEB_NAME'])) throw new Exception('The database name configuration is required to connect to your database.');
 	if(!check_value($config['SQL_DB_USER'])) throw new Exception('The database user configuration is required to connect to your database.');
 	if(!check_value($config['SQL_DB_PASS'])) throw new Exception('The database password configuration is required to connect to your database.');
 	if(!check_value($config['SQL_DB_PORT'])) throw new Exception('The database port configuration is required to connect to your database.');
-	if($config['SQL_USE_2_DB']) if(!check_value($config['SQL_DB_2_NAME'])) throw new Exception('The additional database name configuration is required to connect to your database.');
 	if(!check_value($config['SQL_PDO_DRIVER'])) throw new Exception('The PDO driver configuration is required to connect to your database.');
 }
 

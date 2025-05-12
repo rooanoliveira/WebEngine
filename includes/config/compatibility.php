@@ -1,12 +1,13 @@
 <?php
+
 /**
  * WebEngine CMS
  * https://webenginecms.org/
- * 
+ *
  * @version 1.2.1
  * @author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2020 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -17,16 +18,12 @@
  */
 
 $webengine['file_compatibility'] = array(
-	'igcn' => array(
-		'name' => 'IGCN',
-		'file' => 'igcn.tables.php',
-	),
-	'xteam' => array(
-		'name' => 'X-Team, MuEmu, Louis',
-		'file' => 'xteam.tables.php',
+	'ep33' => array(
+		'name' => 'Cabal EP33/38',
+		'file' => 'ep33.tables.php',
 	),
 	'custom' => array(
-		'name' => 'Custom (IGCN Based)',
+		'name' => 'Custom (EP33 Based)',
 		'file' => 'custom.tables.php',
 	),
 );
