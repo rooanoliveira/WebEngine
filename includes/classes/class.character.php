@@ -721,16 +721,19 @@ class Character {
 		return true;
 	}
 
-	/*
+
 	public function AccountCharacterIDC($username) {
 		if(!check_value($username)) return;
 		if(!Validator::UsernameLength($username)) return;
 		if(!Validator::AlphaNumeric($username)) return;
-		$data = $this->server01->query_fetch_single("SELECT * FROM "._TBL_AC_." WHERE "._CLMN_AC_ID_." = ?", array($username));
+		$userNum = $this->common->retrieveUserID($username);
+		$startIdx = $userNum * 16;
+		$endIdx = $startIdx + 15;
+		$data = $this->server01->query_fetch_single("SELECT * FROM "._TBL_CHR_." WHERE "._CLMN_CHR_IDX_." BETWEEN ? AND ?", array($startIdx, $endIdx));
 		if(!is_array($data)) return;
-		return $data[_CLMN_GAMEIDC_];
+		return $data[_CLMN_CHR_NAME_];
 	}
-*/
+
 	// To be removed (backwards compatibility)
 	public function GenerateCharacterClassAvatar($code=0,$alt=true,$img_tags=true) {
 		return getPlayerClassAvatar($code, $img_tags, $alt, 'tables-character-class-img');

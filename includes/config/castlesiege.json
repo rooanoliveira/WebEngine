@@ -1,5 +1,5 @@
 {
-    "active": "1",
+    "active": "0",
     "hide_idle": "0",
     "live_data": "0",
     "show_castle_owner": "1",
@@ -12,7 +12,7 @@
     "show_registered_guilds": "1",
     "show_schedule": "1",
     "schedule_date_format": "l, F jS g:i A",
-	"show_widget": "1",
+    "show_widget": "1",
     "stages": [
         {
             "title": "castlesiege_schedule_1",

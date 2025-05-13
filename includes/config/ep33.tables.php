@@ -62,13 +62,13 @@ define('_CLMN_CHR_MAP_', 'WorldIdx');
 #	define('_CLMN_CHR_INV_', 'Inventory');
 #	define('_CLMN_CHR_QUEST_', 'Quest');
 
-define('_TBL_MASTERLVL_', 'Character');
-define('_CLMN_ML_NAME_', 'Name');
-define('_CLMN_ML_LVL_', 'mLevel');
-define('_CLMN_ML_EXP_', 'mlExperience');
-define('_CLMN_ML_NEXP_', 'mlNextExp');
-define('_CLMN_ML_POINT_', 'mlPoint');
-define('_CLMN_ML_I4SP_', 'i4thSkillPoint');
+#define('_TBL_MASTERLVL_', 'Character');
+#define('_CLMN_ML_NAME_', 'Name');
+#define('_CLMN_ML_LVL_', 'mLevel');
+#define('_CLMN_ML_EXP_', 'mlExperience');
+#define('_CLMN_ML_NEXP_', 'mlNextExp');
+#define('_CLMN_ML_POINT_', 'mlPoint');
+#define('_CLMN_ML_I4SP_', 'i4thSkillPoint');
 
 define('_TBL_MC_', 'MEMB_CREDITS');
 define('_CLMN_MC_ID_', 'memb___id');
