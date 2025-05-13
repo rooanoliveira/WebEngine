@@ -2,11 +2,11 @@
 /**
  * WebEngine CMS
  * https://webenginecms.org/
- * 
+ *
  * @version 1.2.6
  * @author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -16,48 +16,48 @@
 date_default_timezone_set('UTC');
 
 $eventTimes = array(
-	'bloodcastle' => array(
-		'name' => 'Blood Castle',
+	'event1' => array(
+		'name' => 'Event 1',
 		'opentime' => 300,
 		'duration' => 0,
 		'schedule' => array(
 			'01:00','03:00','05:00','07:00','09:00','11:00','13:00','15:00','17:00','19:00','21:00','23:00',
 		),
 	),
-	'devilsquare' => array(
-		'name' => 'Devil Square',
+	'event2' => array(
+		'name' => 'Event 2',
 		'opentime' => 300,
 		'duration' => 0,
 		'schedule' => array(
 			'00:00','02:00','04:00','06:00','08:00','10:00','12:00','14:00','16:00','18:00','20:00','22:00',
 		),
 	),
-	'chaoscastle' => array(
-		'name' => 'Chaos Castle',
+	'event3' => array(
+		'name' => 'Event 3',
 		'opentime' => 300,
 		'duration' => 0,
 		'schedule' => array(
 			'03:30','07:30','11:30','15:30','19:30','23:30',
 		),
 	),
-	'dragoninvasion' => array(
-		'name' => 'Dragon Invasion',
+	'event4' => array(
+		'name' => 'Event 4',
 		'opentime' => 0,
 		'duration' => 900,
 		'schedule' => array(
 			'03:15','07:15','11:15','15:15','19:15','23:15',
 		),
 	),
-	'goldeninvasion' => array(
-		'name' => 'Golden Invasion',
+	'event5' => array(
+		'name' => 'Event 5',
 		'opentime' => 0,
 		'duration' => 900,
 		'schedule' => array(
 			'04:45','10:45','16:45','22:45',
 		),
 	),
-	'castlesiege' => array(
-		'name' => 'Castle Siege',
+	'event6' => array(
+		'name' => 'Event 6',
 		'opentime' => 0,
 		'duration' => 7200,
 		'day' => 'Saturday',
@@ -80,7 +80,7 @@ function getEventNextTime($eventSchedule) {
 
 function getEventPreviousTime($eventSchedule) {
 	$currentTime = date("H:i");
-	foreach($eventSchedule as $key => $time) {		
+	foreach($eventSchedule as $key => $time) {
 		if($time > $currentTime) {
 			$last = $key-1;
 			if($last < 0) {
@@ -129,7 +129,7 @@ foreach($eventTimes as $eventId => $event) {
 	$nextTimeF = date("D g:i A", strtotime($nextTime));
 	$offset = strtotime($nextTime)-strtotime($lastTime);
 	$timeLeft = strtotime($nextTime)-time();
-	
+
 	$result[$eventId] = array(
 		'event' => $event['name'],
 		'opentime' => $event['opentime'],

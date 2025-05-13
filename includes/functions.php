@@ -2,11 +2,11 @@
 /**
  * WebEngine CMS
  * https://webenginecms.org/
- * 
+ *
  * @version 1.2.6
  * @author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -22,7 +22,7 @@ function redirect($type = 1, $location = null, $delay = 0) {
 		$to = __BASE_URL__;
 	} else {
 		$to = __BASE_URL__ . $location;
-		
+
 		if($location == 'login') {
 			$_SESSION['login_last_location'] = $_REQUEST['page'].'/';
 			if(isset($_REQUEST['subpage'])) {
@@ -55,7 +55,7 @@ function isLoggedIn() {
 	if(!isset($_SESSION['userid'])) return;
 	if(!isset($_SESSION['username'])) return;
 	if(!isset($_SESSION['timeout'])) return;
-	
+
 	$loginConfigs = loadConfigurations('login');
 	if(is_array($loginConfigs)) {
 		if($loginConfigs['enable_session_timeout']) {
@@ -64,7 +64,7 @@ function isLoggedIn() {
 			}
 		}
 	}
-	
+
 	$_SESSION['timeout'] = time();
 	return true;
 }
@@ -89,7 +89,7 @@ function message($type='info', $message="", $title="") {
 			$class = ' alert-info';
 		break;
 	}
-	
+
 	if(check_value($title)) {
 		echo '<div class="alert'.$class.'" role="alert"><strong>'.$title.'</strong><br />'.$message.'</div>';
 	} else {
@@ -104,7 +104,7 @@ function lang($phrase, $return=true) {
 	} else {
 		$result = $lang[$phrase];
 	}
-	
+
 	if(config('language_debug',true)) {
 		if($return) {
 			return '<span title="'.$phrase.'" alt="'.$phrase.'">'.$result.'</span>';
@@ -124,7 +124,7 @@ function langf($phrase, $args=array(), $print=false) {
 	global $lang;
 	$result = @vsprintf($lang[$phrase], $args);
 	if(!$result) $result = 'ERROR';
-	
+
 	if(config('language_debug',true)) {
 		if($print) {
 			echo '<span title="'.$phrase.'" alt="'.$phrase.'">'.$result.'</span>';
@@ -177,7 +177,7 @@ function UpdateCache($file_name, $data) {
 	$file = __PATH_CACHE__.$file_name;
 	if(!file_exists($file)) return;
 	if(!is_writable($file)) return;
-	
+
 	$fp = fopen($file, 'w');
 	fwrite($fp, time()."\n");
 	fwrite($fp, $data);
@@ -189,7 +189,7 @@ function LoadCacheData($file_name) {
 	$file = __PATH_CACHE__.$file_name;
 	if(!file_exists($file)) return;
 	if(!is_readable($file)) return;
-	
+
 	$cache_file = file_get_contents($file);
 	if(empty($cache_file)) return;
 	$file_lanes = explode("\n",$cache_file);
@@ -255,10 +255,10 @@ function getGensLeadershipRank($rankPosition) {
 
 function webengineConfigs() {
 	if(!file_exists(__PATH_CONFIGS__ . 'webengine.json')) throw new Exception('WebEngine\'s configuration file doesn\'t exist, please reupload the website files.');
-	
+
 	$webengineConfigs = file_get_contents(__PATH_CONFIGS__ . 'webengine.json');
 	if(!check_value($webengineConfigs)) throw new Exception('WebEngine\'s configuration file is empty, please run the installation script.');
-	
+
 	return json_decode($webengineConfigs, true);
 }
 
@@ -341,12 +341,24 @@ function loadConfig($name="webengine") {
 	return json_decode($cfg, true);
 }
 
-function getPlayerClassAvatar($code=0, $htmlImageTag=true, $tooltip=true, $cssClass=null) {
+function getPlayerClassAvatar($style=0, $htmlImageTag=true, $tooltip=true, $cssClass=null) {
 	global $custom;
-	$imageFileName = array_key_exists($code, $custom['character_class']) ? $custom['character_class'][$code][2] : 'avatar.jpg';
+
+	// Extrair o código da classe a partir do estilo
+	$battleStyleExpend = (($style & (1 << 23)) > 1) ? 8 : 0;
+	$classCode = ($style & 7) + $battleStyleExpend;
+
+	// Obter nome da imagem
+	$imageFileName = array_key_exists($classCode, $custom['character_class']) ? $custom['character_class'][$classCode][2] : 'avatar.jpg';
 	$imageFullPath = __PATH_TEMPLATE_IMG__ . config('character_avatars_dir', true) . '/' . $imageFileName;
-	$className = array_key_exists($code, $custom['character_class']) ? $custom['character_class'][$code][0] : '';
+
+	// Obter nome da classe (para tooltip)
+	$className = array_key_exists($classCode, $custom['character_class']) ? $custom['character_class'][$classCode][0] : '';
+
+	// Retornar apenas o caminho se solicitado
 	if(!$htmlImageTag) return $imageFullPath;
+
+	// Montar a tag <img>
 	$result = '<img';
 	if(check_value($cssClass)) $result .= ' class="'.$cssClass.'"';
 	if($tooltip) $result .= ' data-toggle="tooltip" data-placement="top" title="'.$className.'" alt="'.$className.'"';
@@ -354,9 +366,10 @@ function getPlayerClassAvatar($code=0, $htmlImageTag=true, $tooltip=true, $cssCl
 	return $result;
 }
 
+
 function playerProfile($playerName, $returnLinkOnly=false) {
 	if(!config('player_profiles',true)) return $playerName;
-	
+
 	$profileConfig = loadConfigurations('profiles');
 	if(is_array($profileConfig) && array_key_exists('encode', $profileConfig) && $profileConfig['encode'] == 1) {
 		if($returnLinkOnly) {
@@ -372,7 +385,7 @@ function playerProfile($playerName, $returnLinkOnly=false) {
 
 function guildProfile($guildName, $returnLinkOnly=false) {
 	if(!config('guild_profiles',true)) return $guildName;
-	
+
 	$profileConfig = loadConfigurations('profiles');
 	if(is_array($profileConfig) && array_key_exists('encode', $profileConfig) && $profileConfig['encode'] == 1) {
 		if($returnLinkOnly) {
@@ -399,7 +412,7 @@ function updateCacheFile($fileName, $data) {
 	$file = __PATH_CACHE__ . $fileName;
 	if(!file_exists($file)) return;
 	if(!is_writable($file)) return;
-	
+
 	$fp = fopen($file, 'w');
 	fwrite($fp, $data);
 	fclose($fp);
@@ -410,13 +423,13 @@ function loadCache($fileName) {
 	$file = __PATH_CACHE__ . $fileName;
 	if(!file_exists($file)) return;
 	if(!is_readable($file)) return;
-	
+
 	$cacheDataRaw = file_get_contents($file);
 	if(!check_value($cacheDataRaw)) return;
-	
+
 	$cacheData = decodeCache($cacheDataRaw);
 	if(!is_array($cacheData)) return;
-	
+
 	return $cacheData;
 }
 
@@ -440,15 +453,15 @@ function addRankingMenuLink($phrase, $module, $filesExclusivity=null) {
 	global $rankingMenuLinks;
 	if(!check_value($phrase)) return;
 	if(!check_value($module)) return;
-	
+
 	if(is_array($filesExclusivity)) {
 		if(!in_array(strtolower(config('server_files',true)), array_map('strtolower', $filesExclusivity))) return;
 	}
-	
+
 	if(lang($phrase) != 'ERROR') {
 		$phrase = lang($phrase);
 	}
-	
+
 	$rankingMenuLinks[] = array($phrase, $module);
 }
 
@@ -464,7 +477,7 @@ function loadJsonFile($filePath) {
 	$jsonData = file_get_contents($filePath);
 	if($jsonData == false) return;
 	$result = json_decode($jsonData, true);
-	if(!is_array($result)) return;	
+	if(!is_array($result)) return;
 	return $result;
 }
 
@@ -535,11 +548,25 @@ function readableFileSize($bytes, $decimals = 2) {
 	return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
 }
 
-function getPlayerClass($class=0) {
+function getPlayerClass($style = 0) {
 	global $custom;
+
+	// Verifica se o bit 23 está setado
+	$battleStyleExpend = 0;
+	if(($style & (1 << 23)) > 1) {
+		$battleStyleExpend = 8;
+	}
+
+	// Pega os 3 bits menos significativos (classe base)
+	$classBase = $style & 7;
+
+	// Classe final
+	$class = $classBase + $battleStyleExpend;
+
 	if(!array_key_exists($class, $custom['character_class'])) return 'Unknown';
 	return $custom['character_class'][$class][0];
 }
+
 
 function custom($index) {
 	global $custom;

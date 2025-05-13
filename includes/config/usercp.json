@@ -10,7 +10,7 @@
         "order": 10
     },
     {
-        "active": true,
+        "active": false,
         "type": "internal",
         "phrase": "usercp_menu_txt_2",
         "link": "usercp\/reset",
@@ -20,7 +20,7 @@
         "order": 20
     },
     {
-        "active": true,
+        "active": false,
         "type": "internal",
         "phrase": "usercp_menu_txt_6",
         "link": "usercp\/unstick",
@@ -40,7 +40,7 @@
         "order": 40
     },
     {
-        "active": true,
+        "active": false,
         "type": "internal",
         "phrase": "usercp_menu_txt_8",
         "link": "usercp\/resetstats",
@@ -50,7 +50,7 @@
         "order": 50
     },
     {
-        "active": true,
+        "active": false,
         "type": "internal",
         "phrase": "usercp_menu_txt_10",
         "link": "usercp\/addstats",
@@ -60,7 +60,7 @@
         "order": 60
     },
     {
-        "active": true,
+        "active": false,
         "type": "internal",
         "phrase": "usercp_menu_txt_9",
         "link": "usercp\/clearskilltree",

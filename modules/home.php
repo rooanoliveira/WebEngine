@@ -2,11 +2,11 @@
 /**
  * WebEngine CMS
  * https://webenginecms.org/
- * 
+ *
  * @version 1.2.6
  * @author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -28,9 +28,9 @@
 					$newsList = loadCache('news.cache');
 					if(is_array($newsList)) {
 						foreach($newsList as $key => $newsArticle) {
-							
+
 							if($key >= 7) break;
-							
+
 							$News->setId($newsArticle['news_id']);
 							$news_title = base64_decode($newsArticle['news_title']);
 
@@ -39,9 +39,9 @@
 									$news_title = base64_decode($newsArticle['translations'][$_SESSION['language_display']]);
 								}
 							}
-							
+
 							$news_url = __BASE_URL__.'news/'.$newsArticle['news_id'].'/';
-							
+
 							echo '<div class="row home-news-block-article">';
 								echo '<div class="col-xs-3">';
 									echo '<span class="home-news-block-article-type">'.lang('news_txt_6').'</span>';
@@ -53,7 +53,7 @@
 									echo '<span class="home-news-block-article-date">'.date("Y/m/d", $newsArticle['news_date']).'</span>';
 								echo '</div>';
 							echo '</div>';
-							
+
 						}
 					}
 				?>
@@ -79,7 +79,7 @@
 					echo '</form>';
 				echo '</div>';
 			echo '</div>';
-			
+
 			echo '<div class="sidebar-banner"><a href="'.__BASE_URL__.'register"><img src="'.__PATH_TEMPLATE_IMG__.'sidebar_banner_join.jpg"/></a></div>';
 		} else {
 			echo '<div class="panel panel-sidebar panel-usercp">';
@@ -180,28 +180,28 @@
 			echo '<div class="panel-body" style="min-height:400px;">';
 				echo '<table class="table table-condensed">';
 					echo '<tr>';
-						echo '<td><span id="bloodcastle_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
-						echo '<td class="text-right"><span id="bloodcastle_next"></span><br /><span class="smalltext" id="bloodcastle"></span></td>';
+						echo '<td><span id="event1_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
+						echo '<td class="text-right"><span id="event1_next"></span><br /><span class="smalltext" id="event1"></span></td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td><span id="devilsquare_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
-						echo '<td class="text-right"><span id="devilsquare_next"></span><br /><span class="smalltext" id="devilsquare"></span></td>';
+						echo '<td><span id="event2_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
+						echo '<td class="text-right"><span id="event2_next"></span><br /><span class="smalltext" id="event2"></span></td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td><span id="chaoscastle_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
-						echo '<td class="text-right"><span id="chaoscastle_next"></span><br /><span class="smalltext" id="chaoscastle"></span></td>';
+						echo '<td><span id="event3_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
+						echo '<td class="text-right"><span id="event3_next"></span><br /><span class="smalltext" id="event3"></span></td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td><span id="dragoninvasion_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
-						echo '<td class="text-right"><span id="dragoninvasion_next"></span><br /><span class="smalltext" id="dragoninvasion"></span></td>';
+						echo '<td><span id="event4_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
+						echo '<td class="text-right"><span id="event4_next"></span><br /><span class="smalltext" id="event4"></span></td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td><span id="goldeninvasion_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
-						echo '<td class="text-right"><span id="goldeninvasion_next"></span><br /><span class="smalltext" id="goldeninvasion"></span></td>';
+						echo '<td><span id="event5_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
+						echo '<td class="text-right"><span id="event5_next"></span><br /><span class="smalltext" id="event5"></span></td>';
 					echo '</tr>';
 					echo '<tr>';
-						echo '<td><span id="castlesiege_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
-						echo '<td class="text-right"><span id="castlesiege_next"></span><br /><span class="smalltext" id="castlesiege"></span></td>';
+						echo '<td><span id="event6_name"></span><br /><span class="smalltext">'.lang('event_schedule_start').'</span></td>';
+						echo '<td class="text-right"><span id="event6_next"></span><br /><span class="smalltext" id="event6"></span></td>';
 					echo '</tr>';
 				echo '</table>';
 			echo '</div>';
