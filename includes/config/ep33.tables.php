@@ -21,11 +21,14 @@ define('_TBL_MI_', 'cabal_auth_table');
 	define('_CLMN_MEMBNAME_', 'UserName');
 #	define('_CLMN_CTLCODE_', 'ctl1_code');
 
-define('_TBL_MS_', 'MEMB_STAT');
-	define('_CLMN_CONNSTAT_', 'ConnectStat');
-	define('_CLMN_MS_MEMBID_', 'memb___id');
-	define('_CLMN_MS_GS_', 'ServerName');
-	define('_CLMN_MS_IP_', 'IP');
+define('_TBL_MS_', 'cabal_auth_table');
+	define('_CLMN_CONNSTAT_', 'Login');
+	define('_CLMN_MS_MEMBID_', 'ID');
+	define('_CLMN_MS_GS_', 'ChannelIdx');
+#	define('_CLMN_MS_IP_', 'LastIp');
+
+define('_TBL_CHINI_', 'cabal_gms_ini_table');
+	define('_CLMN_CH_ID_', 'Channel');
 	
 define('_TBL_AC_', 'AccountCharacter');
 	define('_CLMN_AC_ID_', 'Id');
