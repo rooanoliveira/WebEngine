@@ -819,12 +819,16 @@ input[type='number']:focus {
 }
 
 .rankings-class-filter-selection {
-  display: inline-block;
+  display: flex;
   width: 75px;
   text-align: center;
   color: #000000;
   font-size: 11px;
   cursor: pointer;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .rankings-class-filter-selection:hover {
@@ -835,15 +839,18 @@ input[type='number']:focus {
   -webkit-filter: brightness(120%);
   filter: brightness(120%);
 }
-
-.rankings-class-filter-selection img {
-  width: 40px;
-  height: auto;
+.rounded-class {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   -khtml-border-radius: 50%;
-  margin-bottom: 5px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #272727;
+  padding: 0.5rem;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -853,9 +860,14 @@ input[type='number']:focus {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.45);
 }
 
+.rankings-class-filter-selection img {
+  width: 32px;
+  height: 32px;
+}
+
 .rankings-class-filter-grayscale {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
 }
 
 /* Home - News List */

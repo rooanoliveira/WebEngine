@@ -263,6 +263,14 @@ function getGensRank($contributionPoints)
 	}
 	return $title;
 }
+function getNation($nationID)
+{
+	global $custom;
+	foreach ($custom['nation_name'] as $id => $name) {
+		if ($nationID == $id) return $name;
+	}
+	return $name;
+}
 
 function getGensLeadershipRank($rankPosition)
 {

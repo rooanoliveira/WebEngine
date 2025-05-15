@@ -111,6 +111,7 @@
 					echo '<table class="table table-condensed">';
 						echo '<thead>';
 							echo '<tr>';
+								echo '<th class="text-center"></th>';
 								echo '<th class="text-center">'.lang('rankings_txt_10').'</th>'; // Character
 								echo '<th class="text-center">'.lang('rankings_txt_11').'</th>'; // Class
 								echo '<th class="text-center">'.lang('rankings_txt_12').'</th>'; // Level
@@ -120,6 +121,7 @@
 						foreach($topLevel as $key => $row) {
 							if($key == 0) continue;
 							echo '<tr>';
+								echo '<td class="text-center">'.$key.'</td>';
 								echo '<td class="text-center">'.playerProfile($row[0]).'</td>';
 								echo '<td class="text-center">'.getPlayerClass($row[1]).'</td>';
 								echo '<td class="text-center">'.number_format($row[2]).'</td>';
@@ -148,8 +150,8 @@
 					echo '<table class="table table-condensed">';
 						echo '<thead>';
 							echo '<tr>';
+								echo '<th class="text-center"></th>';
 								echo '<th class="text-center">'.lang('rankings_txt_17').'</th>'; // Guild Name
-								echo '<th class="text-center">'.lang('rankings_txt_28').'</th>'; // Logo
 								echo '<th class="text-center">'.lang('rankings_txt_19').'</th>'; // Score
 							echo '</tr>';
 						echo '</thead>';
@@ -158,8 +160,8 @@
 							if($key == 0) continue;
 							$multiplier = $rankingsConfig['guild_score_formula'] == 1 ? 1 : $rankingsConfig['guild_score_multiplier'];
 							echo '<tr>';
+								echo '<td class="text-center">'.$key.'</td>';
 								echo '<td class="text-center">'.guildProfile($row[0]).'</td>';
-								echo '<td class="text-center">'.returnGuildLogo($row[3], 20).'</td>';
 								echo '<td class="text-center">'.number_format(floor($row[2]*$multiplier)).'</td>';
 							echo '</tr>';
 						}

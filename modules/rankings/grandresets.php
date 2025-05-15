@@ -51,7 +51,8 @@ try {
 		if($i>=1) {
 			$characterIMG = getPlayerClassAvatar($rdata[3], true, true, 'rankings-class-image');
 			$onlineStatus = mconfig('show_online_status') ? in_array($rdata[0], $onlineCharacters) ? '<img src="'.__PATH_ONLINE_STATUS__.'" class="online-status-indicator"/>' : '<img src="'.__PATH_OFFLINE_STATUS__.'" class="online-status-indicator"/>' : '';
-			echo '<tr data-class-id="'.$rdata[3].'">';
+			$classCode = ($rdata[3] & 7) + ((($rdata[3] & (1 << 23)) > 1) ? 8 : 0);
+			echo '<tr data-class-id="'.$classCode.'">';
 			if(mconfig('rankings_show_place_number')) {
 				echo '<td class="rankings-table-place">'.$i.'</td>';
 			}

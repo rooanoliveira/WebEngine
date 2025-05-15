@@ -34,7 +34,7 @@
   "language_debug": false,
   "plugins_system_enable": false,
   "ip_block_system_enable": false,
-  "character_avatars_dir": "character-avatars",
+  "character_avatars_dir": "character-icon",
   "player_profiles": true,
   "guild_profiles": true,
   "username_min_len": 6,

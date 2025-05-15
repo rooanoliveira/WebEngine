@@ -2,11 +2,11 @@
 /**
  * WebEngine CMS
  * https://webenginecms.org/
- * 
+ *
  * @version 1.2.6
  * @author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -21,22 +21,21 @@ if(mconfig('active')) {
 			$weProfiles->setType("guild");
 			$weProfiles->setRequest($_GET['req']);
 			$guildData = $weProfiles->data();
-			
-			$guildMembers = explode(",", $guildData[5]);
+
+			$guildMembers = explode(",", $guildData[4]);
 			$displayData = array(
 				'gname' => $guildData[1],
-				'glogo' => returnGuildLogo($guildData[2],150),
-				'gmaster' => $guildData[4],
-				'gscore' => $guildData[3],
+				'gmaster' => $guildData[3],
+				'gscore' => $guildData[2],
 				'gmembers' => count($guildMembers),
 			);
-			
+
 			echo '<div class="profiles_guild_card">';
 				// Guild Information
 				echo '<div class="row">';
-					echo '<div class="col-xs-6 text-center">';
-						echo '<span class="guild_logo">'.$displayData['glogo'].'</span>';
-					echo '</div>';
+					// echo '<div class="col-xs-6 text-center">';
+					// 	echo '<span class="guild_logo">'.$displayData['glogo'].'</span>';
+					// echo '</div>';
 					echo '<div class="col-xs-6 text-center">';
 						echo '<span class="guild_name">'.$displayData['gname'].'</span>';
 						echo '<table class="table">';
