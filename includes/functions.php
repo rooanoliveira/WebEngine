@@ -388,7 +388,7 @@ function getPlayerClassAvatar($style = 0, $htmlImageTag = true, $tooltip = true,
 	$classCode = ($style & 7) + $battleStyleExpend;
 
 	// Obter nome da imagem
-	$imageFileName = array_key_exists($classCode, $custom['character_class']) ? $custom['character_class'][$classCode][2] : 'avatar.jpg';
+	$imageFileName = array_key_exists($classCode, $custom['character_class']) ? $custom['character_class'][$classCode][2] : 'avatar.png';
 	$imageFullPath = __PATH_TEMPLATE_IMG__ . config('character_avatars_dir', true) . '/' . $imageFileName;
 
 	// Obter nome da classe (para tooltip)

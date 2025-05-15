@@ -217,13 +217,13 @@ input[type='number']:focus {
 }
 
 .rankings-class-image {
-  width: 30px;
-  height: auto;
-  -moz-box-shadow: 0 0 5px #666;
+  width: 35px;
+  height: 35px;
+  /* -moz-box-shadow: 0 0 5px #666;
   -webkit-box-shadow: 0 0 5px #666;
   box-shadow: 0 0 5px #666;
   -moz-border-radius: 0px;
-  border-radius: 0px;
+  border-radius: 0px; */
 }
 .rankings-table tr td {
   border-bottom: 1px solid #e3e3e3;
@@ -844,8 +844,8 @@ input[type='number']:focus {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   -khtml-border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -861,8 +861,8 @@ input[type='number']:focus {
 }
 
 .rankings-class-filter-selection img {
-  width: 32px;
-  height: 32px;
+  width: 45px;
+  height: 45px;
 }
 
 .rankings-class-filter-grayscale {

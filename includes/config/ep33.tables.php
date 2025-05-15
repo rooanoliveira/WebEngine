@@ -139,15 +139,15 @@ define('_TBL_GUILDMEMB_', 'GuildMember');
  * custom: character_class
  */
 $custom['character_class'] = array(
-	1 => array('Warrior', 'WA', 'icon-wa.webp', 'base_stats' => array('str' => 24, 'agi' => 8, 'ene' => 3), 'class_group' => 1),
-	2 => array('Blader', 'BL', 'icon-bl.webp', 'base_stats' => array('str' => 16, 'agi' => 16, 'ene' => 3), 'class_group' => 2),
-	3 => array('Wizard', 'WI', 'icon-wi.webp', 'base_stats' => array('str' => 3, 'agi' => 6, 'ene' => 26), 'class_group' => 3),
-	4 => array('Force Archer', 'FA', 'icon-fa.webp', 'base_stats' => array('str' => 6, 'agi' => 12, 'ene' => 17), 'class_group' => 4),
-	5 => array('Force Shielder', 'FS', 'icon-fs.webp', 'base_stats' => array('str' => 15, 'agi' => 9, 'ene' => 11), 'class_group' => 5),
-	6 => array('Force Blader', 'FB', 'icon-fb.webp', 'base_stats' => array('str' => 12, 'agi' => 11, 'ene' => 12), 'class_group' => 6),
-	7 => array('Gladiator', 'GL', 'icon-gl.webp', 'base_stats' => array('str' => 17, 'agi' => 13, 'ene' => 5), 'class_group' => 7),
-	8 => array('Force Gunner', 'FG', 'icon-fg.webp', 'base_stats' => array('str' => 8, 'agi' => 11, 'ene' => 16), 'class_group' => 8),
-	9 => array('Dark Mage', 'DM', 'icon-dm.webp', 'base_stats' => array('str' => 3, 'agi' => 6, 'ene' => 26), 'class_group' => 9),
+	1 => array('Warrior', 'WA', 'wa.png', 'base_stats' => array('str' => 24, 'agi' => 8, 'ene' => 3), 'class_group' => 1),
+	2 => array('Blader', 'BL', 'bl.png', 'base_stats' => array('str' => 16, 'agi' => 16, 'ene' => 3), 'class_group' => 2),
+	3 => array('Wizard', 'WI', 'wi.png', 'base_stats' => array('str' => 3, 'agi' => 6, 'ene' => 26), 'class_group' => 3),
+	4 => array('Force Archer', 'FA', 'fa.png', 'base_stats' => array('str' => 6, 'agi' => 12, 'ene' => 17), 'class_group' => 4),
+	5 => array('Force Shielder', 'FS', 'fs.png', 'base_stats' => array('str' => 15, 'agi' => 9, 'ene' => 11), 'class_group' => 5),
+	6 => array('Force Blader', 'FB', 'fb.png', 'base_stats' => array('str' => 12, 'agi' => 11, 'ene' => 12), 'class_group' => 6),
+	7 => array('Gladiator', 'GL', 'gl.png', 'base_stats' => array('str' => 17, 'agi' => 13, 'ene' => 5), 'class_group' => 7),
+	8 => array('Force Gunner', 'FG', 'fg.png', 'base_stats' => array('str' => 8, 'agi' => 11, 'ene' => 16), 'class_group' => 8),
+	9 => array('Dark Mage', 'DM', 'dm.png', 'base_stats' => array('str' => 3, 'agi' => 6, 'ene' => 26), 'class_group' => 9),
 );
 
 /*
