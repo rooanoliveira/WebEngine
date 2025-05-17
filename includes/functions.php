@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -244,7 +243,7 @@ function cs_CalculateTimeLeft()
 function updateCronLastRun($file)
 {
 	$database = Connection::Database('CabalEngine');
-	$update = $database->query("UPDATE " . WEBENGINE_CRON . " SET cron_last_run = ? WHERE cron_file_run = ?", array(time(), $file));
+	$update = $database->query("UPDATE " . CABALENGINE_CRON . " SET cron_last_run = ? WHERE cron_file_run = ?", array(time(), $file));
 	if (!$update) return;
 	return true;
 }
@@ -281,19 +280,19 @@ function getGensLeadershipRank($rankPosition)
 	return;
 }
 
-function webengineConfigs()
+function cabalengineConfigs()
 {
-	if (!file_exists(__PATH_CONFIGS__ . 'webengine.json')) throw new Exception('WebEngine\'s configuration file doesn\'t exist, please reupload the website files.');
+	if (!file_exists(__PATH_CONFIGS__ . 'cabalengine.json')) throw new Exception('CabalEngine\'s configuration file doesn\'t exist, please reupload the website files.');
 
-	$webengineConfigs = file_get_contents(__PATH_CONFIGS__ . 'webengine.json');
-	if (!check_value($webengineConfigs)) throw new Exception('WebEngine\'s configuration file is empty, please run the installation script.');
+	$cabalengineConfigs = file_get_contents(__PATH_CONFIGS__ . 'cabalengine.json');
+	if (!check_value($cabalengineConfigs)) throw new Exception('CabalEngine\'s configuration file is empty, please run the installation script.');
 
-	return json_decode($webengineConfigs, true);
+	return json_decode($cabalengineConfigs, true);
 }
 
 function config($config_name, $return = false)
 {
-	$config = webengineConfigs();
+	$config = cabalengineConfigs();
 	if (!array_key_exists($config_name, $config)) return;
 	if ($return) {
 		return $config[$config_name];
@@ -370,7 +369,7 @@ function loadConfigurations($file)
 	return;
 }
 
-function loadConfig($name = "webengine")
+function loadConfig($name = "cabalengine")
 {
 	if (!check_value($name)) return;
 	if (!file_exists(__PATH_CONFIGS__ . $name . '.json')) return;
@@ -491,7 +490,7 @@ function checkBlockedIp()
 function getCronList()
 {
 	$db = Connection::Database('CabalEngine');
-	$result = $db->query_fetch("SELECT * FROM " . WEBENGINE_CRON . " ORDER BY cron_id ASC");
+	$result = $db->query_fetch("SELECT * FROM " . CABALENGINE_CRON . " ORDER BY cron_id ASC");
 	if (!is_array($result)) return;
 	return $result;
 }

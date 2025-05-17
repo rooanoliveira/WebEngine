@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -36,7 +35,7 @@ try {
 	}
 
 	// SQL List
-	if (!is_array($install['sql_list'])) throw new Exception('Could not load WebEngine CMS SQL tables list.');
+	if (!is_array($install['sql_list'])) throw new Exception('Could not load CabalEngine CMS SQL tables list.');
 	foreach ($install['sql_list'] as $sqlFileName => $sqlTableName) {
 		if (!file_exists('sql/' . $sqlFileName . '.txt')) {
 			throw new Exception('The installation script is missing SQL tables.');

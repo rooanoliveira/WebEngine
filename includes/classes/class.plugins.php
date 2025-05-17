@@ -1,27 +1,26 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
- * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * CabalEngine CMS
+ *
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
 
 class Plugins {
-	
+
 	protected $db;
-	
+
 	function __construct() {
-		
+
 		// load database
-		$this->db = Connection::Database('Me_MuOnline');
-		
+		$this->db = Connection::Database('CabalEngine');
+
 	}
-	
+
 	public function importPlugin($_FILE) {
 		if($_FILE["file"]["type"] == "text/xml") {
 			$xml = simplexml_load_file($_FILE["file"]["tmp_name"]);
@@ -37,7 +36,7 @@ class Plugins {
 							} else {
 								message('error','Could not import plugin.');
 							}
-							
+
 							$update_cache = $this->rebuildPluginsCache();
 							if(!$update_cache) {
 								message('error','Could not update plugins cache data, make sure the file exists and it\'s writable!');
@@ -48,7 +47,7 @@ class Plugins {
 			} else { message('error','Invalid file or missing data.'); }
 		} else { message('error','Invalid file type (only XML).'); }
 	}
-	
+
 	private function checkXML($array) {
 		if(array_key_exists('name',$array)
 		&& array_key_exists('author',$array)
@@ -72,17 +71,17 @@ class Plugins {
 			return false;
 		}
 	}
-	
+
 	private function checkCompatibility($array) {
-		if(array_key_exists('webengine',$array)) {
-			if(is_array($array['webengine'])) {
-				if(in_array(__WEBENGINE_VERSION__,$array['webengine'])) {
+		if(array_key_exists('cabalengine',$array)) {
+			if(is_array($array['cabalengine'])) {
+				if(in_array(__CABALENGINE_VERSION__,$array['cabalengine'])) {
 					return true;
 				} else {
 					return false;
 				}
 			} else {
-				if(__WEBENGINE_VERSION__ == $array['webengine']) {
+				if(__CABALENGINE_VERSION__ == $array['cabalengine']) {
 					return true;
 				} else {
 					return false;
@@ -92,7 +91,7 @@ class Plugins {
 			return false;
 		}
 	}
-	
+
 	private function checkPluginDirectory($name) {
 		if(file_exists($this->pluginPath($name)) && is_dir($this->pluginPath($name))) {
 			return true;
@@ -100,7 +99,7 @@ class Plugins {
 			return false;
 		}
 	}
-	
+
 	private function checkFiles($array,$plugin_name) {
 		if(array_key_exists('file',$array)) {
 			if(is_array($array['file'])) {
@@ -142,16 +141,16 @@ class Plugins {
 			return false;
 		}
 	}
-	
+
 	public function pluginPath($name) {
 		return __PATH_PLUGINS__.$name.'/';
 	}
-	
+
 	private function installPlugin($pluginDATA) {
-		$compatibility = $pluginDATA['compatibility']['webengine'];
+		$compatibility = $pluginDATA['compatibility']['cabalengine'];
 		$files = $pluginDATA['files']['file'];
-		if(is_array($pluginDATA['compatibility']['webengine'])) {
-			$compatibility = implode("|",$pluginDATA['compatibility']['webengine']);
+		if(is_array($pluginDATA['compatibility']['cabalengine'])) {
+			$compatibility = implode("|",$pluginDATA['compatibility']['cabalengine']);
 		}
 		if(is_array($pluginDATA['files']['file'])) {
 			$files = implode("|",$pluginDATA['files']['file']);
@@ -167,7 +166,7 @@ class Plugins {
 			time(),
 			$_SESSION['username']
 		);
-		$query = $this->db->query("INSERT INTO ".WEBENGINE_PLUGINS." (name, author, version, compatibility, folder, files, status, install_date, installed_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", $data);
+		$query = $this->db->query("INSERT INTO ".CABALENGINE_PLUGINS." (name, author, version, compatibility, folder, files, status, install_date, installed_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", $data);
 		if($query) {
 			@$this->_getPluginLatestVersion($pluginDATA['folder'], $pluginDATA['version']);
 			return true;
@@ -175,90 +174,90 @@ class Plugins {
 			return false;
 		}
 	}
-	
+
 	public function retrieveInstalledPlugins() {
-		$plugins = $this->db->query_fetch("SELECT * FROM ".WEBENGINE_PLUGINS." ORDER BY id ASC");
+		$plugins = $this->db->query_fetch("SELECT * FROM ".CABALENGINE_PLUGINS." ORDER BY id ASC");
 		return $plugins;
 	}
-	
+
 	public function updatePluginStatus($plugin_id,$new_status) {
-		$update = $this->db->query("UPDATE ".WEBENGINE_PLUGINS." SET status = ? WHERE id = ?", array($new_status, $plugin_id));
+		$update = $this->db->query("UPDATE ".CABALENGINE_PLUGINS." SET status = ? WHERE id = ?", array($new_status, $plugin_id));
 		$update_cache = $this->rebuildPluginsCache();
 		if(!$update_cache) {
 			message('error','Could not update plugins cache data, make sure the file exists and it\'s writable!');
 		}
 	}
-	
+
 	public function uninstallPlugin($plugin_id) {
-		$uninstall = $this->db->query("DELETE FROM ".WEBENGINE_PLUGINS." WHERE id = ?", array($plugin_id));
+		$uninstall = $this->db->query("DELETE FROM ".CABALENGINE_PLUGINS." WHERE id = ?", array($plugin_id));
 		if($uninstall) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	public function rebuildPluginsCache() {
-		$plugins = $this->db->query_fetch("SELECT * FROM ".WEBENGINE_PLUGINS." WHERE status = 1 ORDER BY id ASC");
+		$plugins = $this->db->query_fetch("SELECT * FROM ".CABALENGINE_PLUGINS." WHERE status = 1 ORDER BY id ASC");
 		if(!is_array($plugins)) {
 			$update = updateCacheFile('plugins.cache', "");
 			if(!$update) return;
 			return true;
 		}
-		
+
 		foreach($plugins as $key => $row) {
 			$compatibility = explode('|', $row['compatibility']);
 			if(!is_array($compatibility)) continue;
-			if(!in_array(__WEBENGINE_VERSION__, $compatibility)) continue;
-			
+			if(!in_array(__CABALENGINE_VERSION__, $compatibility)) continue;
+
 			$files = explode('|', $row['files']);
 			if(!is_array($files)) continue;
-			
+
 			$plugins[$key]['compatibility'] = $compatibility;
 			$plugins[$key]['files'] = $files;
 		}
-		
+
 		$cacheData = encodeCache($plugins);
 		$update = updateCacheFile('plugins.cache', $cacheData);
 		if(!$update) return;
 		return true;
 	}
-	
+
 	private function _getPluginLatestVersion($plugin, $version='1.0.0') {
 		if(!check_value($plugin)) return;
 		if(!check_value($version)) return;
-		
-		$url = 'https://version.webenginecms.org/1.0/plugin.php';
-		
+
+		$url = 'https://version.cabalenginecms.org/1.0/plugin.php';
+
 		$fields = array(
 			'version' => urlencode($version),
 			'baseurl' => urlencode(__BASE_URL__),
 			'plugin' => urlencode($plugin),
 		);
-		
+
 		foreach($fields as $key => $value) {
 			$fieldsArray[] = $key . '=' . $value;
 		}
-		
+
 		$ch = curl_init();
-		
+
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_POST, count($fields));
 		curl_setopt($ch, CURLOPT_POSTFIELDS, implode("&", $fieldsArray));
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'WebEngine');
+		curl_setopt($ch, CURLOPT_USERAGENT, 'CabalEngine');
 		curl_setopt($ch, CURLOPT_HEADER, false);
 
 		$result = curl_exec($ch);
 		curl_close($ch);
-		
+
 		if(!$result) return;
 		$resultArray = json_decode($result, true);
 		if(!is_array($resultArray)) return;
 		return $resultArray;
 	}
-	
+
 	private function _getBuidHash($filePath) {
 		$fileContents = file_get_contents($filePath);
 		$srch = preg_match("/@build/", $fileContents, $matches, PREG_OFFSET_CAPTURE);
@@ -270,34 +269,34 @@ class Plugins {
 		}
 		return;
 	}
-	
+
 	private function _validateBuildHash($hash) {
 		if(!check_value($hash)) return;
-		
-		$url = 'https://version.webenginecms.org/1.0/hash.php';
-		
+
+		$url = 'https://version.cabalenginecms.org/1.0/hash.php';
+
 		$fields = array(
 			'build' => urlencode($hash),
 			'baseurl' => urlencode(__BASE_URL__),
 		);
-		
+
 		foreach($fields as $key => $value) {
 			$fieldsArray[] = $key . '=' . $value;
 		}
-		
+
 		$ch = curl_init();
-		
+
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_POST, count($fields));
 		curl_setopt($ch, CURLOPT_POSTFIELDS, implode("&", $fieldsArray));
 		curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'WebEngine');
+		curl_setopt($ch, CURLOPT_USERAGENT, 'CabalEngine');
 		curl_setopt($ch, CURLOPT_HEADER, false);
 
 		$result = curl_exec($ch);
 		curl_close($ch);
-		
+
 		if(!$result) return;
 		$resultArray = json_decode($result, true);
 		if(!is_array($resultArray)) return;

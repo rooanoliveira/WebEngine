@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -16,8 +15,8 @@ header('Content-Type: application/json');
 
 try {
 	
-	// Load WebEngine
-	if(!@include_once(rtrim(str_replace('\\','/', dirname(__DIR__)), '/') . '/includes/webengine.php')) throw new Exception('Could not load WebEngine.');
+	// Load CabalEngine
+	if(!@include_once(rtrim(str_replace('\\','/', dirname(__DIR__)), '/') . '/includes/cabalengine.php')) throw new Exception('Could not load CabalEngine.');
 	
 	// Apache Version
 	if(!function_exists('apache_get_version')) {
@@ -34,7 +33,7 @@ try {
 	
 	// Response
 	http_response_code(200);
-	echo json_encode(array('code' => 200, 'apache' => apache_get_version(), 'php' => phpversion(), 'webengine' => __WEBENGINE_VERSION__), JSON_PRETTY_PRINT);
+	echo json_encode(array('code' => 200, 'apache' => apache_get_version(), 'php' => phpversion(), 'cabalengine' => __CABALENGINE_VERSION__), JSON_PRETTY_PRINT);
 	
 } catch(Exception $ex) {
 	http_response_code(500);

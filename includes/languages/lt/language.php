@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.2
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2020 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -60,7 +59,7 @@ $lang['module_titles_txt_24'] = 'Privatumo politika';
 $lang['module_titles_txt_25'] = 'Pridėti taškus';
 $lang['module_titles_txt_26'] = 'Susisiekite su mumis';
 $lang['module_titles_txt_27'] = 'Grąžinimo politika';
-$lang['module_titles_txt_28'] = 'Pirkti Zen';
+$lang['module_titles_txt_28'] = 'Pirkti Alz';
 $lang['module_titles_txt_29'] = 'Castle Siege';
 
 # usercp
@@ -75,7 +74,7 @@ $lang['usercp_menu_txt_7'] = 'V.I.P. Prenumerata';
 $lang['usercp_menu_txt_8'] = 'Nuresetinti taškus';
 $lang['usercp_menu_txt_9'] = 'Išvalyti Skill-Tree';
 $lang['usercp_menu_txt_10'] = 'Pridėti taškus';
-$lang['usercp_menu_txt_11'] = 'Pirkti Zen';
+$lang['usercp_menu_txt_11'] = 'Pirkti Alz';
 
 # success
 $lang['success_1'] = 'Jūsų paskyra sėkmingai sukurta. Jūs būsite nukreipti į prisijungimo formą per 3 sekundes.';
@@ -98,7 +97,7 @@ $lang['success_17'] = 'Jūsų personažo aukštesnio lygio taškai sėkmingai pr
 $lang['success_18'] = 'Norėdami užpildyti registraciją, į jūsų el. Pašto adresą buvo nusiųsta patvirtinimo nuoroda.';
 $lang['success_19'] = 'Norėdami tęsti, patikrinkite dabartinį el. Pašto adresą.';
 $lang['success_20'] = 'Jūsų paskyros el. Pašto adresas sėkmingai pakeistas.';
-$lang['success_21'] = 'Zen pirkimas sėkmingai baigtas.';
+$lang['success_21'] = 'Alz pirkimas sėkmingai baigtas.';
 $lang['success_22'] = 'Dėkojame, kad susisiekėte su mumis, netrukus atsakysime į jūsų pranešimą.';
 
 # errors
@@ -135,7 +134,7 @@ $lang['error_30'] = 'Nebuvo rasta paskyrų su nurodytu el. Pašto adresu.';
 $lang['error_31'] = 'Netinkami slaptažodžio atkūrimo duomenys.';
 $lang['error_32'] = 'Jūs neturite leidimo iš naujo nustatyti šio personažo.';
 $lang['error_33'] = 'Jūsų personažas neatitinka iš naujo nustatyto lygio reikalavimo. Prašau išlyginti lygį.';
-$lang['error_34'] = 'Jūs neturite pakankamai zen.';
+$lang['error_34'] = 'Jūs neturite pakankamai alz.';
 $lang['error_35'] = 'Jūs neturite leidimo iš naujo nustatyti personažo taškus.';
 $lang['error_36'] = 'Jūs neturite leidimo atkurti šio personažo PK lygio.';
 $lang['error_37'] = 'Jūs neturite leidimo atkūrti šio personažo pozicijos.';
@@ -156,7 +155,7 @@ $lang['error_51'] = 'Viršijote prieinamų papildomų taškų kiekį.';
 $lang['error_52'] = '„Command stat“ galima pridėti tik prie „Dark Lord“ klasės.';
 $lang['error_53'] = 'Jūsų taškai negali viršyti %s taškų ribos.';
 $lang['error_54'] = 'Turite pridėti bent %s aukštesnio lygio taškus.';
-$lang['error_55'] = 'Pirkdami pasirinktą sumą viršysite leistiną zeno ribą vienam simboliui, prašome pasirinkti kitą sumą.';
+$lang['error_55'] = 'Pirkdami pasirinktą sumą viršysite leistiną alzo ribą vienam simboliui, prašome pasirinkti kitą sumą.';
 $lang['error_56'] = 'Įvestas vardas negalioja.';
 $lang['error_57'] = 'Įvestas pranešimas negalioja.';
 $lang['error_58'] = 'Nėra rodomų reitingo rezultatų.';
@@ -333,19 +332,19 @@ $lang['rankings_txt_35'] = 'Pk Lygis';
 
 # clear pk
 $lang['clearpk_txt_1'] = 'Charakteris';
-$lang['clearpk_txt_2'] = 'Zen';
+$lang['clearpk_txt_2'] = 'Alz';
 $lang['clearpk_txt_3'] = 'PK būsena';
 $lang['clearpk_txt_4'] = 'Išvalyti PK';
-$lang['clearpk_txt_5'] = 'Tavo veikėjas turi turėti %s zen, kad išvalytum pk';
+$lang['clearpk_txt_5'] = 'Tavo veikėjas turi turėti %s alz, kad išvalytum pk';
 
 # clear skill tree
 $lang['clearst_txt_1'] = 'Charakteris';
 $lang['clearst_txt_2'] = 'Master Lygis';
-$lang['clearst_txt_3'] = 'Zen';
+$lang['clearst_txt_3'] = 'Alz';
 $lang['clearst_txt_4'] = 'GO';
 $lang['clearst_txt_5'] = 'Taškai';
 $lang['clearst_txt_6'] = 'Jūsų personažas turi būti bent jau master level %s';
-$lang['clearst_txt_7'] = 'Tavo personažas turi turėti %s zen, kad galėtum atkurti skill-tree';
+$lang['clearst_txt_7'] = 'Tavo personažas turi turėti %s alz, kad galėtum atkurti skill-tree';
 $lang['clearst_txt_8'] = 'Jūsų personažas turi būti %s';
 
 # donation
@@ -360,11 +359,11 @@ $lang['changepassword_txt_4'] = 'Pakeisti slaptažodį';
 # reset
 $lang['resetcharacter_txt_1'] = 'Charakteris';
 $lang['resetcharacter_txt_2'] = 'Lygis';
-$lang['resetcharacter_txt_3'] = 'Zen';
+$lang['resetcharacter_txt_3'] = 'Alz';
 $lang['resetcharacter_txt_4'] = 'Resetai';
 $lang['resetcharacter_txt_5'] = 'Resetas';
 $lang['resetcharacter_txt_6'] = 'Tavo personažas turi būti lygus %s';
-$lang['resetcharacter_txt_7'] = 'Jūsų personažas turi bent jau turėti %s zen';
+$lang['resetcharacter_txt_7'] = 'Jūsų personažas turi bent jau turėti %s alz';
 $lang['resetcharacter_txt_8'] = 'Būsite apdovanoti %s kreditais';
 $lang['resetcharacter_txt_9'] = 'Norėdami atkurti savo personažą, turite turėti %s kreditų';
 $lang['resetcharacter_txt_10'] = 'Galite nuresetinti daugiausiai %s kartų';
@@ -379,13 +378,13 @@ $lang['resetstats_txt_5'] = 'VIT';
 $lang['resetstats_txt_6'] = 'ENE';
 $lang['resetstats_txt_7'] = 'CMD';
 $lang['resetstats_txt_8'] = 'Resetas';
-$lang['resetstats_txt_9'] = 'Jūsų personažas turi turėti bent %s zen, kad būtų galima iš naujo nuresetinti taškus';
+$lang['resetstats_txt_9'] = 'Jūsų personažas turi turėti bent %s alz, kad būtų galima iš naujo nuresetinti taškus';
 
 # unstick
 $lang['unstickcharacter_txt_1'] = 'Charakteris';
-$lang['unstickcharacter_txt_2'] = 'Zen';
+$lang['unstickcharacter_txt_2'] = 'Alz';
 $lang['unstickcharacter_txt_3'] = 'Pataisyti';
-$lang['unstickcharacter_txt_4'] = 'Tavo personažas turi turėti %s zen, kad galėtum pataisyti';
+$lang['unstickcharacter_txt_4'] = 'Tavo personažas turi turėti %s alz, kad galėtum pataisyti';
 
 # recover master key
 $lang['masterkey_txt_1'] = 'Siųsti pagrindinį raktą į mano el. Paštą dabar!';
@@ -399,7 +398,7 @@ $lang['addstats_txt_5'] = 'Vitality';
 $lang['addstats_txt_6'] = 'Energy';
 $lang['addstats_txt_7'] = 'Command';
 $lang['addstats_txt_8'] = 'Pridėti tašk';
-$lang['addstats_txt_9'] = 'Jei norite pridėti taškų, jūsų personažas turi būti bent %s zen';
+$lang['addstats_txt_9'] = 'Jei norite pridėti taškų, jūsų personažas turi būti bent %s alz';
 $lang['addstats_txt_10'] = 'Jūsų personažas turi būti bent jau pagrindinio lygio "master level" %s';
 $lang['addstats_txt_11'] = 'Jūsų personažas turi būti bent jau lygus %s';
 $lang['addstats_txt_12'] = 'Kiekviena statistika gali turėti ne daugiau kaip %s taškų';
@@ -455,7 +454,7 @@ $lang['castlesiege_txt_4'] = 'Mokesčio tarifas Goblin:';
 $lang['castlesiege_txt_5'] = 'Mokesčio tarifas NPC:';
 $lang['castlesiege_txt_6'] = 'Mokesčio tarifo bandymas:';
 $lang['castlesiege_txt_7'] = 'Pilies informacija';
-$lang['castlesiege_txt_8'] = 'Zen';
+$lang['castlesiege_txt_8'] = 'Alz';
 $lang['castlesiege_txt_9'] = 'Dabartinis etapas:';
 $lang['castlesiege_txt_10'] = 'Kitas etapas:';
 $lang['castlesiege_txt_11'] = 'Mūšio trukmė:';
@@ -484,13 +483,13 @@ $lang['castlesiege_time_4'] = 'Mažiau nei viena minutė.';
 $lang['castlesiege_battle_duration'] = '%s valandos %s minutės';
 $lang['castlesiege_widget_title'] = 'Pilies apgultis';
 
-# buy zen
-$lang['buyzen_txt_1'] = 'Pirkti Zen';
-$lang['buyzen_txt_2'] = ' zen išsiųstas į ';
-$lang['buyzen_txt_3'] = 'Charakteris';
-$lang['buyzen_txt_4'] = 'Zen';
-$lang['buyzen_txt_5'] = 'Pirkti';
-$lang['buyzen_txt_6'] = 'kreditas (-ai)';
+# buy alz
+$lang['buyalz_txt_1'] = 'Pirkti Alz';
+$lang['buyalz_txt_2'] = ' alz išsiųstas į ';
+$lang['buyalz_txt_3'] = 'Charakteris';
+$lang['buyalz_txt_4'] = 'Alz';
+$lang['buyalz_txt_5'] = 'Pirkti';
+$lang['buyalz_txt_6'] = 'kreditas (-ai)';
 
 # contact us
 $lang['contactus_txt_1'] = 'Elektroninio pašto adresas';
@@ -504,4 +503,4 @@ $lang['footer_refund'] = 'Grąžinimo politika';
 $lang['footer_info'] = 'Serverio informacija';
 $lang['footer_contact'] = 'usisiekite su mumis';
 $lang['footer_copyright'] = '%s © %s, VISOS TEISĖS SAUGOMOS.';
-$lang['footer_webzen_copyright'] = 'Ši svetainė jokiu būdu nėra susijusi ir nepatvirtinta „Webzen Inc.“.';
+$lang['footer_estsoft_copyright'] = 'Ši svetainė jokiu būdu nėra susijusi ir nepatvirtinta „ESTSoft Inc.“.';

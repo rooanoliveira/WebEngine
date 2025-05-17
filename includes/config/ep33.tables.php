@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -26,10 +25,14 @@ define('_TBL_MS_', 'cabal_auth_table');
 	define('_CLMN_CONNSTAT_', 'Login');
 	define('_CLMN_MS_MEMBID_', 'ID');
 	define('_CLMN_MS_GS_', 'ChannelIdx');
-	define('_CLMNMS_IP_', 'LastIp');
+	define('_CLMN_MS_IP_', 'LastIp');
 
 define('_TBL_CHINI_', 'cabal_gms_ini_table');
 	define('_CLMN_CH_ID_', 'Channel');
+
+define ('_TBL_LOGEX_', 'cabal_time_log');
+	define('_CLMN_LOGEX_ACCID_', 'usernum');
+	define('_CLMN_LOGEX_IP_', 'ipaddr');
 
 #define('_TBL_AC_', 'AccountCharacter');
 #	define('_CLMN_AC_ID_', 'Id');
@@ -39,10 +42,10 @@ define('_TBL_CHINI_', 'cabal_gms_ini_table');
 
 define('_TBL_CHR_', 'cabal_character_table');
 	define('_CLMN_CHR_NAME_', 'Name');
-	define('_CLMN_CHR_IDX_', 'CharacterIdx ');
+	define('_CLMN_CHR_IDX_', 'CharacterIdx');
 #	define('_CLMNCHR_ACCID_', 'AccountID');
 	define('_CLMN_CHR_CLASS_', 'Style');
-	define('_CLMN_CHR_ZEN_', 'Alz');
+	define('_CLMN_CHR_ALZ_', 'Alz');
 	define('_CLMN_CHR_LVL_', 'LEV');
 #	define('_CLMNCHR_RSTS_', 'RESETS');
 #	define('_CLMNCHR_GRSTS_', 'GrandResets');

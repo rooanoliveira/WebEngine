@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -16,8 +15,8 @@ define('access', 'admincp');
 
 try {
 	
-	// Load WebENGINE
-	if(!@include_once('../includes/webengine.php')) throw new Exception('Could not load WebEngine.');
+	// Load CabalEngine
+	if(!@include_once('../includes/cabalengine.php')) throw new Exception('Could not load CabalEngine.');
 
 	// Check if user is logged in
 	if(!isLoggedIn()) { redirect(); }
@@ -91,16 +90,16 @@ $admincpSidebar = array(
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="WebEngine AdminCP 2.0">
+    <meta name="description" content="CabalEngine AdminCP 2.0">
     <meta name="author" content="Lautaro Angelico">
-    <title>WebEngine AdminCP</title>
+    <title>CabalEngine AdminCP</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo __PATH_ADMINCP_HOME__; ?>css/metisMenu.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/startbootstrap-sb-admin-2@3.3.7/dist/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tinymce@7.7.0/skins/ui/oxide/content.min.css">
-    <link rel="stylesheet" href="css/webengine.css">
+    <link rel="stylesheet" href="css/cabalengine.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -116,7 +115,7 @@ $admincpSidebar = array(
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo admincp_base(); ?>"><img src="img/logo.jpg" /></a>
+                <a class="navbar-brand" href="<?php echo admincp_base(); ?>"><img src="img/logo.png" /></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">

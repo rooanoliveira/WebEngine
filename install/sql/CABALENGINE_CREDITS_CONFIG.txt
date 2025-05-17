@@ -5,6 +5,7 @@ CREATE TABLE [dbo].[{TABLE_NAME}](
 	[config_table] [varchar](50) NOT NULL,
 	[config_credits_col] [varchar](50) NOT NULL,
 	[config_user_col] [varchar](50) NOT NULL,
+	[config_creditsbonus_col] [varchar](50) NOT NULL,
 	[config_user_col_id] [varchar](50) NOT NULL,
 	[config_checkonline] [tinyint] NOT NULL,
 	[config_display] [tinyint] NOT NULL,

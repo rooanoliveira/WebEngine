@@ -17,11 +17,11 @@
 		<div class="col-xs-8">
 			<p>
 				<?php echo langf('footer_copyright', array(config('server_name', true), date("Y"))); ?><br />
-				<?php echo lang('footer_webzen_copyright'); ?>
+				<?php echo lang('footer_estsoft_copyright'); ?>
 			</p>
 			<br />
 			
-			<?php $handler->webenginePowered(); ?>
+			<?php $handler->cabalenginePowered(); ?>
 		</div>
 		<div class="col-xs-4">
 			<div class="col-xs-4 text-center">

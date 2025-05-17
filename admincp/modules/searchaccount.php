@@ -1,12 +1,11 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
- * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * CabalEngine CMS
+ *
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -23,12 +22,12 @@
 	if(isset($_POST['search_account']) && isset($_POST['search_request'])) {
 		try {
 			if(!Validator::Length($_POST['search_request'], 11, 2)) throw new Exception("The username can be 3 to 10 characters long.");
-			$searchdb = (config('SQL_USE_2_DB', true) == true ? $dB2 : $dB);
-			
+			$db = $account;
+
 			$searchRequest = '%'.$_POST['search_request'].'%';
-			$searchResults = $searchdb->query_fetch("SELECT "._CLMN_MEMBID_.", "._CLMN_USERNM_." FROM "._TBL_MI_." WHERE "._CLMN_USERNM_." LIKE ?", array($searchRequest));
+			$searchResults = $db->query_fetch("SELECT "._CLMN_MEMBID_.", "._CLMN_USERNM_." FROM "._TBL_MI_." WHERE "._CLMN_USERNM_." LIKE ?", array($searchRequest));
 			if(!$searchResults) throw new Exception("No results found.");
-			
+
 			if(is_array($searchResults)) {
 				echo '<div class="row">';
 				echo '<div class="col-md-6">';

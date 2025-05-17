@@ -1,17 +1,16 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
 
-session_name('WebEngine126'); # session name (change to your server name and uncomment)
+session_name('CabalEngine126'); # session name (change to your server name and uncomment)
 //session_set_cookie_params(0, '/', 'muonline.com'); # same session with and without www protocol (edit with your domain and uncomment)
 if(access != 'cron') {
 	@ob_start();
@@ -19,7 +18,7 @@ if(access != 'cron') {
 }
 
 # Version
-define('__WEBENGINE_VERSION__', '1.2.6');
+define('__CABALENGINE_VERSION__', '1.0.0');
 
 # Set Encoding
 @ini_set('default_charset', 'utf-8');
@@ -74,16 +73,16 @@ define('__PATH_ONLINE_STATUS__', __PATH_IMG__.'online.png');
 define('__PATH_OFFLINE_STATUS__', __PATH_IMG__.'offline.png');
 
 # Other Paths
-define('WEBENGINE_DATABASE_ERRORLOG', __PATH_LOGS__.'database_errors.log');
-define('WEBENGINE_WRITABLE_PATHS', __PATH_CONFIGS__.'writable.paths.json');
-define('WEBENGINE_PHP_ERRORLOG', __PATH_LOGS__.'php_errors.log');
+define('CABALENGINE_DATABASE_ERRORLOG', __PATH_LOGS__.'database_errors.log');
+define('CABALENGINE_WRITABLE_PATHS', __PATH_CONFIGS__.'writable.paths.json');
+define('CABALENGINE_PHP_ERRORLOG', __PATH_LOGS__.'php_errors.log');
 
 # PHP Error Logs
 ini_set('log_errors', 1);
-ini_set('error_log', WEBENGINE_PHP_ERRORLOG);
+ini_set('error_log', CABALENGINE_PHP_ERRORLOG);
 
-# WebEngine CMS Tables
-if(!@include_once(__PATH_CONFIGS__ . 'webengine.tables.php')) throw new Exception('Could not load WebEngine CMS table definitions.');
+# CabalEngine CMS Tables
+if(!@include_once(__PATH_CONFIGS__ . 'cabalengine.tables.php')) throw new Exception('Could not load CabalEngine CMS table definitions.');
 
 # Timezone
 if(!@include_once(__PATH_CONFIGS__ . 'timezone.php')) throw new Exception('Could not load timezone.');
@@ -113,22 +112,22 @@ if(!@include_once(__PATH_CLASSES__ . 'paypal/PaypalIPN.php')) throw new Exceptio
 # Load Functions
 if(!@include_once(__PATH_INCLUDES__ . 'functions.php')) throw new Exception('Could not load functions.');
 
-# WebEngine Configurations
-$config = webengineConfigs();
+# CabalEngine Configurations
+$config = cabalengineConfigs();
 
 # Installation Status
-if($config['webengine_cms_installed'] == false) {
+if($config['cabalengine_cms_installed'] == false) {
 	header('Location: '.__BASE_URL__.'install/');
 	die();
 }
 
 if(array_key_exists('blacklisted', $config)) {
-	throw new Exception('Could not load WebEngine CMS.');
+	throw new Exception('Could not load CabalEngine CMS.');
 }
 
 # Compatibility
 if(!@include_once(__PATH_CONFIGS__ . 'compatibility.php')) throw new Exception('Could not load file compatibility.');
-if(!array_key_exists(strtolower($config['server_files']), $webengine['file_compatibility'])) throw new Exception('The server files configuration is not valid.');
+if(!array_key_exists(strtolower($config['server_files']), $cabalengine['file_compatibility'])) throw new Exception('The server files configuration is not valid.');
 
 # Configurations Check
 $checkConfigs = true;
@@ -147,7 +146,7 @@ if($checkConfigs) {
 }
 
 # Load Table Definitions
-if(!@include_once(__PATH_CONFIGS__ . $webengine['file_compatibility'][strtolower($config['server_files'])]['file'])) throw new Exception('Could not load the table definitions.');
+if(!@include_once(__PATH_CONFIGS__ . $cabalengine['file_compatibility'][strtolower($config['server_files'])]['file'])) throw new Exception('Could not load the table definitions.');
 
 # CMS Status
 if(!$config['system_active'] && access != 'cron') {

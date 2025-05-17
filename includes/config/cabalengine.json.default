@@ -2,7 +2,7 @@
   "system_active": true,
   "error_reporting": false,
   "website_template": "default",
-  "maintenance_page": "https://webenginecms.org/",
+  "maintenance_page": "https://cabalenginecms.org/",
   "admins": {
     "admin": 100
   },
@@ -10,7 +10,7 @@
   "website_title": "Cabal Online EP33",
   "website_meta_description": "Join Cabal Online! free-to-play, 3D massively multiplayer online role-playing game.",
   "website_meta_keywords": "Cabal, Cabal online, EP33, private server, private Cabal online, free to play, mmorpg, free rpg, Free2Play, PVP",
-  "website_forum_link": "https://webenginecms.org/",
+  "website_forum_link": "https://cabalenginecms.org/",
   "SQL_DB_HOST": "",
   "SQL_DB_WEB_NAME": "CabalEngine",
   "SQL_DB_ACCOUNT_NAME": "Account",
@@ -41,7 +41,7 @@
   "username_max_len": 14,
   "password_min_len": 6,
   "password_max_len": 14,
-  "webengine_cms_installed": false,
+  "cabalengine_cms_installed": false,
   "cron_api": true,
   "cron_api_key": "123456",
   "social_link_facebook": "https://facebook.com/",

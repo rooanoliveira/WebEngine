@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -116,7 +115,7 @@ try {
 	echo '<div class="module-requirements text-center">';
 		if(mconfig('required_level') > 0) echo '<p>'.langf('addstats_txt_11', array(number_format(mconfig('required_level')))).'</p>';
 		if(mconfig('required_master_level') > 0) echo '<p>'.langf('addstats_txt_10', array(number_format(mconfig('required_master_level')))).'</p>';
-		if(mconfig('zen_cost') > 0) echo '<p>'.langf('addstats_txt_9', array(number_format(mconfig('zen_cost')))).'</p>';
+		if(mconfig('alz_cost') > 0) echo '<p>'.langf('addstats_txt_9', array(number_format(mconfig('alz_cost')))).'</p>';
 		echo '<p>'.langf('addstats_txt_12', array(number_format(mconfig('max_stats')))).'</p>';
 		if(mconfig('minimum_limit') > 0) echo '<p>'.langf('addstats_txt_13', array(number_format(mconfig('minimum_limit')))).'</p>';
 	echo '</div>';

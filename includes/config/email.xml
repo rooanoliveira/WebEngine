@@ -2,7 +2,7 @@
 <settings>
 	<active>1</active>
 	<send_from>noreply@website.com</send_from>
-	<send_name>MuOnline</send_name>
+	<send_name>Cabal Online</send_name>
 	<smtp_active>0</smtp_active>
 	<smtp_host>host</smtp_host>
 	<smtp_port>587</smtp_port>

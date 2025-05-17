@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <settings>
 	<active>1</active>
-	<zen_cost>1000000</zen_cost>
+	<alz_cost>1000000</alz_cost>
 	<max_stats>32767</max_stats>
 	<minimum_limit>100</minimum_limit>
 	<credit_config>0</credit_config>

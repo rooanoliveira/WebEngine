@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -36,14 +35,14 @@ if(!isset($_REQUEST['subpage'])) {
 	<head>
 		<meta charset="utf-8"/>
 		<title><?php $handler->websiteTitle(); ?></title>
-		<meta name="generator" content="WebEngine <?php echo __WEBENGINE_VERSION__; ?>"/>
+		<meta name="generator" content="CabalEngine <?php echo __CABALENGINE_VERSION__; ?>"/>
 		<meta name="author" content="Lautaro Angelico"/>
 		<meta name="description" content="<?php config('website_meta_description'); ?>"/>
 		<meta name="keywords" content="<?php config('website_meta_keywords'); ?>"/>
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content="<?php $handler->websiteTitle(); ?>" />
 		<meta property="og:description" content="<?php config('website_meta_description'); ?>" />
-		<meta property="og:image" content="<?php echo __PATH_IMG__; ?>webengine.jpg" />
+		<meta property="og:image" content="<?php echo __PATH_IMG__; ?>cabalengine.jpg" />
 		<meta property="og:url" content="<?php echo __BASE_URL__; ?>" />
 		<meta property="og:site_name" content="<?php $handler->websiteTitle(); ?>" />
 		<link rel="shortcut icon" href="<?php echo __PATH_TEMPLATE__; ?>favicon.ico"/>
@@ -84,7 +83,7 @@ if(!isset($_REQUEST['subpage'])) {
 		</div>
 		<div id="header">
 			<a href="<?php echo __BASE_URL__; ?>">
-				<img class="webengine-mu-logo" src="<?php echo __PATH_TEMPLATE_IMG__; ?>logo.png" title="<?php config('server_name'); ?>"/>
+				<img class="cabalengine-mu-logo" src="<?php echo __PATH_TEMPLATE_IMG__; ?>logo.png" title="<?php config('server_name'); ?>"/>
 			</a>
 		</div>
 		<div class="header-info-container">
@@ -103,8 +102,8 @@ if(!isset($_REQUEST['subpage'])) {
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<div class="webengine-online-bar">
-									<div class="webengine-online-bar-progress" style="width:<?php echo $onlinePlayersPercent; ?>%;"></div>
+								<div class="cabalengine-online-bar">
+									<div class="cabalengine-online-bar-progress" style="width:<?php echo $onlinePlayersPercent; ?>%;"></div>
 								</div>
 							</div>
 						</div>

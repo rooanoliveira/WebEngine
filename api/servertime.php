@@ -1,7 +1,6 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.0.9.9
  * @author Lautaro Angelico <https://lautaroangelico.com/>
@@ -13,7 +12,7 @@
 
 define('access', 'api');
 
-include('../includes/webengine.php');
+include('../includes/cabalengine.php');
 
 echo json_encode(
 	array(

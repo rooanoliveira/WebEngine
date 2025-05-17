@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -75,7 +74,7 @@ class CronManager {
 	}
 
 	public function getCronList() {
-		$result = $this->web->query_fetch("SELECT * FROM ".WEBENGINE_CRON." ORDER BY cron_id ASC");
+		$result = $this->web->query_fetch("SELECT * FROM ".CABALENGINE_CRON." ORDER BY cron_id ASC");
 		if(!is_array($result)) return;
 		return $result;
 	}
@@ -90,14 +89,14 @@ class CronManager {
 
 	public function resetCronLastRun() {
 		if(!check_value($this->_id)) return;
-		$result = $this->web->query("UPDATE ".WEBENGINE_CRON." SET cron_last_run = NULL WHERE cron_id = ?", array($this->_id));
+		$result = $this->web->query("UPDATE ".CABALENGINE_CRON." SET cron_last_run = NULL WHERE cron_id = ?", array($this->_id));
 		if(!$result) throw new Exception($this->web->error);
 		return true;
 	}
 
 	public function deleteCron() {
 		if(!check_value($this->_id)) return;
-		$result = $this->web->query("DELETE FROM ".WEBENGINE_CRON." WHERE cron_id = ?", array($this->_id));
+		$result = $this->web->query("DELETE FROM ".CABALENGINE_CRON." WHERE cron_id = ?", array($this->_id));
 		if(!$result) throw new Exception($this->web->error);
 		return true;
 	}
@@ -121,25 +120,25 @@ class CronManager {
 			0,
 			$this->_cronFileMd5($this->_file)
 		);
-		$result = $this->web->query("INSERT INTO ".WEBENGINE_CRON." (cron_name, cron_file_run, cron_run_time, cron_status, cron_protected, cron_file_md5) VALUES (?, ?, ?, ?, ?, ?)", $data);
+		$result = $this->web->query("INSERT INTO ".CABALENGINE_CRON." (cron_name, cron_file_run, cron_run_time, cron_status, cron_protected, cron_file_md5) VALUES (?, ?, ?, ?, ?, ?)", $data);
 		if(!$result) throw new Exception($this->web->error);
 		return true;
 	}
 
 	public function enableAll() {
-		$result = $this->web->query("UPDATE ".WEBENGINE_CRON." SET cron_status = 1");
+		$result = $this->web->query("UPDATE ".CABALENGINE_CRON." SET cron_status = 1");
 		if(!$result) throw new Exception($this->web->error);
 		return true;
 	}
 
 	public function disableAll() {
-		$result = $this->web->query("UPDATE ".WEBENGINE_CRON." SET cron_status = 0");
+		$result = $this->web->query("UPDATE ".CABALENGINE_CRON." SET cron_status = 0");
 		if(!$result) throw new Exception($this->web->error);
 		return true;
 	}
 
 	public function resetAllLastRun() {
-		$result = $this->web->query("UPDATE ".WEBENGINE_CRON." SET cron_last_run = NULL");
+		$result = $this->web->query("UPDATE ".CABALENGINE_CRON." SET cron_last_run = NULL");
 		if(!$result) throw new Exception($this->web->error);
 		return true;
 	}
@@ -171,13 +170,13 @@ class CronManager {
 
 	protected function _setCronStatus($status=1) {
 		if(!check_value($this->_id)) return;
-		$result = $this->web->query("UPDATE ".WEBENGINE_CRON." SET cron_status = ? WHERE cron_id = ?", array($status, $this->_id));
+		$result = $this->web->query("UPDATE ".CABALENGINE_CRON." SET cron_status = ? WHERE cron_id = ?", array($status, $this->_id));
 		if(!$result) throw new Exception($this->web->error);
 		return true;
 	}
 
 	protected function _cronAlreadyExists($file) {
-		$result = $this->web->query_fetch_single("SELECT * FROM ".WEBENGINE_CRON." WHERE cron_file_run = ?", array($this->_file));
+		$result = $this->web->query_fetch_single("SELECT * FROM ".CABALENGINE_CRON." WHERE cron_file_run = ?", array($this->_file));
 		if(!is_array($result)) return;
 		return true;
 	}

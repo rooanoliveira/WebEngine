@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.0
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2019 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -16,8 +15,8 @@ define('access', 'index');
 
 try {
 	
-	# Load WebEngine
-	if(!@include_once('includes/webengine.php')) throw new Exception('Could not load WebEngine CMS.');
+	# Load CabalEngine
+	if(!@include_once('includes/cabalengine.php')) throw new Exception('Could not load CabalEngine CMS.');
 	
 } catch (Exception $ex) {
 	ob_clean();

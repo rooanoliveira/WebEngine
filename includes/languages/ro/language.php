@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.2
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2020 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -60,7 +59,7 @@ $lang['module_titles_txt_24'] = 'Politica de Confidențialitate';
 $lang['module_titles_txt_25'] = 'Adaugă Stats';
 $lang['module_titles_txt_26'] = 'Contactează-ne';
 $lang['module_titles_txt_27'] = 'Politica de Restituire';
-$lang['module_titles_txt_28'] = 'Cumpără Zen';
+$lang['module_titles_txt_28'] = 'Cumpără Alz';
 $lang['module_titles_txt_29'] = 'Castle Siege';
  
 # usercp
@@ -75,7 +74,7 @@ $lang['usercp_menu_txt_7'] = 'Abonare la V.I.P.';
 $lang['usercp_menu_txt_8'] = 'Resetază Stats';
 $lang['usercp_menu_txt_9'] = 'Resetează Skill-Tree';
 $lang['usercp_menu_txt_10'] = 'Adaugă Stats';
-$lang['usercp_menu_txt_11'] = 'Cumpără Zen';
+$lang['usercp_menu_txt_11'] = 'Cumpără Alz';
  
 # success
 $lang['success_1'] = 'Contul tău a fost creat cu succes . Vei fi redirecționat către Autentificare în 3 secunde.';
@@ -98,7 +97,7 @@ $lang['success_17'] = 'Punctele de creștere a nivelului personajului dvs. au fo
 $lang['success_18'] = 'Un link de verificare a fost trimis la adresa dvs. de e-mail pentru a finaliza înregistrarea.';
 $lang['success_19'] = 'Verificați adresa dvs. de e-mail curentă pentru a continua.';
 $lang['success_20'] = 'Adresa de e-mail a contului dvs. a fost modificată cu succes.';
-$lang['success_21'] = 'Achiziționarea Zen a fost finalizată cu succes.';
+$lang['success_21'] = 'Achiziționarea Alz a fost finalizată cu succes.';
 $lang['success_22'] = 'Vă mulțumim că ne-ați contactat, vom răspunde la mesajul dvs. în scurt timp.';
  
 # errors
@@ -118,7 +117,7 @@ $lang['error_13'] = 'Parola este incorectă';
 $lang['error_14'] = 'Contul dvs. este activ, vă rugăm să vă deconectați.';
 $lang['error_15'] = 'Contul dvs. a votat deja pentru acest TopSite în ultimele 12 ore.';
 $lang['error_16'] = 'Ai votat cu Adresa IP pentru acest TopSite în ultimele 12 ore.';
-$lang['error_17'] = 'Noile înregistrări nu sunt activate în prezent, încercați din nou mai târziu.';
+$lang['error_17'] = 'Noile înregistrări nu sunt activate în prealzt, încercați din nou mai târziu.';
 $lang['error_18'] = 'Verificarea Reacaptcha nu a reușit, vă rugăm să reîncercați.';
 $lang['error_19'] = 'Aveți o solicitare de modificare a parolei activă, verificați-vă e-mailul.';
 $lang['error_20'] = 'Nu v-am putut trimite e-mailul de verificare, contactați echipa de asistență.';
@@ -135,7 +134,7 @@ $lang['error_30'] = 'Nu au fost găsite conturi la adresa de e-mail furnizată.'
 $lang['error_31'] = 'Datele de recuperare a parolei sunt invalide.';
 $lang['error_32'] = 'Nu aveți permisiunea de a reseta acest personaj.';
 $lang['error_33'] = 'Personajul tău nu îndeplinește cerința de resetare, te rog să ridici nivelul.';
-$lang['error_34'] = 'Nu ai destul zen.';
+$lang['error_34'] = 'Nu ai destul alz.';
 $lang['error_35'] = 'Nu aveți permisiunea de a reseta stats la acest personaj.';
 $lang['error_36'] = 'Nu aveți permisiunea de a reseta nivelul PK la acest personaj.';
 $lang['error_37'] = 'Nu aveți permisiunea de a debloca acest personaj din poziție.';
@@ -148,7 +147,7 @@ $lang['error_43'] = 'Conținutul de știri trebuie să conțină măcar 4 caract
 $lang['error_44'] = 'Nu s-au putut încărca clasamentele solicitate.';
 $lang['error_45'] = 'Operațiune Invalidă, redirecționare către Acasă';
 $lang['error_46'] = 'Contul tău nu are personaje.';
-$lang['error_47'] = 'Acest modul nu este activat în prezent, încercați din nou mai târziu.';
+$lang['error_47'] = 'Acest modul nu este activat în prealzt, încercați din nou mai târziu.';
 $lang['error_48'] = 'Solicitarea dvs. nu a putut fi procesată deoarece sistemul de e-mail nu este activ, contactați echipa de asistență.';
 $lang['error_49'] = 'ID-ul cron furnizat nu e valid.';
 $lang['error_50'] = 'Fișierul cron furnizat nu există.';
@@ -156,7 +155,7 @@ $lang['error_51'] = 'Ați depășit cantitatea disponibilă la adăugarea puncte
 $lang['error_52'] = 'Punctele de Comandă pot fi adăugate doar la clasa Dark Lord.';
 $lang['error_53'] = 'Punctele tale nu trebuie să depășească limita de %s puncte.';
 $lang['error_54'] = 'Trebuie să adaugi măcar %s puncte de nivel.';
-$lang['error_55'] = 'Achiziționând, suma selectată va depăși limita zen permisă pe personaj. Vă rugăm să alegeți o sumă diferită.';
+$lang['error_55'] = 'Achiziționând, suma selectată va depăși limita alz permisă pe personaj. Vă rugăm să alegeți o sumă diferită.';
 $lang['error_56'] = 'Numele introdus nu este vlaid.';
 $lang['error_57'] = 'Mesajul introdus nu este valid.';
 $lang['error_58'] = 'Nu există rezultate de clasamente pentru afișare.';
@@ -333,19 +332,19 @@ $lang['rankings_txt_35'] = 'Nivel PK';
  
 # clear pk
 $lang['clearpk_txt_1'] = 'Personaj';
-$lang['clearpk_txt_2'] = 'Zen';
+$lang['clearpk_txt_2'] = 'Alz';
 $lang['clearpk_txt_3'] = 'Status PK';
 $lang['clearpk_txt_4'] = 'Clear PK';
-$lang['clearpk_txt_5'] = 'Personajul tău trebuie să dețină cel puțin %s zen pentru a face clear pk';
+$lang['clearpk_txt_5'] = 'Personajul tău trebuie să dețină cel puțin %s alz pentru a face clear pk';
  
 # clear skill tree
 $lang['clearst_txt_1'] = 'Personaj';
 $lang['clearst_txt_2'] = 'Master Level';
-$lang['clearst_txt_3'] = 'Zen';
+$lang['clearst_txt_3'] = 'Alz';
 $lang['clearst_txt_4'] = 'Aplică';
 $lang['clearst_txt_5'] = 'Puncte';
 $lang['clearst_txt_6'] = 'Personajul tău trebuie să dețină cel puțin nivelul %s';
-$lang['clearst_txt_7'] = 'Personajul tău trebuie să dețină cel puțin %s zen pentru a Reseta Skill Tree';
+$lang['clearst_txt_7'] = 'Personajul tău trebuie să dețină cel puțin %s alz pentru a Reseta Skill Tree';
 $lang['clearst_txt_8'] = 'Personajul tău trebuie să dețină cel puțin nivelul %s';
  
 # donation
@@ -360,11 +359,11 @@ $lang['changepassword_txt_4'] = 'Schimbă Parola';
 # reset
 $lang['resetcharacter_txt_1'] = 'Personaj';
 $lang['resetcharacter_txt_2'] = 'Nivel';
-$lang['resetcharacter_txt_3'] = 'Zen';
+$lang['resetcharacter_txt_3'] = 'Alz';
 $lang['resetcharacter_txt_4'] = 'Reseturi';
 $lang['resetcharacter_txt_5'] = 'Resetează';
 $lang['resetcharacter_txt_6'] = 'Personajul tău trebuie să fie nivelul %s';
-$lang['resetcharacter_txt_7'] = 'Personajul tău trebuie să fie dețină cel puțin %s zen';
+$lang['resetcharacter_txt_7'] = 'Personajul tău trebuie să fie dețină cel puțin %s alz';
 $lang['resetcharacter_txt_8'] = 'Vei fi recompensat cu %s credite';
 $lang['resetcharacter_txt_9'] = 'Trebuie să ai cel puțin %s credite pentru a-ți reseta personajul.';
 $lang['resetcharacter_txt_10'] = 'Puteți reseta personajul de maxim %s ori';
@@ -379,13 +378,13 @@ $lang['resetstats_txt_5'] = 'Vitality';
 $lang['resetstats_txt_6'] = 'Energy';
 $lang['resetstats_txt_7'] = 'Command';
 $lang['resetstats_txt_8'] = 'Reset';
-$lang['resetstats_txt_9'] = 'Personajul tău trebuie să dețină cel puțin %s zen pentru a reseta punctele';
+$lang['resetstats_txt_9'] = 'Personajul tău trebuie să dețină cel puțin %s alz pentru a reseta punctele';
  
 # unstick
 $lang['unstickcharacter_txt_1'] = 'Personaj';
-$lang['unstickcharacter_txt_2'] = 'Zen';
+$lang['unstickcharacter_txt_2'] = 'Alz';
 $lang['unstickcharacter_txt_3'] = 'Deblocare';
-$lang['unstickcharacter_txt_4'] = 'Personajul tău trebuie să dețină cel puțin %s zen pentru a-l debloca';
+$lang['unstickcharacter_txt_4'] = 'Personajul tău trebuie să dețină cel puțin %s alz pentru a-l debloca';
  
 # recover master key
 $lang['masterkey_txt_1'] = 'Trimite master key-ul pe email acum!';
@@ -399,7 +398,7 @@ $lang['addstats_txt_5'] = 'Vitality';
 $lang['addstats_txt_6'] = 'Energy';
 $lang['addstats_txt_7'] = 'Command';
 $lang['addstats_txt_8'] = 'Adaugă Puncte';
-$lang['addstats_txt_9'] = 'Personajul tău trebuie să dețină cel puțin %s zen pentru a adăuga punctele';
+$lang['addstats_txt_9'] = 'Personajul tău trebuie să dețină cel puțin %s alz pentru a adăuga punctele';
 $lang['addstats_txt_10'] = 'Personajul tău trebuie să dețină cel puțin Master Level %s';
 $lang['addstats_txt_11'] = 'Personajul tău trebuie să dețină cel puțin Nivelul %s';
 $lang['addstats_txt_12'] = 'Fiecare characteristica poate avea maxim %s puncte';
@@ -455,7 +454,7 @@ $lang['castlesiege_txt_4'] = 'Taxă Goblin:';
 $lang['castlesiege_txt_5'] = 'Taxă NPC:';
 $lang['castlesiege_txt_6'] = 'Taxă Trial:';
 $lang['castlesiege_txt_7'] = 'Informații Castel';
-$lang['castlesiege_txt_8'] = 'Zen';
+$lang['castlesiege_txt_8'] = 'Alz';
 $lang['castlesiege_txt_9'] = 'Stadiul curent:';
 $lang['castlesiege_txt_10'] = 'Urmatorul Stadiu:';
 $lang['castlesiege_txt_11'] = 'Durata Bătăliei:';
@@ -484,13 +483,13 @@ $lang['castlesiege_time_4'] = 'Mai puțin de un minut.';
 $lang['castlesiege_battle_duration'] = '%s ore %s minute';
 $lang['castlesiege_widget_title'] = 'Castle Siege';
  
-# buy zen
-$lang['buyzen_txt_1'] = 'Cumpără Zen';
-$lang['buyzen_txt_2'] = 'Zen trimis către';
-$lang['buyzen_txt_3'] = 'Personaj';
-$lang['buyzen_txt_4'] = 'Zen';
-$lang['buyzen_txt_5'] = 'Cumpără';
-$lang['buyzen_txt_6'] = 'Credit(e)';
+# buy alz
+$lang['buyalz_txt_1'] = 'Cumpără Alz';
+$lang['buyalz_txt_2'] = 'Alz trimis către';
+$lang['buyalz_txt_3'] = 'Personaj';
+$lang['buyalz_txt_4'] = 'Alz';
+$lang['buyalz_txt_5'] = 'Cumpără';
+$lang['buyalz_txt_6'] = 'Credit(e)';
  
 # contact us
 $lang['contactus_txt_1'] = 'Adresă Email';
@@ -504,4 +503,4 @@ $lang['footer_refund'] = 'Politica de Returnare';
 $lang['footer_info'] = 'Informații Server';
 $lang['footer_contact'] = 'Contactează-ne';
 $lang['footer_copyright'] = '%s © %s, TOATE DREPTURILE REZERVATE.';
-$lang['footer_webzen_copyright'] = 'Acest site nu este în niciun fel asociat sau aprobat de Webzen Inc.';
+$lang['footer_estsoft_copyright'] = 'Acest site nu este în niciun fel asociat sau aprobat de ESTSoft Inc.';

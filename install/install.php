@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.0
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2019 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -12,7 +11,7 @@
  */
 
 define('access', 'install');
-if(!@include_once('loader.php')) die('Could not load WebEngine CMS Installer.');
+if(!@include_once('loader.php')) die('Could not load CabalEngine CMS Installer.');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +19,7 @@ if(!@include_once('loader.php')) die('Could not load WebEngine CMS Installer.');
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>WebEngine CMS <?php echo INSTALLER_VERSION; ?> Installer</title>
+	<title>CabalEngine CMS <?php echo INSTALLER_VERSION; ?> Installer</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<style>
 	<!--
@@ -55,7 +54,7 @@ if(!@include_once('loader.php')) die('Could not load WebEngine CMS Installer.');
 	<div class="container">
 		
 		<div class="row header">
-			<h1>WebEngine Installer</h1>
+			<h1>CabalEngine Installer</h1>
 		</div>
 		
 		<div class="row">
@@ -79,7 +78,7 @@ if(!@include_once('loader.php')) die('Could not load WebEngine CMS Installer.');
 		</div>
 
 		<footer class="footer">
-			<a href="https://webenginecms.org/" target="_blank">&copy; WebEngine CMS 2013-<?php echo date("Y"); ?></a>
+			<a href="https://cabalenginecms.org/" target="_blank">&copy; CabalEngine CMS 2013-<?php echo date("Y"); ?></a>
 		</footer>
 
 	</div> <!-- /container -->

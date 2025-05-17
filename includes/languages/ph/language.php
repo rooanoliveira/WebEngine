@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.2
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2020 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -60,7 +59,7 @@ $lang['module_titles_txt_24'] = 'Patakaran sa Privacy';
 $lang['module_titles_txt_25'] = 'Dagdagan ang Stats';
 $lang['module_titles_txt_26'] = 'Makipag Ugnayan Saamin';
 $lang['module_titles_txt_27'] = 'Patakaran sa Refund';
-$lang['module_titles_txt_28'] = 'Bumili ng Zen';
+$lang['module_titles_txt_28'] = 'Bumili ng Alz';
 $lang['module_titles_txt_29'] = 'Castle Siege';
 
 # usercp
@@ -75,7 +74,7 @@ $lang['usercp_menu_txt_7'] = 'V.I.P. Subscription';
 $lang['usercp_menu_txt_8'] = 'I-Reset ang Stats';
 $lang['usercp_menu_txt_9'] = 'Ayusin ang Skill-Tree';
 $lang['usercp_menu_txt_10'] = 'Dagdagan ang Stats';
-$lang['usercp_menu_txt_11'] = 'Bumili ng Zen';
+$lang['usercp_menu_txt_11'] = 'Bumili ng Alz';
 
 # success
 $lang['success_1'] = 'Matagumpay na nalikha ang iyong account. Ikaw ay ire-redirect sa form sa Pag-sign sa loob ng 3 segundo.';
@@ -97,7 +96,7 @@ $lang['success_17'] = 'Ang mga point up na antas ng iyong character ay matagumpa
 $lang['success_18'] = 'Naipadala na ang isang verification link sa iyong email upang makumpleto ang pagpaparehistro.';
 $lang['success_19'] = 'Pakisuri ang iyong kasalukuyang email address upang magpatuloy.';
 $lang['success_20'] = 'Ang email address ng iyong account ay matagumpay na nabago.';
-$lang['success_21'] = 'Matagumpay na nakumpleto ang pagbili ni Zen.';
+$lang['success_21'] = 'Matagumpay na nakumpleto ang pagbili ni Alz.';
 $lang['success_22'] = 'Salamat sa pakikipag-ugnay sa amin, tutugon kami sa iyong mensahe sa ilang sandali.';
 
 # errors
@@ -134,7 +133,7 @@ $lang['error_30'] = 'Walang nakitang mga account sa ibinigay na email address.';
 $lang['error_31'] = 'Hindi wastong data sa pagbawi ng password.';
 $lang['error_32'] = 'Wala kang pahintulot upang i-reset ang character na ito.';
 $lang['error_33'] = 'Hindi natutugunan ng iyong character ang kinakailangan sa pag-reset ng antas, paki-level up.';
-$lang['error_34'] = 'Wala kang sapat na zen.';
+$lang['error_34'] = 'Wala kang sapat na alz.';
 $lang['error_35'] = 'Wala kang pahintulot na i-reset ang mga istatistika ng character na ito.';
 $lang['error_36'] = 'Wala kang pahintulot na i-reset ang PK na antas ng character na ito.';
 $lang['error_37'] = 'Wala kang pahintulot na i-unstick ang posisyon ng character na ito.';
@@ -155,7 +154,7 @@ $lang['error_51'] = 'Lumagpas ka sa dami ng magagamit na mga antas ng puntos upa
 $lang['error_52'] = 'Ang stat ng Command ay maaari lamang idagdag sa klase ng Dark Lord.';
 $lang['error_53'] = 'Maaaring hindi lumagpas ang iyong mga istatistika sa limitasyong ng %s puntos.';
 $lang['error_54'] = 'Dapat kang magdagdag ng hindi bababa sa %s antas ng mga puntos.';
-$lang['error_55'] = 'Ang pagbili ng napiling halaga ay lalampas sa limitasyon ng zen na pinapayagan sa bawat character, mangyaring pumili ng ibang halaga.';
+$lang['error_55'] = 'Ang pagbili ng napiling halaga ay lalampas sa limitasyon ng alz na pinapayagan sa bawat character, mangyaring pumili ng ibang halaga.';
 $lang['error_56'] = 'Ang pangalan na ipinasok ay hindi wasto.';
 $lang['error_57'] = 'Ang mensaheng ipinasok ay hindi wasto.';
 $lang['error_58'] = 'Walang mga ranggo na resulta upang ipakita.';
@@ -257,7 +256,7 @@ $lang['myaccount_txt_4'] = 'Password:';
 $lang['myaccount_txt_5'] = 'Katayuan ng Online:';
 $lang['myaccount_txt_6'] = 'pagbabago';
 $lang['myaccount_txt_7'] = 'Aktibo';
-$lang['myaccount_txt_8'] = 'Frozen';
+$lang['myaccount_txt_8'] = 'Froalz';
 $lang['myaccount_txt_9'] = 'Online';
 $lang['myaccount_txt_10'] = 'Offline';
 $lang['myaccount_txt_12'] = 'Mga kredito:';
@@ -332,19 +331,19 @@ $lang['rankings_txt_35'] = 'Pk Level';
 
 # clear pk
 $lang['clearpk_txt_1'] = 'Karakter';
-$lang['clearpk_txt_2'] = 'Zen';
+$lang['clearpk_txt_2'] = 'Alz';
 $lang['clearpk_txt_3'] = 'Katayuan ng PK';
 $lang['clearpk_txt_4'] = 'I-clear ang PK';
-$lang['clearpk_txt_5'] = 'Dapat na may hindi bababa sa %s zen ang iyong character upang i-clear ang pk';
+$lang['clearpk_txt_5'] = 'Dapat na may hindi bababa sa %s alz ang iyong character upang i-clear ang pk';
 
 # clear skill tree
 $lang['clearst_txt_1'] = 'Karakter';
 $lang['clearst_txt_2'] = 'Master Level';
-$lang['clearst_txt_3'] = 'Zen';
+$lang['clearst_txt_3'] = 'Alz';
 $lang['clearst_txt_4'] = 'GO';
 $lang['clearst_txt_5'] = 'Mga Puntos';
 $lang['clearst_txt_6'] = 'Ang iyong karakter ay dapat na hindi bababa sa antas ng master %s';
-$lang['clearst_txt_7'] = 'Dapat na may hindi bababa sa %s zen ang iyong character upang i-reset ang skill tree';
+$lang['clearst_txt_7'] = 'Dapat na may hindi bababa sa %s alz ang iyong character upang i-reset ang skill tree';
 $lang['clearst_txt_8'] = 'Ang iyong karakter ay dapat na hindi bababa sa antas %s';
 
 # donation
@@ -359,11 +358,11 @@ $lang['changepassword_txt_4'] = 'Baguhin ang Password';
 # reset
 $lang['resetcharacter_txt_1'] = 'Karakter';
 $lang['resetcharacter_txt_2'] = 'Antas';
-$lang['resetcharacter_txt_3'] = 'Zen';
+$lang['resetcharacter_txt_3'] = 'Alz';
 $lang['resetcharacter_txt_4'] = 'Nire-reset';
 $lang['resetcharacter_txt_5'] = 'I-reset';
 $lang['resetcharacter_txt_6'] = 'Ang iyong karakter ay dapat na antas %s';
-$lang['resetcharacter_txt_7'] = 'Ang iyong karakter ay dapat mayroong hindi bababa sa %s zen';
+$lang['resetcharacter_txt_7'] = 'Ang iyong karakter ay dapat mayroong hindi bababa sa %s alz';
 $lang['resetcharacter_txt_8'] = 'Gagantimpalaan ka ng %s na mga kredito';
 $lang['resetcharacter_txt_9'] = 'Dapat ay may hindi bababa sa %s na mga kredito upang mai-reset ang iyong character';
 $lang['resetcharacter_txt_10'] = 'Maaari mong i-reset ang maximum na %s beses';
@@ -378,13 +377,13 @@ $lang['resetstats_txt_5'] = 'VIT';
 $lang['resetstats_txt_6'] = 'ENE';
 $lang['resetstats_txt_7'] = 'CMD';
 $lang['resetstats_txt_8'] = 'I-reset';
-$lang['resetstats_txt_9'] = 'Ang iyong character ay dapat mayroong hindi bababa sa %s zen upang ma-reset ang mga istatistika';
+$lang['resetstats_txt_9'] = 'Ang iyong character ay dapat mayroong hindi bababa sa %s alz upang ma-reset ang mga istatistika';
 
 # unstick
 $lang['unstickcharacter_txt_1'] = 'Karakter';
-$lang['unstickcharacter_txt_2'] = 'Zen';
+$lang['unstickcharacter_txt_2'] = 'Alz';
 $lang['unstickcharacter_txt_3'] = 'Unstick';
-$lang['unstickcharacter_txt_4'] = 'Dapat na may hindi bababa sa %s zen ang iyong karakter upang i-unstick';
+$lang['unstickcharacter_txt_4'] = 'Dapat na may hindi bababa sa %s alz ang iyong karakter upang i-unstick';
 
 # recover master key
 $lang['masterkey_txt_1'] = 'Ipadala ang master key sa aking email ngayon!';
@@ -398,7 +397,7 @@ $lang['addstats_txt_5'] = 'Vitality';
 $lang['addstats_txt_6'] = 'Enerhiya';
 $lang['addstats_txt_7'] = 'Command';
 $lang['addstats_txt_8'] = 'Magdagdag ng Mga Punto';
-$lang['addstats_txt_9'] = 'Dapat mayroong hindi bababa sa %s zen ang iyong karakter upang magdagdag ng mga istatistika';
+$lang['addstats_txt_9'] = 'Dapat mayroong hindi bababa sa %s alz ang iyong karakter upang magdagdag ng mga istatistika';
 $lang['addstats_txt_10'] = 'Ang iyong karakter ay dapat na hindi bababa sa antas ng master %s';
 $lang['addstats_txt_11'] = 'Ang iyong karakter ay dapat na hindi bababa sa antas %s';
 $lang['addstats_txt_12'] = 'Ang bawat stat ay maaaring magkaroon ng maximum na %s puntos';
@@ -454,7 +453,7 @@ $lang['castlesiege_txt_4'] = 'Tax Rate Goblin:';
 $lang['castlesiege_txt_5'] = 'Tax Rate NPC:';
 $lang['castlesiege_txt_6'] = 'Tax Rate Trial:';
 $lang['castlesiege_txt_7'] = 'Impormasyon sa Kastilyo';
-$lang['castlesiege_txt_8'] = 'Zen';
+$lang['castlesiege_txt_8'] = 'Alz';
 $lang['castlesiege_txt_9'] = 'Kasalukuyang Yugto:';
 $lang['castlesiege_txt_10'] = 'Susunod na Yugto:';
 $lang['castlesiege_txt_11'] = 'Tagal ng Labanan:';
@@ -483,13 +482,13 @@ $lang['castlesiege_time_4'] = 'Wala pang isang minuto.';
 $lang['castlesiege_battle_duration'] = '%s oras %s minuto';
 $lang['castlesiege_widget_title'] = 'Labanan sa pagkubkob ng Kastilyo';
 
-# buy zen
-$lang['buyzen_txt_1'] = 'Bumili ng Zen';
-$lang['buyzen_txt_2'] = 'zen ipinadala sa';
-$lang['buyzen_txt_3'] = 'Karakter';
-$lang['buyzen_txt_4'] = 'Zen';
-$lang['buyzen_txt_5'] = 'Bumili';
-$lang['buyzen_txt_6'] = 'kredito(s)';
+# buy alz
+$lang['buyalz_txt_1'] = 'Bumili ng Alz';
+$lang['buyalz_txt_2'] = 'alz ipinadala sa';
+$lang['buyalz_txt_3'] = 'Karakter';
+$lang['buyalz_txt_4'] = 'Alz';
+$lang['buyalz_txt_5'] = 'Bumili';
+$lang['buyalz_txt_6'] = 'kredito(s)';
 
 # contact us
 $lang['contactus_txt_1'] = 'Email Address';
@@ -503,4 +502,4 @@ $lang['footer_refund'] = 'Patakaran sa Refund';
 $lang['footer_info'] = 'Impormasyon ng Server';
 $lang['footer_contact'] = 'Makipag-ugnayan sa amin';
 $lang['footer_copyright'] = '%s © %s, ALL RIGHTS RESERVED.';
-$lang['footer_webzen_copyright'] = 'Ang site na ito ay hindi sa anumang paraan na naiugnay o itinataguyod ng Webzen Inc..';
+$lang['footer_estsoft_copyright'] = 'Ang site na ito ay hindi sa anumang paraan na naiugnay o itinataguyod ng ESTSoft Inc..';

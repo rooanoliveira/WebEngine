@@ -93,8 +93,8 @@
         "active": true,
         "type": "internal",
         "phrase": "usercp_menu_txt_11",
-        "link": "usercp\/buyzen",
-        "icon": "zen.png",
+        "link": "usercp\/buyalz",
+        "icon": "alz.png",
         "visibility": "user",
         "newtab": false,
         "order": 100

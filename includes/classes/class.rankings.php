@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -29,8 +28,8 @@ class Rankings
 	function __construct()
 	{
 
-		// webengine configs
-		$this->config = webengineConfigs();
+		// cabalengine configs
+		$this->config = cabalengineConfigs();
 		$this->serverFiles = strtolower($this->config['server_files']);
 
 		// rankings configs
@@ -179,7 +178,7 @@ class Rankings
 
 		$voteMonth = date("m/01/Y 00:00");
 		$voteMonthTimestamp = strtotime($voteMonth);
-		$accounts = $this->web->query_fetch("SELECT TOP " . $this->_results . " user_id,COUNT(*) as count FROM " . WEBENGINE_VOTE_LOGS . " WHERE timestamp >= ? GROUP BY user_id ORDER BY count DESC", array($voteMonthTimestamp));
+		$accounts = $this->web->query_fetch("SELECT TOP " . $this->_results . " user_id,COUNT(*) as count FROM " . CABALENGINE_VOTE_LOGS . " WHERE timestamp >= ? GROUP BY user_id ORDER BY count DESC", array($voteMonthTimestamp));
 		if (!is_array($accounts)) return;
 
 		foreach ($accounts as $data) {

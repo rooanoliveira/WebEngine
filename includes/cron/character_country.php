@@ -1,12 +1,12 @@
 <?php
+
 /**
- * WebEngine CMS
- * https://webenginecms.org/
- * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * CabalEngine CMS
+ *
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -14,23 +14,39 @@
 // File Name
 $file_name = basename(__FILE__);
 
-// load databases
-$me = Connection::Database('Me_MuOnline');
-$charactersDB = config('SQL_DB_NAME', true);
-$accountsDB = config('SQL_USE_2_DB', true) == true ? config('SQL_DB_2_NAME', true) : $charactersDB;
+// load database connections
+$database = Connection::Database('CabalEngine');
+$webDB  = config('SQL_DB_WEB_NAME', true);
+$characterDB = config('SQL_DB_CABALSERVER01_NAME', true);
 
-$query = "SELECT t2."._CLMN_CHR_NAME_.", t1.country FROM ".$accountsDB.".[dbo].".WEBENGINE_ACCOUNT_COUNTRY." t1 INNER JOIN ".$charactersDB.".[dbo]."._TBL_CHR_." t2 ON t1.account = t2."._CLMN_CHR_ACCID_."";
+// fully qualified table names
+$countryTable   = $webDB . ".dbo." . CABALENGINE_ACCOUNT_COUNTRY;
+$characterTable = $characterDB    . ".dbo." . _TBL_CHR_;
 
-$charactersCountryList = $me->query_fetch($query);
-$result = array();
-if(is_array($charactersCountryList)) {
-	foreach($charactersCountryList as $characterCountryData) {
-		$result[$characterCountryData[_CLMN_CHR_NAME_]] = $characterCountryData['country'];
+// build and run the query
+// note: in SQL Server integer division truncates automatically
+$query = "
+    SELECT
+    t2." . _CLMN_CHR_NAME_ . "   AS character_name,
+    t1.country AS country
+    FROM {$countryTable} AS t1
+    INNER JOIN {$characterTable} AS t2
+    ON t1.account = (t2." . _CLMN_CHR_IDX_ . " / 16)
+";
+
+$charactersCountryList = $database->query_fetch($query);
+
+// re‑index into [characterName => country]
+$result = [];
+if (is_array($charactersCountryList)) {
+	foreach ($charactersCountryList as $row) {
+		$result[$row[_CLMN_CHR_NAME_]] = $row['country'];
 	}
 }
 
+// encode and write cache
 $cacheData = encodeCache($result);
 updateCacheFile('character_country.cache', $cacheData);
 
-// UPDATE CRON
+// Update this cron’s last‐run timestamp
 updateCronLastRun($file_name);

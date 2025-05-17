@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -13,7 +12,7 @@
 
 if(!defined('access') or !access or access != 'install') die();
 
-session_name('WebEngineInstaller126'); 
+session_name('CabalEngineInstaller126'); 
 session_start();
 ob_start();
 
@@ -33,37 +32,37 @@ define('__INSTALL_URL__', __BASE_URL__ . 'install/');
 
 try {
 	
-	if(!@include_once(__PATH_CONFIGS__ . 'webengine.tables.php')) throw new Exception('Could not load WebEngine CMS tables.');
-	if(!@include_once(__INSTALL_ROOT__ . 'definitions.php')) throw new Exception('Could not load WebEngine CMS Installer definitions.');
+	if(!@include_once(__PATH_CONFIGS__ . 'cabalengine.tables.php')) throw new Exception('Could not load CabalEngine CMS tables.');
+	if(!@include_once(__INSTALL_ROOT__ . 'definitions.php')) throw new Exception('Could not load CabalEngine CMS Installer definitions.');
 	
-	$webengineConfigsPath = __PATH_CONFIGS__.WEBENGINE_CONFIGURATION_FILE;
-	if(!file_exists($webengineConfigsPath)) throw new Exception('WebEngine CMS configuration file missing.');
-	if(!is_readable($webengineConfigsPath)) throw new Exception('WebEngine CMS configuration file is not readable.');
-	if(!is_writable($webengineConfigsPath)) throw new Exception('WebEngine CMS configuration file is not writable.');
+	$cabalengineConfigsPath = __PATH_CONFIGS__.CABALENGINE_CONFIGURATION_FILE;
+	if(!file_exists($cabalengineConfigsPath)) throw new Exception('CabalEngine CMS configuration file missing.');
+	if(!is_readable($cabalengineConfigsPath)) throw new Exception('CabalEngine CMS configuration file is not readable.');
+	if(!is_writable($cabalengineConfigsPath)) throw new Exception('CabalEngine CMS configuration file is not writable.');
 	
-	$webengineConfigsFile = file_get_contents($webengineConfigsPath);
-	if($webengineConfigsFile) {
-		$webengineConfig = json_decode($webengineConfigsFile, true);
-		if(!is_array($webengineConfig)) throw new Exception('WebEngine CMS configuration file could not be decoded.');
-		if($webengineConfig['webengine_cms_installed'] === true) throw new Exception('WebEngine CMS installation is complete, it is recommended to rename or delete this directory.');
+	$cabalengineConfigsFile = file_get_contents($cabalengineConfigsPath);
+	if($cabalengineConfigsFile) {
+		$cabalengineConfig = json_decode($cabalengineConfigsFile, true);
+		if(!is_array($cabalengineConfig)) throw new Exception('CabalEngine CMS configuration file could not be decoded.');
+		if($cabalengineConfig['cabalengine_cms_installed'] === true) throw new Exception('CabalEngine CMS installation is complete, it is recommended to rename or delete this directory.');
 	}
 	
-	$webengineDefaultConfigsPath = __PATH_CONFIGS__.WEBENGINE_DEFAULT_CONFIGURATION_FILE;
-	if(!file_exists($webengineDefaultConfigsPath)) throw new Exception('WebEngine CMS default configuration file missing.');
-	if(!is_readable($webengineDefaultConfigsPath)) throw new Exception('WebEngine CMS default configuration file is not readable.');
-	$webengineDefaultConfigsFile = file_get_contents($webengineDefaultConfigsPath);
-	if(!$webengineDefaultConfigsFile) throw new Exception('WebEngine CMS default configuration file could not be loaded.');
-	$webengineDefaultConfig = json_decode($webengineDefaultConfigsFile, true);
-	if(!is_array($webengineDefaultConfig)) throw new Exception('WebEngine CMS default configuration file could not be decoded.');
+	$cabalengineDefaultConfigsPath = __PATH_CONFIGS__.CABALENGINE_DEFAULT_CONFIGURATION_FILE;
+	if(!file_exists($cabalengineDefaultConfigsPath)) throw new Exception('CabalEngine CMS default configuration file missing.');
+	if(!is_readable($cabalengineDefaultConfigsPath)) throw new Exception('CabalEngine CMS default configuration file is not readable.');
+	$cabalengineDefaultConfigsFile = file_get_contents($cabalengineDefaultConfigsPath);
+	if(!$cabalengineDefaultConfigsFile) throw new Exception('CabalEngine CMS default configuration file could not be loaded.');
+	$cabalengineDefaultConfig = json_decode($cabalengineDefaultConfigsFile, true);
+	if(!is_array($cabalengineDefaultConfig)) throw new Exception('CabalEngine CMS default configuration file could not be decoded.');
 	
-	if(!@include_once(__PATH_INCLUDES__ . 'functions.php')) throw new Exception('Could not load WebEngine CMS functions.');
-	if(!@include_once(__PATH_CLASSES__ . 'class.validator.php')) throw new Exception('Could not load WebEngine CMS validator library.');
-	if(!@include_once(__PATH_CLASSES__ . 'class.database.php')) throw new Exception('Could not load WebEngine CMS database library.');
-	if(!@include_once(__PATH_CONFIGS__ . 'compatibility.php')) throw new Exception('Could not load WebEngine CMS files compatibility.');
-	if(!@include_once(__PATH_CONFIGS__ . 'timezone.php')) throw new Exception('Could not load WebEngine CMS timezone.');
+	if(!@include_once(__PATH_INCLUDES__ . 'functions.php')) throw new Exception('Could not load CabalEngine CMS functions.');
+	if(!@include_once(__PATH_CLASSES__ . 'class.validator.php')) throw new Exception('Could not load CabalEngine CMS validator library.');
+	if(!@include_once(__PATH_CLASSES__ . 'class.database.php')) throw new Exception('Could not load CabalEngine CMS database library.');
+	if(!@include_once(__PATH_CONFIGS__ . 'compatibility.php')) throw new Exception('Could not load CabalEngine CMS files compatibility.');
+	if(!@include_once(__PATH_CONFIGS__ . 'timezone.php')) throw new Exception('Could not load CabalEngine CMS timezone.');
 	
-	$writablePaths = loadJsonFile(__PATH_CONFIGS__.WEBENGINE_WRITABLE_PATHS_FILE);
-	if(!is_array($writablePaths)) throw new Exception('Could not load WebEngine CMS writable paths list.');
+	$writablePaths = loadJsonFile(__PATH_CONFIGS__.CABALENGINE_WRITABLE_PATHS_FILE);
+	if(!is_array($writablePaths)) throw new Exception('Could not load CabalEngine CMS writable paths list.');
 	
 	if(!isset($_SESSION['install_cstep'])) {
 		$_SESSION['install_cstep'] = 0;

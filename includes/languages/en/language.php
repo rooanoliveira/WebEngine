@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -59,7 +58,7 @@ $lang['module_titles_txt_24'] = 'Privacy Policy';
 $lang['module_titles_txt_25'] = 'Add Stats';
 $lang['module_titles_txt_26'] = 'Contact Us';
 $lang['module_titles_txt_27'] = 'Refund Policy';
-$lang['module_titles_txt_28'] = 'Buy Zen';
+$lang['module_titles_txt_28'] = 'Buy Alz';
 $lang['module_titles_txt_29'] = 'Castle Siege';
 
 # usercp
@@ -74,7 +73,7 @@ $lang['usercp_menu_txt_7'] = 'V.I.P. Subscription';
 $lang['usercp_menu_txt_8'] = 'Reset Stats';
 $lang['usercp_menu_txt_9'] = 'Clear Skill-Tree';
 $lang['usercp_menu_txt_10'] = 'Add Stats';
-$lang['usercp_menu_txt_11'] = 'Buy Zen';
+$lang['usercp_menu_txt_11'] = 'Buy Alz';
 
 # success
 $lang['success_1'] = 'Your account has been successfully created. You will be redirected to the Sign In form in 3 seconds.';
@@ -97,7 +96,7 @@ $lang['success_17'] = 'Your character\'s level up points have been successfully 
 $lang['success_18'] = 'A verification link has been sent to your email to complete the registration.';
 $lang['success_19'] = 'Please check your current email address to proceed.';
 $lang['success_20'] = 'Your account\'s email address has been successfully changed.';
-$lang['success_21'] = 'Zen purchase successfully completed.';
+$lang['success_21'] = 'Alz purchase successfully completed.';
 $lang['success_22'] = 'Thank you for contacting us, we will respond to your message shortly.';
 
 # errors
@@ -134,7 +133,7 @@ $lang['error_30'] = 'No accounts found with the provided email address.';
 $lang['error_31'] = 'Invalid password recovery data.';
 $lang['error_32'] = 'You do not have permission to reset this character.';
 $lang['error_33'] = 'Your character does not meet the reset level requirement, please level up.';
-$lang['error_34'] = 'You do not have enough zen.';
+$lang['error_34'] = 'You do not have enough alz.';
 $lang['error_35'] = 'You do not have permission to reset this character\'s stats.';
 $lang['error_36'] = 'You do not have permission to reset this character\'s PK level.';
 $lang['error_37'] = 'You do not have permission to unstick this character\'s position.';
@@ -155,7 +154,7 @@ $lang['error_51'] = 'You have exceeded the amount of available level up points t
 $lang['error_52'] = 'Command stat can only be added to the Dark Lord class.';
 $lang['error_53'] = 'Your stats may not exceed the %s points limit.';
 $lang['error_54'] = 'You must add at least %s level up points.';
-$lang['error_55'] = 'Buying the selected amount will exceed the zen limit allowed per character, please choose a different amount.';
+$lang['error_55'] = 'Buying the selected amount will exceed the alz limit allowed per character, please choose a different amount.';
 $lang['error_56'] = 'The name entered is not valid.';
 $lang['error_57'] = 'The message entered is not valid.';
 $lang['error_58'] = 'There are no ranking results to display.';
@@ -258,7 +257,7 @@ $lang['myaccount_txt_4'] = 'Password:';
 $lang['myaccount_txt_5'] = 'Online Status:';
 $lang['myaccount_txt_6'] = 'change';
 $lang['myaccount_txt_7'] = 'Active';
-$lang['myaccount_txt_8'] = 'Frozen';
+$lang['myaccount_txt_8'] = 'Froalz';
 $lang['myaccount_txt_9'] = 'Online';
 $lang['myaccount_txt_10'] = 'Offline';
 $lang['myaccount_txt_12'] = 'Credits:';
@@ -354,19 +353,19 @@ $lang['rankings_filter_16'] = '';
 
 # clear pk
 $lang['clearpk_txt_1'] = 'Character';
-$lang['clearpk_txt_2'] = 'Zen';
+$lang['clearpk_txt_2'] = 'Alz';
 $lang['clearpk_txt_3'] = 'PK Status';
 $lang['clearpk_txt_4'] = 'Clear PK';
-$lang['clearpk_txt_5'] = 'Your character must have at least %s zen to clear pk';
+$lang['clearpk_txt_5'] = 'Your character must have at least %s alz to clear pk';
 
 # clear skill tree
 $lang['clearst_txt_1'] = 'Character';
 $lang['clearst_txt_2'] = 'Master Level';
-$lang['clearst_txt_3'] = 'Zen';
+$lang['clearst_txt_3'] = 'Alz';
 $lang['clearst_txt_4'] = 'GO';
 $lang['clearst_txt_5'] = 'Points';
 $lang['clearst_txt_6'] = 'Your character must be at least master level %s';
-$lang['clearst_txt_7'] = 'Your character must have at least %s zen to reset the skill tree';
+$lang['clearst_txt_7'] = 'Your character must have at least %s alz to reset the skill tree';
 $lang['clearst_txt_8'] = 'Your character must be at least level %s';
 
 # donation
@@ -381,11 +380,11 @@ $lang['changepassword_txt_4'] = 'Change Password';
 # reset
 $lang['resetcharacter_txt_1'] = 'Character';
 $lang['resetcharacter_txt_2'] = 'Level';
-$lang['resetcharacter_txt_3'] = 'Zen';
+$lang['resetcharacter_txt_3'] = 'Alz';
 $lang['resetcharacter_txt_4'] = 'Resets';
 $lang['resetcharacter_txt_5'] = 'Reset';
 $lang['resetcharacter_txt_6'] = 'Your character must be level %s';
-$lang['resetcharacter_txt_7'] = 'Your character must have at least %s zen';
+$lang['resetcharacter_txt_7'] = 'Your character must have at least %s alz';
 $lang['resetcharacter_txt_8'] = 'You will be rewarded with %s credits';
 $lang['resetcharacter_txt_9'] = 'You must have at least %s credits to reset your character';
 $lang['resetcharacter_txt_10'] = 'You can reset a maximum of %s times';
@@ -400,13 +399,13 @@ $lang['resetstats_txt_5'] = 'VIT';
 $lang['resetstats_txt_6'] = 'ENE';
 $lang['resetstats_txt_7'] = 'CMD';
 $lang['resetstats_txt_8'] = 'Reset';
-$lang['resetstats_txt_9'] = 'Your character must have at least %s zen to reset stats';
+$lang['resetstats_txt_9'] = 'Your character must have at least %s alz to reset stats';
 
 # unstick
 $lang['unstickcharacter_txt_1'] = 'Character';
-$lang['unstickcharacter_txt_2'] = 'Zen';
+$lang['unstickcharacter_txt_2'] = 'Alz';
 $lang['unstickcharacter_txt_3'] = 'Unstick';
-$lang['unstickcharacter_txt_4'] = 'Your character must have at least %s zen to unstick';
+$lang['unstickcharacter_txt_4'] = 'Your character must have at least %s alz to unstick';
 
 # add stats
 $lang['addstats_txt_1'] = 'Character';
@@ -417,7 +416,7 @@ $lang['addstats_txt_5'] = 'Vitality';
 $lang['addstats_txt_6'] = 'Energy';
 $lang['addstats_txt_7'] = 'Command';
 $lang['addstats_txt_8'] = 'Add Points';
-$lang['addstats_txt_9'] = 'Your character must have at least %s zen to add stats';
+$lang['addstats_txt_9'] = 'Your character must have at least %s alz to add stats';
 $lang['addstats_txt_10'] = 'Your character must be at least master level %s';
 $lang['addstats_txt_11'] = 'Your character must be at least level %s';
 $lang['addstats_txt_12'] = 'Each stat can have a maximum of %s points';
@@ -473,7 +472,7 @@ $lang['castlesiege_txt_4'] = 'Tax Rate Goblin:';
 $lang['castlesiege_txt_5'] = 'Tax Rate NPC:';
 $lang['castlesiege_txt_6'] = 'Tax Rate Trial:';
 $lang['castlesiege_txt_7'] = 'Castle Information';
-$lang['castlesiege_txt_8'] = 'Zen';
+$lang['castlesiege_txt_8'] = 'Alz';
 $lang['castlesiege_txt_9'] = 'Current Stage:';
 $lang['castlesiege_txt_10'] = 'Next Stage:';
 $lang['castlesiege_txt_11'] = 'Battle Duration:';
@@ -502,13 +501,13 @@ $lang['castlesiege_time_4'] = 'Less than one minute.';
 $lang['castlesiege_battle_duration'] = '%s hours %s minutes';
 $lang['castlesiege_widget_title'] = 'Castle Siege';
 
-# buy zen
-$lang['buyzen_txt_1'] = 'Buy Zen';
-$lang['buyzen_txt_2'] = ' zen sent to ';
-$lang['buyzen_txt_3'] = 'Character';
-$lang['buyzen_txt_4'] = 'Zen';
-$lang['buyzen_txt_5'] = 'Buy';
-$lang['buyzen_txt_6'] = 'credit(s)';
+# buy alz
+$lang['buyalz_txt_1'] = 'Buy Alz';
+$lang['buyalz_txt_2'] = ' alz sent to ';
+$lang['buyalz_txt_3'] = 'Character';
+$lang['buyalz_txt_4'] = 'Alz';
+$lang['buyalz_txt_5'] = 'Buy';
+$lang['buyalz_txt_6'] = 'credit(s)';
 
 # contact us
 $lang['contactus_txt_1'] = 'Email Address';
@@ -522,4 +521,4 @@ $lang['footer_refund'] = 'Refund Policy';
 $lang['footer_info'] = 'Server Information';
 $lang['footer_contact'] = 'Contact Us';
 $lang['footer_copyright'] = '%s &copy; %s, ALL RIGHTS RESERVED.';
-$lang['footer_webzen_copyright'] = 'This site is in no way associated with or endorsed by Webzen Inc.';
+$lang['footer_estsoft_copyright'] = 'This site is in no way associated with or endorsed by ESTSoft Inc.';

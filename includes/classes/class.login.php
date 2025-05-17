@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -71,7 +70,7 @@ class login
 		$failedLogins = $this->checkFailedLogins($ipaddress);
 		if ($failedLogins < $this->_config['max_login_attempts']) return true;
 
-		$result = $this->cabalEngine->query_fetch_single("SELECT * FROM " . WEBENGINE_FLA . " WHERE ip_address = ? ORDER BY id DESC", array($ipaddress));
+		$result = $this->cabalEngine->query_fetch_single("SELECT * FROM " . CABALENGINE_FLA . " WHERE ip_address = ? ORDER BY id DESC", array($ipaddress));
 		if (!is_array($result)) return true;
 		if (time() < $result['unlock_timestamp']) return;
 
@@ -82,7 +81,7 @@ class login
 	public function checkFailedLogins($ipaddress)
 	{
 		if (!Validator::Ip($ipaddress)) return;
-		$result = $this->cabalEngine->query_fetch_single("SELECT * FROM " . WEBENGINE_FLA . " WHERE ip_address = ? ORDER BY id DESC", array($ipaddress));
+		$result = $this->cabalEngine->query_fetch_single("SELECT * FROM " . CABALENGINE_FLA . " WHERE ip_address = ? ORDER BY id DESC", array($ipaddress));
 		if (!is_array($result)) return;
 		return $result['failed_attempts'];
 	}
@@ -101,21 +100,21 @@ class login
 			# update
 			if (($failedLogins + 1) >= $this->_config['max_login_attempts']) {
 				# max failed attemps -> block
-				$this->cabalEngine->query("UPDATE " . WEBENGINE_FLA . " SET username = ?, ip_address = ?, failed_attempts = failed_attempts + 1, unlock_timestamp = ?, timestamp = ? WHERE ip_address = ?", array($username, $ipaddress, $timeout, time(), $ipaddress));
+				$this->cabalEngine->query("UPDATE " . CABALENGINE_FLA . " SET username = ?, ip_address = ?, failed_attempts = failed_attempts + 1, unlock_timestamp = ?, timestamp = ? WHERE ip_address = ?", array($username, $ipaddress, $timeout, time(), $ipaddress));
 			} else {
-				$this->cabalEngine->query("UPDATE " . WEBENGINE_FLA . " SET username = ?, ip_address = ?, failed_attempts = failed_attempts + 1, timestamp = ? WHERE ip_address = ?", array($username, $ipaddress, time(), $ipaddress));
+				$this->cabalEngine->query("UPDATE " . CABALENGINE_FLA . " SET username = ?, ip_address = ?, failed_attempts = failed_attempts + 1, timestamp = ? WHERE ip_address = ?", array($username, $ipaddress, time(), $ipaddress));
 			}
 		} else {
 			# insert
 			$data = array($username, $ipaddress, 0, 1, time());
-			$this->cabalEngine->query("INSERT INTO " . WEBENGINE_FLA . " (username, ip_address, unlock_timestamp, failed_attempts, timestamp) VALUES (?, ?, ?, ?, ?)", $data);
+			$this->cabalEngine->query("INSERT INTO " . CABALENGINE_FLA . " (username, ip_address, unlock_timestamp, failed_attempts, timestamp) VALUES (?, ?, ?, ?, ?)", $data);
 		}
 	}
 
 	public function removeFailedLogins($ipaddress)
 	{
 		if (!Validator::Ip($ipaddress)) return;
-		$this->cabalEngine->query("DELETE FROM " . WEBENGINE_FLA . " WHERE ip_address = ?", array($ipaddress));
+		$this->cabalEngine->query("DELETE FROM " . CABALENGINE_FLA . " WHERE ip_address = ?", array($ipaddress));
 	}
 
 	public function logout()

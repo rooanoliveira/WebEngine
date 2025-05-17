@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -13,8 +12,8 @@
 
 class Handler {
 	
-	private $_disableWebEngineFooterVersion = false;
-	private $_disableWebEngineFooterCredits = false;
+	private $_disableCabalEngineFooterVersion = false;
+	private $_disableCabalEngineFooterCredits = false;
 	
 	public function loadPage() {
 		global $config,$lang,$custom,$tSettings;
@@ -152,20 +151,21 @@ class Handler {
 		return false;
 	}
 	
-	public function webenginePowered() {
-		if($this->_disableWebEngineFooterCredits) return;
+	public function cabalenginePowered() {
+		if($this->_disableCabalEngineFooterCredits) return;
 		
-		echo '<a href="https://webenginecms.org/" target="_blank" class="webengine-powered">';
-			echo 'Powered by WebEngine';
-			if(!$this->_disableWebEngineFooterVersion) echo ' ' . __WEBENGINE_VERSION__;
+		echo '<a href="https://cabalenginecms.org/" target="_blank" class="cabalengine-powered">';
+			echo 'Powered by CabalEngine';
+			if(!$this->_disableCabalEngineFooterVersion) echo ' ' . __CABALENGINE_VERSION__;
 		echo '</a>';
 	}
 	
 	public function loadAdminCPModule($module='home') {
-		global $config,$lang,$custom,$handler,$mconfig,$gconfig,$webengine;
+		global $config,$lang,$custom,$handler,$mconfig,$gconfig,$cabalengine;
 		
-		$dB = Connection::Database('MuOnline');
-		$dB2 = Connection::Database('Me_MuOnline');
+		$web = Connection::Database('CabalEngine');
+		$account = Connection::Database('Account');
+		$server01 = Connection::Database('Server01');
 		$common = new common();
 		
 		$module = (check_value($module) ? $module : 'home');

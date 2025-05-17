@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -22,19 +21,19 @@ if(isset($_GET['action'])) {
 }
 ?>
 <h4>Getting Started:</h4><br />
-<p>Welcome to WebEngine CMS installer. During the setup process, this installer will help you make sure your web server meets the minimum requirements to run the software. If you are installing the software in a shared web hosting account, please make sure your hosting provider allows outgoing remote connections to your Microsoft SQL Server (MSSQL) port (most commonly port 1433).</p>
+<p>Welcome to CabalEngine CMS installer. During the setup process, this installer will help you make sure your web server meets the minimum requirements to run the software. If you are installing the software in a shared web hosting account, please make sure your hosting provider allows outgoing remote connections to your Microsoft SQL Server (MSSQL) port (most commonly port 1433).</p>
 
 <br />
 
 <h4>Support:</h4><br />
 <p>If you are having trouble completing the setup process, feel free to reach out to us in our Discord server, here you will be able to receive support from other server administrators and from the community.</p>
-<a href="https://webenginecms.org/discord" target="_blank" class="btn btn-sm btn-default">Discord</a>
+<a href="https://cabalenginecms.org/discord" target="_blank" class="btn btn-sm btn-default">Discord</a>
 
 <hr>
 
 <h4>Latest Version:</h4><br />
 <p>To ensure the best possible experience with our software, make sure you are installing the latest stable version.</p>
-<a href="https://github.com/lautaroangelico/WebEngine/releases" target="_blank" class="btn btn-sm btn-default">GitHub Project</a>
+<a href="https://github.com/lautaroangelico/CabalEngine/releases" target="_blank" class="btn btn-sm btn-default">GitHub Project</a>
 
 <hr>
 
@@ -67,7 +66,7 @@ if(isset($_GET['action'])) {
 <hr>
 
 <h4>Thank You:</h4><br />
-<p>WebEngine CMS is open-source and I intend to keep it that way! I put a lot of effort and time into making this project possible, and I am very proud of what has been achieved so far. If you like my work, please consider supporting the continued development of the project by donating. Additionally you may also support this project by spreading the word about WebEngine CMS, giving us feedback and joining us in our social media websites and Discord server.</p>
+<p>CabalEngine CMS is open-source and I intend to keep it that way! I put a lot of effort and time into making this project possible, and I am very proud of what has been achieved so far. If you like my work, please consider supporting the continued development of the project by donating. Additionally you may also support this project by spreading the word about CabalEngine CMS, giving us feedback and joining us in our social media websites and Discord server.</p>
 <br />
 
 <p>To proceed with the installation process click the "Start Installation" button below.</p>

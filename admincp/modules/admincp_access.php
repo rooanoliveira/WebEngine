@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -16,8 +15,8 @@ echo '<p>To remove an admin set their access level to 0.</p>';
 
 if(isset($_POST['settings_submit'])) {
 	try {
-		# webengine configs
-		$webengineConfigurations = webengineConfigs();
+		# cabalengine configs
+		$cabalengineConfigurations = cabalengineConfigs();
 		
 		$newAdminUser = $_POST['new_admin'];
 		$newAdminLevel = $_POST['new_access'];
@@ -50,13 +49,13 @@ if(isset($_POST['settings_submit'])) {
 			$adminAccounts[$newAdminUser] = (int) $newAdminLevel;
 		}
 		
-		$webengineConfigurations['admins'] = $adminAccounts;
+		$cabalengineConfigurations['admins'] = $adminAccounts;
 		
-		$newWebEngineConfig = json_encode($webengineConfigurations, JSON_PRETTY_PRINT);
-		$cfgFile = fopen(__PATH_CONFIGS__.'webengine.json', 'w');
+		$newCabalEngineConfig = json_encode($cabalengineConfigurations, JSON_PRETTY_PRINT);
+		$cfgFile = fopen(__PATH_CONFIGS__.'cabalengine.json', 'w');
 		if(!$cfgFile) throw new Exception('There was a problem opening the configuration file.');
 		
-		fwrite($cfgFile, $newWebEngineConfig);
+		fwrite($cfgFile, $newCabalEngineConfig);
 		fclose($cfgFile);
 		
 		message('success', 'Settings successfully saved!');

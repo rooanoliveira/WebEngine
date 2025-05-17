@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
  * @version 1.2.0
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2019 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -145,9 +144,9 @@ class Connection
 
 	private static function _config($config)
 	{
-		$webengineConfig = webengineConfigs();
-		if (!is_array($webengineConfig)) return;
-		if (!array_key_exists($config, $webengineConfig)) return;
-		return $webengineConfig[$config];
+		$cabalengineConfig = cabalengineConfigs();
+		if (!is_array($cabalengineConfig)) return;
+		if (!array_key_exists($config, $cabalengineConfig)) return;
+		return $cabalengineConfig[$config];
 	}
 }

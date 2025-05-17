@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -28,9 +27,9 @@ function saveChanges() {
 	if(!in_array($_POST['setting_1'], array(0, 1))) throw new Exception('Invalid setting (active)');
 	$xml->active = $_POST['setting_1'];
 	
-	if(!isset($_POST['setting_2'])) throw new Exception('Invalid setting (zen_cost)');
-	if(!Validator::UnsignedNumber($_POST['setting_2'])) throw new Exception('Invalid setting (zen_cost)');
-	$xml->zen_cost = $_POST['setting_2'];
+	if(!isset($_POST['setting_2'])) throw new Exception('Invalid setting (alz_cost)');
+	if(!Validator::UnsignedNumber($_POST['setting_2'])) throw new Exception('Invalid setting (alz_cost)');
+	$xml->alz_cost = $_POST['setting_2'];
 	
 	if(!isset($_POST['setting_3'])) throw new Exception('Invalid setting (credit_config)');
 	if(!Validator::UnsignedNumber($_POST['setting_3'])) throw new Exception('Invalid setting (credit_config)');
@@ -74,9 +73,9 @@ $creditSystem = new CreditSystem();
 			</td>
 		</tr>
 		<tr>
-			<th>Zen Cost<br/><span>Amount of zen required to clear the master skill tree. Set to 0 to disable zen requirement.</span></th>
+			<th>Alz Cost<br/><span>Amount of alz required to clear the master skill tree. Set to 0 to disable alz requirement.</span></th>
 			<td>
-				<input class="form-control" type="text" name="setting_2" value="<?php echo mconfig('zen_cost'); ?>"/>
+				<input class="form-control" type="text" name="setting_2" value="<?php echo mconfig('alz_cost'); ?>"/>
 			</td>
 		</tr>
 		<tr>

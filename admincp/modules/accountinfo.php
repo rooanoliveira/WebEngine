@@ -1,12 +1,11 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
- * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * CabalEngine CMS
+ *
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -42,7 +41,7 @@ if(isset($_GET['id'])) {
 						if(!Validator::PasswordLength($_POST['changepassword_newpw'])) throw new Exception("Invalid password.");
 						if(!$common->changePassword($accountInfo[_CLMN_MEMBID_], $accountInfo[_CLMN_USERNM_], $_POST['changepassword_newpw'])) throw new Exception("Could not change password.");
 						message('success', 'Password updated!');
-						
+
 						# send new password
 						if(isset($_POST['editaccount_sendmail'])) {
 							$email = new Email();
@@ -59,7 +58,7 @@ if(isset($_GET['id'])) {
 						if($common->emailExists($_POST['changeemail_newemail'])) throw new Exception("Another account with the same email already exists.");
 						if(!$common->updateEmail($accountInfo[_CLMN_MEMBID_], $_POST['changeemail_newemail'])) throw new Exception("Could not update email.");
 						message('success', 'Email address updated!');
-						
+
 						# send new email to current email
 						if(isset($_POST['editaccount_sendmail'])) {
 							$email = new Email();
@@ -77,22 +76,22 @@ if(isset($_GET['id'])) {
 				message('error', $ex->getMessage());
 			}
 		}
-	
+
 		$accountInfo = $common->accountInformation($_GET['id']);
 		if(!$accountInfo) throw new Exception("Could not retrieve account information (invalid account).");
-		
+
 		echo '<h1 class="page-header">Account Information: <small>'.$accountInfo[_CLMN_USERNM_].'</small></h1>';
-		
+
 		echo '<div class="row">';
 			echo '<div class="col-md-6">';
-			
+
 				if($accountInfoConfig['showGeneralInfo']) {
 					// GENERAL ACCOUNT INFORMATION
 					echo '<div class="panel panel-primary">';
 					echo '<div class="panel-heading">General Information</div>';
 					echo '<div class="panel-body">';
-					
-						$isBanned = ($accountInfo[_CLMN_BLOCCODE_] == 0 ? '<span class="label label-success">Active</span>' : '<span class="label label-danger">Banned</span>');
+
+						$isBanned = ($accountInfo[_CLMN_BLOCCODE_] == 1 ? '<span class="label label-success">Active</span>' : '<span class="label label-danger">Banned</span>');
 						echo '<table class="table table-no-border table-hover">';
 							echo '<tr>';
 								echo '<th>ID:</th>';
@@ -106,22 +105,22 @@ if(isset($_GET['id'])) {
 								echo '<th>Email:</th>';
 								echo '<td>'.$accountInfo[_CLMN_EMAIL_].'</td>';
 							echo '</tr>';
-							
-							if(strtolower(config('server_files',true)) == 'mue') {
-								echo '<tr>';
-									echo '<th>Credits:</th>';
-									echo '<td>'.$accountInfo[_CLMN_CREDITS_].'</td>';
-								echo '</tr>';
-								echo '<tr>';
-									echo '<th>TempCredits:</th>';
-									echo '<td>'.$accountInfo[_CLMN_CREDITS_TEMP_].'</td>';
-								echo '</tr>';
-								echo '<tr>';
-									echo '<th>Master Key:</th>';
-									echo '<td>'.$accountInfo[_CLMN_MASTER_KEY_].'</td>';
-								echo '</tr>';
-							}
-							
+
+							// if(strtolower(config('server_files',true)) == 'mue') {
+							// 	echo '<tr>';
+							// 		echo '<th>Credits:</th>';
+							// 		echo '<td>'.$accountInfo[_CLMN_CREDITS_].'</td>';
+							// 	echo '</tr>';
+							// 	echo '<tr>';
+							// 		echo '<th>TempCredits:</th>';
+							// 		echo '<td>'.$accountInfo[_CLMN_CREDITS_TEMP_].'</td>';
+							// 	echo '</tr>';
+							// 	echo '<tr>';
+							// 		echo '<th>Master Key:</th>';
+							// 		echo '<td>'.$accountInfo[_CLMN_MASTER_KEY_].'</td>';
+							// 	echo '</tr>';
+							// }
+
 							echo '<tr>';
 								echo '<th>Banned:</th>';
 								echo '<td>'.$isBanned.'</td>';
@@ -130,10 +129,10 @@ if(isset($_GET['id'])) {
 					echo '</div>';
 					echo '</div>';
 				}
-				
+
 				if($accountInfoConfig['showStatusInfo']) {
 					// ACCOUNT STATUS
-					$statusdb = (config('SQL_USE_2_DB', true) == true ? $dB2 : $dB);
+					$statusdb = $account;
 					$statusData = $statusdb->query_fetch_single("SELECT * FROM "._TBL_MS_." WHERE "._CLMN_MS_MEMBID_." = ?", array($accountInfo[_CLMN_USERNM_]));
 					echo '<div class="panel panel-info">';
 					echo '<div class="panel-heading">Status Information</div>';
@@ -145,10 +144,6 @@ if(isset($_GET['id'])) {
 									echo '<td>Status:</td>';
 									echo '<td>'.$onlineStatus.'</td>';
 								echo '</tr>';
-								echo '<tr>';
-									echo '<td>Server:</td>';
-									echo '<td>'.$statusData[_CLMN_MS_GS_].'</td>';
-								echo '</tr>';
 							echo '</table>';
 						} else {
 							message('warning', 'No data found in <strong>'._TBL_MS_.'</strong> for this account.', ' ');
@@ -156,7 +151,7 @@ if(isset($_GET['id'])) {
 					echo '</div>';
 					echo '</div>';
 				}
-				
+
 				if($accountInfoConfig['showCharacters']) {
 					// ACCOUNT CHARACTERS
 					$Character = new Character();
@@ -178,7 +173,7 @@ if(isset($_GET['id'])) {
 					echo '</div>';
 					echo '</div>';
 				}
-				
+
 				// CHANGE PASSWORD
 				echo '<div class="panel panel-default">';
 				echo '<div class="panel-heading">Change Account\'s Password</div>';
@@ -196,7 +191,7 @@ if(isset($_GET['id'])) {
 					echo '</form>';
 				echo '</div>';
 				echo '</div>';
-				
+
 				// CHANGE EMAIL
 				echo '<div class="panel panel-default">';
 				echo '<div class="panel-heading">Change Account\'s Email</div>';
@@ -214,17 +209,17 @@ if(isset($_GET['id'])) {
 					echo '</form>';
 				echo '</div>';
 				echo '</div>';
-				
+
 			echo '</div>';
 			echo '<div class="col-md-6">';
-				
+
 				if($accountInfoConfig['showIpInfo']) {
-					
+
 					if(defined('_TBL_LOGEX_')) {
 						// ACCOUNTS IP ADDRESS (MuEngine - MuLogEx tbl)
-						$checkMuLogEx = $dB2->query_fetch_single("SELECT * FROM sysobjects WHERE xtype = 'U' AND name = ?", array(_TBL_LOGEX_));
+						$checkMuLogEx = $account->query_fetch_single("SELECT * FROM sysobjects WHERE xtype = 'U' AND name = ?", array(_TBL_LOGEX_));
 						echo '<div class="panel panel-default">';
-						echo '<div class="panel-heading">Account\'s IP Address (MuEngine)</div>';
+						echo '<div class="panel-heading">Account\'s IP Address</div>';
 						echo '<div class="panel-body">';
 							if($checkMuLogEx) {
 								$accountIpAddress = $common->retrieveAccountIPs($accountInfo[_CLMN_USERNM_]);
@@ -245,15 +240,15 @@ if(isset($_GET['id'])) {
 						echo '</div>';
 						echo '</div>';
 					}
-					
+
 					if(defined('_TBL_CH_')) {
-						$accountDB = config('SQL_USE_2_DB', true) == true ? $dB2 : $dB;
-						
+						$accountDB = $account;
+
 						// ACCOUNT IP LIST
 						echo '<div class="panel panel-default">';
 						echo '<div class="panel-heading">Account\'s IP Address</div>';
 						echo '<div class="panel-body">';
-							
+
 							$accountIpHistory = $accountDB->query_fetch("SELECT DISTINCT("._CLMN_CH_IP_.") FROM "._TBL_CH_." WHERE "._CLMN_CH_ACCID_." = ?", array($accountInfo[_CLMN_USERNM_]));
 							if(is_array($accountIpHistory)) {
 								echo '<table class="table table-no-border table-hover">';
@@ -266,15 +261,15 @@ if(isset($_GET['id'])) {
 							} else {
 								message('warning', 'No IP addresses found in the database.');
 							}
-							
+
 						echo '</div>';
 						echo '</div>';
-						
+
 						// ACCOUNT CONNECTION HISTORY
 						echo '<div class="panel panel-default">';
 						echo '<div class="panel-heading">Account Connection History (last 25)</div>';
 						echo '<div class="panel-body">';
-							
+
 							$accountConHistory = $accountDB->query_fetch("SELECT TOP 25 * FROM "._TBL_CH_." WHERE "._CLMN_CH_ACCID_." = ? AND "._CLMN_CH_STATE_." = ? ORDER BY "._CLMN_CH_ID_." DESC", array($accountInfo[_CLMN_USERNM_], 'Connect'));
 							if(is_array($accountConHistory)) {
 								echo '<table class="table table-no-border table-hover">';
@@ -296,21 +291,21 @@ if(isset($_GET['id'])) {
 							} else {
 								message('warning', 'No connection history found for account.');
 							}
-							
+
 						echo '</div>';
 						echo '</div>';
 					}
-					
+
 				}
-				
+
 			echo '</div>';
 		echo '</div>';
-		
+
 	} catch(Exception $ex) {
 		echo '<h1 class="page-header">Account Information</h1>';
 		message('error', $ex->getMessage());
 	}
-	
+
 } else {
 	echo '<h1 class="page-header">Account Information</h1>';
 	message('error', 'Please provide a valid user id.');

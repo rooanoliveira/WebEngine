@@ -1,12 +1,11 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
- * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * CabalEngine CMS
+ *
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -23,12 +22,12 @@
 	if(isset($_POST['search_character']) && isset($_POST['search_request'])) {
 		try {
 			if(!Validator::Length($_POST['search_request'], 11, 2)) throw new Exception("The name can be 3 to 10 characters long.");
-			$searchdb = $dB;
-			
+			$searchdb = $server01;
+
 			$searchRequest = '%'.$_POST['search_request'].'%';
-			$searchResults = $searchdb->query_fetch("SELECT TOP 10 "._CLMN_CHR_NAME_.", "._CLMN_CHR_ACCID_." FROM "._TBL_CHR_." WHERE Name LIKE ?", array($searchRequest));
+			$searchResults = $searchdb->query_fetch("SELECT TOP 10 "._CLMN_CHR_NAME_." FROM "._TBL_CHR_." WHERE Name LIKE ?", array($searchRequest));
 			if(!$searchResults) throw new Exception("No results found.");
-			
+
 			if(is_array($searchResults)) {
 				echo '<div class="row">';
 				echo '<div class="col-md-6">';
@@ -43,7 +42,7 @@
 					echo '<tr>';
 						echo '<td>'.$character[_CLMN_CHR_NAME_].'</td>';
 						echo '<td style="text-align:right;">';
-							echo '<a href="'.admincp_base("accountinfo&id=".$common->retrieveUserID($character[_CLMN_CHR_ACCID_])).'" class="btn btn-xs btn-default">Account Information</a> ';
+							echo '<a href="'.admincp_base("accountinfo&id=".$common->getCharacterAccount($character[_CLMN_CHR_NAME_])).'" class="btn btn-xs btn-default">Account Information</a> ';
 							echo '<a href="'.admincp_base("editcharacter&name=".$character[_CLMN_CHR_NAME_]).'" class="btn btn-xs btn-warning">Edit Character</a>';
 						echo '</td>';
 					echo '</tr>';

@@ -1,8 +1,7 @@
 /*!
 
  =========================================================
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  =========================================================
 
  * Author Lautaro Angelico (https://lautaroangelico.com/)
@@ -574,12 +573,12 @@ input[type='number']:focus {
   margin-left: 5px;
 }
 
-/* WEBENGINE CMS */
-.webengine-powered {
+/* CABALENGINE CMS */
+.cabalengine-powered {
   color: #777 !important;
 }
-.webengine-powered:active,
-.webengine-powered:hover {
+.cabalengine-powered:active,
+.cabalengine-powered:hover {
   color: #ff3214 !important;
 }
 
@@ -617,7 +616,7 @@ input[type='number']:focus {
 }
 
 /* LANGUAGE PICKER */
-.webengine-language-switcher {
+.cabalengine-language-switcher {
   display: inline-block;
   list-style: none;
   padding: 0px !important;
@@ -627,10 +626,10 @@ input[type='number']:focus {
   overflow: hidden;
   transition: all 0.3s ease;
 }
-.webengine-language-switcher:hover {
+.cabalengine-language-switcher:hover {
   width: 400px;
 }
-.webengine-language-switcher li {
+.cabalengine-language-switcher li {
   display: inline-block;
   list-style-type: none;
   background: #333333;
@@ -641,23 +640,23 @@ input[type='number']:focus {
   -khtml-border-radius: 3px;
   transition: all 0.3s ease;
 }
-.webengine-language-switcher li:hover {
+.cabalengine-language-switcher li:hover {
   -webkit-filter: brightness(120%);
   filter: brightness(120%);
 }
-.webengine-language-switcher li a {
+.cabalengine-language-switcher li a {
   color: #999999;
 }
-.webengine-language-switcher li a:hover {
+.cabalengine-language-switcher li a:hover {
   color: #ffffff !important;
 }
 
 /* WEBSITE LOGO */
-.webengine-mu-logo {
+.cabalengine-mu-logo {
   transition: all 0.3s ease;
   width: 75dvh;
 }
-.webengine-mu-logo:hover {
+.cabalengine-mu-logo:hover {
   -webkit-filter: brightness(120%);
   filter: brightness(120%);
 }
@@ -705,7 +704,7 @@ input[type='number']:focus {
 }
 
 /* ONLINE BAR */
-.webengine-online-bar {
+.cabalengine-online-bar {
   width: 100%;
   background: #000000;
   border: 1px solid #555555;
@@ -720,7 +719,7 @@ input[type='number']:focus {
   overflow: hidden;
   transition: all 0.3s ease;
 }
-.webengine-online-bar .webengine-online-bar-progress {
+.cabalengine-online-bar .cabalengine-online-bar-progress {
   height: 8px;
   background: #00ff00 url('../img/online_progress_bar.jpg') no-repeat left
     center;
@@ -729,7 +728,7 @@ input[type='number']:focus {
   -khtml-border-radius: 0px 1px 1px 0px;
   border-radius: 0px 1px 1px 0px;
 }
-.webengine-online-bar:hover {
+.cabalengine-online-bar:hover {
   -webkit-filter: brightness(120%);
   filter: brightness(120%);
 }

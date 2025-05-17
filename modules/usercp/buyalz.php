@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.5
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2023 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -30,15 +29,15 @@ try {
 	if(!is_array($AccountCharacters)) throw new Exception(lang('error_46',true));
 	
 	# config file data
-	$maxZen = mconfig('max_zen');
+	$maxAlz = mconfig('max_alz');
 	$exchangeRatio = mconfig('exchange_ratio');
 	$incrementRate = mconfig('increment_rate');
 	
-	# zen buying configuration
+	# alz buying configuration
 	$buyOptions = array();
-	for($multiplier = 1; $multiplier<=floor($maxZen/$incrementRate); $multiplier++) {
-		$zenAmount = $multiplier*$incrementRate;
-		$creditAmount = ceil($zenAmount/$exchangeRatio);
+	for($multiplier = 1; $multiplier<=floor($maxAlz/$incrementRate); $multiplier++) {
+		$alzAmount = $multiplier*$incrementRate;
+		$creditAmount = ceil($alzAmount/$exchangeRatio);
 		$buyOptions[] = $creditAmount;
 	}
 	
@@ -52,20 +51,20 @@ try {
 			if(!in_array($_POST['credits'], $buyOptions)) throw new Exception(lang('error_24',true));
 			
 			$char = $_POST['character'];
-			$zen = $_POST['credits']*$exchangeRatio;
+			$alz = $_POST['credits']*$exchangeRatio;
 			
 			# validate form data
 			if(!Validator::UnsignedNumber($_POST['credits'])) throw new Exception(lang('error_25',true));
-			if($zen > $maxZen) throw new Exception(lang('error_25',true));
+			if($alz > $maxAlz) throw new Exception(lang('error_25',true));
 			if(!in_array($char, $AccountCharacters)) throw new Exception(lang('error_24',true));
 			
 			# gather character information
 			$characterData = $Character->CharacterData($char);
 			if(!is_array($characterData)) throw new Exception(lang('error_25',true));
 			
-			# check zen
-			$charZen = $characterData[_CLMN_CHR_ZEN_];
-			if($charZen+$zen > $maxZen) throw new Exception(lang('error_55',true));
+			# check alz
+			$charAlz = $characterData[_CLMN_CHR_ALZ_];
+			if($charAlz+$alz > $maxAlz) throw new Exception(lang('error_55',true));
 			
 			# subtract credits
 			$creditSystem = new CreditSystem();
@@ -86,11 +85,11 @@ try {
 			}
 			$creditSystem->subtractCredits($_POST['credits']);
 
-			# send zen
-			if(!$db->query("UPDATE "._TBL_CHR_." SET "._CLMN_CHR_ZEN_." = "._CLMN_CHR_ZEN_." + ? WHERE "._CLMN_CHR_NAME_." = ?", array($zen, $characterData[_CLMN_CHR_NAME_])));
+			# send alz
+			if(!$db->query("UPDATE "._TBL_CHR_." SET "._CLMN_CHR_ALZ_." = "._CLMN_CHR_ALZ_." + ? WHERE "._CLMN_CHR_NAME_." = ?", array($alz, $characterData[_CLMN_CHR_NAME_])));
 
 			message('success', lang('success_21',true));
-			message('info', number_format($zen) . lang('buyzen_txt_2',true) . $char);
+			message('info', number_format($alz) . lang('buyalz_txt_2',true) . $char);
 		} catch(Exception $ex) {
 			message('error', $ex->getMessage());
 		}
@@ -100,8 +99,8 @@ try {
 		echo '<div class="panel panel-general">';
 			echo '<div class="panel-body">';
 				echo '<div class="row">';
-					echo '<div class="col-xs-4 text-center">'.lang('buyzen_txt_3',true).'</div>';
-					echo '<div class="col-xs-4 text-center">'.lang('buyzen_txt_4',true).'</div>';
+					echo '<div class="col-xs-4 text-center">'.lang('buyalz_txt_3',true).'</div>';
+					echo '<div class="col-xs-4 text-center">'.lang('buyalz_txt_4',true).'</div>';
 				echo '</div>';
 				echo '<div class="row">';
 					echo '<div class="col-xs-4 text-center">';
@@ -114,16 +113,16 @@ try {
 					echo '<div class="col-xs-4 text-center">';
 						echo '<select name="credits" class="form-control">';
 							foreach($buyOptions as $creditValue) {
-								$zenValue = $creditValue*$exchangeRatio;
-								if($zenValue > $maxZen) continue;
+								$alzValue = $creditValue*$exchangeRatio;
+								if($alzValue > $maxAlz) continue;
 								
-								echo '<option value="'.$creditValue.'">'.number_format($zenValue).' - '.$creditValue.' '.lang('buyzen_txt_6',true).'</option>';
+								echo '<option value="'.$creditValue.'">'.number_format($alzValue).' - '.$creditValue.' '.lang('buyalz_txt_6',true).'</option>';
 							}
 							
 						echo '</select>';
 					echo '</div>';
 					echo '<div class="col-xs-4 text-center">';
-						echo '<button name="submit" value="submit" class="btn btn-primary">'.lang('buyzen_txt_5',true).'</button>';
+						echo '<button name="submit" value="submit" class="btn btn-primary">'.lang('buyalz_txt_5',true).'</button>';
 					echo '</div>';
 				echo '</div>';
 			echo '</div>';

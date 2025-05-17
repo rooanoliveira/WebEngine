@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -156,17 +155,26 @@ class common
 			time()
 		);
 
-		$query = "INSERT INTO " . WEBENGINE_PASSCHANGE_REQUEST . " (user_id,new_password,auth_code,request_date) VALUES (?, ?, ?, ?)";
+		$query = "INSERT INTO " . CABALENGINE_PASSCHANGE_REQUEST . " (user_id,new_password,auth_code,request_date) VALUES (?, ?, ?, ?)";
 		$result = $this->account->query($query, $data);
 		if ($result) return true;
 		return;
 	}
 
+public function getCharacterAccount($character_name) {
+	if(!check_value($character_name)) return;
+	$result = $this->cabalserver01->query_fetch_single("SELECT "._CLMN_CHR_IDX_." FROM "._TBL_CHR_." WHERE "._CLMN_CHR_NAME_." = ?", array($character_name));
+	if(!is_array($result)) return;
+	$charIndex = $result[_CLMN_CHR_IDX_];
+	$accountIndex = intdiv($charIndex, 16);
+	return $accountIndex;
+}
+
 	public function hasActivePasswordChangeRequest($userid)
 	{
 		if (!check_value($userid)) return;
 
-		$result = $this->account->query_fetch_single("SELECT * FROM " . WEBENGINE_PASSCHANGE_REQUEST . " WHERE user_id = ?", array($userid));
+		$result = $this->account->query_fetch_single("SELECT * FROM " . CABALENGINE_PASSCHANGE_REQUEST . " WHERE user_id = ?", array($userid));
 		if (!is_array($result)) return;
 
 		$configs = loadConfigurations('usercp.mypassword');
@@ -182,7 +190,7 @@ class common
 
 	public function removePasswordChangeRequest($userid)
 	{
-		$result = $this->account->query("DELETE FROM " . WEBENGINE_PASSCHANGE_REQUEST . " WHERE user_id = ?", array($userid));
+		$result = $this->account->query("DELETE FROM " . CABALENGINE_PASSCHANGE_REQUEST . " WHERE user_id = ?", array($userid));
 		if ($result) return true;
 		return;
 	}
@@ -228,7 +236,7 @@ class common
 			$order_id
 		);
 
-		$query = "INSERT INTO " . WEBENGINE_PAYPAL_TRANSACTIONS . " (transaction_id, user_id, payment_amount, paypal_email, transaction_date, transaction_status, order_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		$query = "INSERT INTO " . CABALENGINE_PAYPAL_TRANSACTIONS . " (transaction_id, user_id, payment_amount, paypal_email, transaction_date, transaction_status, order_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$result = $this->account->query($query, $data);
 		if ($result) return true;
 		return;
@@ -237,25 +245,24 @@ class common
 	public function paypal_transaction_reversed_updatestatus($order_id)
 	{
 		if (check_value($order_id)) return;
-		$result = $this->account->query("UPDATE " . WEBENGINE_PAYPAL_TRANSACTIONS . " SET transaction_status = ? WHERE order_id = ?", array(0, $order_id));
+		$result = $this->account->query("UPDATE " . CABALENGINE_PAYPAL_TRANSACTIONS . " SET transaction_status = ? WHERE order_id = ?", array(0, $order_id));
 		if ($result) return true;
 		return;
 	}
 
-	/*
 	public function retrieveAccountIPs($username) {
 		if(!check_value($username)) return;
 		if(!$this->userExists($username)) return;
 		switch($this->_serverFiles) {
 			case 'ep33':
-				$result = $this->account->query_fetch("SELECT "._CLMN_LOGEX_IP_." FROM "._TBL_LOGEX_." WHERE "._CLMN_LOGEX_ACCID_." = ? GROUP BY "._CLMN_LOGEX_IP_."", array($username));
+				$usernum = $this->retrieveUserID($username);
+				$result = $this->account->query_fetch("SELECT "._CLMN_LOGEX_IP_." FROM "._TBL_LOGEX_." WHERE "._CLMN_LOGEX_ACCID_." = ? GROUP BY "._CLMN_LOGEX_IP_."", array($usernum));
 				if(is_array($result)) return $result;
 				return;
 			default:
 				return;
 		}
 	}
-*/
 
 	public function generateAccountRecoveryCode($userid, $username)
 	{
@@ -267,7 +274,7 @@ class common
 	public function isIpBlocked($ip)
 	{
 		if (!Validator::Ip($ip)) return true;
-		$result = $this->account->query_fetch_single("SELECT * FROM " . WEBENGINE_BLOCKED_IP . " WHERE block_ip = ?", array($ip));
+		$result = $this->web->query_fetch_single("SELECT * FROM " . CABALENGINE_BLOCKED_IP . " WHERE block_ip = ?", array($ip));
 		if (!is_array($result)) return;
 		return true;
 	}
@@ -277,7 +284,7 @@ class common
 		if (!check_value($user)) return;
 		if (!Validator::Ip($ip)) return;
 		if ($this->isIpBlocked($ip)) return;
-		$result = $this->account->query("INSERT INTO " . WEBENGINE_BLOCKED_IP . " (block_ip,block_by,block_date) VALUES (?,?,?)", array($ip, $user, time()));
+		$result = $this->web->query("INSERT INTO " . CABALENGINE_BLOCKED_IP . " (block_ip,block_by,block_date) VALUES (?,?,?)", array($ip, $user, time()));
 		if (!$result) return;
 
 		$this->_updateBlockedIpCache();
@@ -286,13 +293,13 @@ class common
 
 	public function retrieveBlockedIPs()
 	{
-		return $this->account->query_fetch("SELECT * FROM " . WEBENGINE_BLOCKED_IP . " ORDER BY id DESC");
+		return $this->web->query_fetch("SELECT * FROM " . CABALENGINE_BLOCKED_IP . " ORDER BY id DESC");
 	}
 
 	public function unblockIpAddress($id)
 	{
 		if (!check_value($id)) return;
-		$result = $this->account->query("DELETE FROM " . WEBENGINE_BLOCKED_IP . " WHERE id = ?", array($id));
+		$result = $this->web->query("DELETE FROM " . CABALENGINE_BLOCKED_IP . " WHERE id = ?", array($id));
 		if (!$result) return;
 
 		$this->_updateBlockedIpCache();

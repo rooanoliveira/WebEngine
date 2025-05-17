@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -38,7 +37,7 @@ try {
 	# check cron job files
 	foreach ($install['cron_jobs'] as $key => $cron) {
 		$cronPath = __PATH_CRON__ . $cron[2];
-		if (!file_exists($cronPath)) throw new Exception('One of more cron job files are missing from your webengine cron folder.');
+		if (!file_exists($cronPath)) throw new Exception('One of more cron job files are missing from your cabalengine cron folder.');
 		array_push($install['cron_jobs'][$key], md5_file($cronPath));
 	}
 
@@ -47,9 +46,9 @@ try {
 	# add crons
 	echo '<div class="list-group">';
 	foreach ($install['cron_jobs'] as $cron) {
-		$cronExists = $cabalenginedb->query_fetch_single("SELECT * FROM " . WEBENGINE_CRON . " WHERE cron_file_run = ?", array($cron[2]));
+		$cronExists = $cabalenginedb->query_fetch_single("SELECT * FROM " . CABALENGINE_CRON . " WHERE cron_file_run = ?", array($cron[2]));
 		if (!$cronExists) {
-			$addCron = $cabalenginedb->query("INSERT INTO " . WEBENGINE_CRON . " (cron_name,cron_description,cron_file_run,cron_run_time,cron_status,cron_protected,cron_file_md5) VALUES (?, ?, ?, ?, ?, ?, ?)", $cron);
+			$addCron = $cabalenginedb->query("INSERT INTO " . CABALENGINE_CRON . " (cron_name,cron_description,cron_file_run,cron_run_time,cron_status,cron_protected,cron_file_md5) VALUES (?, ?, ?, ?, ?, ?, ?)", $cron);
 			if ($addCron) {
 				echo '<div class="list-group-item">' . $cron[0] . ' (' . $cron[2] . ')<span class="label label-success pull-right">Added</span></div>';
 			} else {

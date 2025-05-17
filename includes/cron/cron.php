@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.0
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2019 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -14,8 +13,8 @@
 // access
 define('access', 'cron');
 
-// Load WebEngine
-if(!@include_once(str_replace('\\','/',dirname(dirname(__FILE__))).'/' . 'webengine.php')) die('Failed to load WebEngine CMS.');
+// Load CabalEngine
+if(!@include_once(str_replace('\\','/',dirname(dirname(__FILE__))).'/' . 'cabalengine.php')) die('Failed to load CabalEngine CMS.');
 
 // Cron List
 $cronList = getCronList();

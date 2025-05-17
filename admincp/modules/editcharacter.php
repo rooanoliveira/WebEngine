@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -25,7 +24,7 @@ if(isset($_GET['name'])) {
 				if(!Validator::UnsignedNumber($_POST['characteredit_level'])) throw new Exception("All the entered values must be numeric.");
 				if(isset($_POST['characteredit_resets'])) if(!Validator::UnsignedNumber($_POST['characteredit_resets'])) throw new Exception("All the entered values must be numeric.");
 				if(isset($_POST['characteredit_gresets'])) if(!Validator::UnsignedNumber($_POST['characteredit_gresets'])) throw new Exception("All the entered values must be numeric.");
-				if(!Validator::UnsignedNumber($_POST['characteredit_zen'])) throw new Exception("All the entered values must be numeric.");
+				if(!Validator::UnsignedNumber($_POST['characteredit_alz'])) throw new Exception("All the entered values must be numeric.");
 				if(!Validator::UnsignedNumber($_POST['characteredit_lvlpoints'])) throw new Exception("All the entered values must be numeric.");
 				if(!Validator::UnsignedNumber($_POST['characteredit_pklevel'])) throw new Exception("All the entered values must be numeric.");
 				if(!Validator::UnsignedNumber($_POST['characteredit_str'])) throw new Exception("All the entered values must be numeric.");
@@ -46,7 +45,7 @@ if(isset($_GET['name'])) {
 					'name' => $_POST['characteredit_name'],
 					'class' => $_POST['characteredit_class'],
 					'level' => $_POST['characteredit_level'],
-					'zen' => $_POST['characteredit_zen'],
+					'alz' => $_POST['characteredit_alz'],
 					'lvlpoints' => $_POST['characteredit_lvlpoints'],
 					'pklevel' => $_POST['characteredit_pklevel'],
 					'str' => $_POST['characteredit_str'],
@@ -69,7 +68,7 @@ if(isset($_GET['name'])) {
 					$query .= _CLMN_CHR_LVL_ . " = :level,";
 					if(check_value($updateData['resets'])) $query .= _CLMN_CHR_RSTS_ . " = :resets,";
 					if(check_value($updateData['gresets'])) $query .= _CLMN_CHR_GRSTS_ . " = :gresets,";
-					$query .= _CLMN_CHR_ZEN_ . " = :zen,";
+					$query .= _CLMN_CHR_ALZ_ . " = :alz,";
 					$query .= _CLMN_CHR_LVLUP_POINT_ . " = :lvlpoints,";
 					$query .= _CLMN_CHR_PK_LEVEL_ . " = :pklevel,";
 					$query .= _CLMN_CHR_STAT_STR_ . " = :str,";
@@ -165,7 +164,7 @@ if(isset($_GET['name'])) {
 						
 						echo '<tr>';
 							echo '<th>Money:</th>';
-							echo '<td><input class="form-control" type="number" name="characteredit_zen" value="'.$charData[_CLMN_CHR_ZEN_].'"/></td>';
+							echo '<td><input class="form-control" type="number" name="characteredit_alz" value="'.$charData[_CLMN_CHR_ALZ_].'"/></td>';
 						echo '</tr>';
 						echo '<tr>';
 							echo '<th>Level-Up Points:</th>';

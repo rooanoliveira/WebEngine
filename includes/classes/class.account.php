@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -53,7 +52,7 @@ class Account extends common
 		if ($this->userExists($username)) throw new Exception(lang('error_10', true));
 		if ($this->emailExists($email)) throw new Exception(lang('error_11', true));
 
-		# WebEngine Email Verification System (EVS)
+		# CabalEngine Email Verification System (EVS)
 		if ($regCfg['verify_email']) {
 			# check if username / email exists
 			if ($this->checkUsernameEVS($username)) throw new Exception(lang('error_10', true));
@@ -211,7 +210,7 @@ class Account extends common
 		if (!Validator::UnsignedNumber($userid)) throw new Exception(lang('error_25', true));
 		if (!Validator::UnsignedNumber($authcode)) throw new Exception(lang('error_25', true));
 
-		$result = $this->account->query_fetch_single("SELECT * FROM " . WEBENGINE_PASSCHANGE_REQUEST . " WHERE user_id = ?", array($userid));
+		$result = $this->account->query_fetch_single("SELECT * FROM " . CABALENGINE_PASSCHANGE_REQUEST . " WHERE user_id = ?", array($userid));
 		if (!is_array($result)) throw new Exception(lang('error_25', true));
 
 		# load changepw configs
@@ -398,7 +397,7 @@ class Account extends common
 
 	public function verifyRegistrationProcess($username, $key)
 	{
-		$verifyKey = $this->web->query_fetch_single("SELECT * FROM " . WEBENGINE_REGISTER_ACCOUNT . " WHERE registration_account = ? AND registration_key = ?", array($username, $key));
+		$verifyKey = $this->web->query_fetch_single("SELECT * FROM " . CABALENGINE_REGISTER_ACCOUNT . " WHERE registration_account = ? AND registration_key = ?", array($username, $key));
 		if (!is_array($verifyKey)) throw new Exception(lang('error_25', true));
 
 		# load registration configs
@@ -438,7 +437,7 @@ class Account extends common
 	public function getAccountCountry()
 	{
 		if (!check_value($this->_account)) return;
-		$result = $this->web->query_fetch_single("SELECT * FROM " . WEBENGINE_ACCOUNT_COUNTRY . " WHERE account = ?", array($this->_account));
+		$result = $this->web->query_fetch_single("SELECT * FROM " . CABALENGINE_ACCOUNT_COUNTRY . " WHERE account = ?", array($this->_account));
 		if (!is_array($result)) return;
 		return $result;
 	}
@@ -452,7 +451,7 @@ class Account extends common
 		if (!is_array($data)) return;
 		if (time() < strtotime($data['lastchange']) + $this->_countryChangeCooldown) return;
 
-		$result = $this->web->query("UPDATE " . WEBENGINE_ACCOUNT_COUNTRY . " SET country = ? WHERE account = ?", array($this->_country, $this->_account));
+		$result = $this->web->query("UPDATE " . CABALENGINE_ACCOUNT_COUNTRY . " SET country = ? WHERE account = ?", array($this->_country, $this->_account));
 		if (!$result) return;
 		return true;
 	}
@@ -461,14 +460,14 @@ class Account extends common
 	{
 		if (!check_value($this->_account)) return;
 		if (!check_value($this->_country)) return;
-		$result = $this->web->query("INSERT INTO " . WEBENGINE_ACCOUNT_COUNTRY . " (account, country) VALUES (?, ?)", array($this->_account, $this->_country));
+		$result = $this->web->query("INSERT INTO " . CABALENGINE_ACCOUNT_COUNTRY . " (account, country) VALUES (?, ?)", array($this->_account, $this->_country));
 		if (!$result) return;
 		return true;
 	}
 
 	public function getServerList()
 	{
-		$result = $this->cabalserver01->query_fetch("SELECT DISTINCT(" . _CLMN_CH_ID_ . ") FROM " . _TBL_CHINI_ . "");
+		$result = $this->account->query_fetch("SELECT DISTINCT(" . _CLMN_CH_ID_ . ") FROM " . _TBL_CHINI_ . "");
 		if (!is_array($result)) return;
 		foreach ($result as $row) {
 			$servers[] = $row[_CLMN_CH_ID_];
@@ -478,11 +477,11 @@ class Account extends common
 
 	public function getOnlineAccountCount($server = null)
 	{
-		if (check_value($server)) {
-			$result = $this->account->query_fetch_single("SELECT COUNT(*) as online FROM " . _TBL_MS_ . " WHERE " . _CLMN_CONNSTAT_ . " = 1", array($server));
-			if (!is_array($result)) return 0;
-			return $result['online'];
-		}
+		// if (check_value($server)) {
+		// 	$result = $this->account->query_fetch_single("SELECT COUNT(*) as online FROM " . _TBL_MS_ . " WHERE " . _CLMN_CONNSTAT_ . " = 1", array($server));
+		// 	if (!is_array($result)) return 0;
+		// 	return $result['online'];
+		// }
 		$result = $this->account->query_fetch_single("SELECT COUNT(*) as online FROM " . _TBL_MS_ . " WHERE " . _CLMN_CONNSTAT_ . " = 1");
 		if (!is_array($result)) return 0;
 		return $result['online'];
@@ -548,7 +547,7 @@ class Account extends common
 			$key
 		);
 
-		$query = "INSERT INTO " . WEBENGINE_REGISTER_ACCOUNT . " (registration_account,registration_password,registration_email,registration_date,registration_ip,registration_key) VALUES (?,?,?,?,?,?)";
+		$query = "INSERT INTO " . CABALENGINE_REGISTER_ACCOUNT . " (registration_account,registration_password,registration_email,registration_date,registration_ip,registration_key) VALUES (?,?,?,?,?,?)";
 
 		$result = $this->web->query($query, $data);
 		if (!$result) return;
@@ -558,7 +557,7 @@ class Account extends common
 	private function deleteRegistrationVerification($username)
 	{
 		if (!check_value($username)) return;
-		$delete = $this->web->query("DELETE FROM " . WEBENGINE_REGISTER_ACCOUNT . " WHERE registration_account = ?", array($username));
+		$delete = $this->web->query("DELETE FROM " . CABALENGINE_REGISTER_ACCOUNT . " WHERE registration_account = ?", array($username));
 		if ($delete) return true;
 		return;
 	}
@@ -566,7 +565,7 @@ class Account extends common
 	private function checkUsernameEVS($username)
 	{
 		if (!check_value($username)) return;
-		$result = $this->web->query_fetch_single("SELECT * FROM " . WEBENGINE_REGISTER_ACCOUNT . " WHERE registration_account = ?", array($username));
+		$result = $this->web->query_fetch_single("SELECT * FROM " . CABALENGINE_REGISTER_ACCOUNT . " WHERE registration_account = ?", array($username));
 		if (!is_array($result)) return;
 
 		$configs = loadConfigurations('register');
@@ -582,7 +581,7 @@ class Account extends common
 	private function checkEmailEVS($email)
 	{
 		if (!check_value($email)) return;
-		$result = $this->web->query_fetch_single("SELECT * FROM " . WEBENGINE_REGISTER_ACCOUNT . " WHERE registration_email = ?", array($email));
+		$result = $this->web->query_fetch_single("SELECT * FROM " . CABALENGINE_REGISTER_ACCOUNT . " WHERE registration_email = ?", array($email));
 		if (!is_array($result)) return;
 
 		$configs = loadConfigurations('register');

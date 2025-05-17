@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -20,12 +19,12 @@ if(!isLoggedIn()) {
 		echo '<div class="panel-body">';
 			echo '<form action="'.__BASE_URL__.'login" method="post">';
 				echo '<div class="form-group">';
-					echo '<input type="text" class="form-control" id="loginBox1" name="webengineLogin_user" required>';
+					echo '<input type="text" class="form-control" id="loginBox1" name="cabalengineLogin_user" required>';
 				echo '</div>';
 				echo '<div class="form-group">';
-					echo '<input type="password" class="form-control" id="loginBox2" name="webengineLogin_pwd" required>';
+					echo '<input type="password" class="form-control" id="loginBox2" name="cabalengineLogin_pwd" required>';
 				echo '</div>';
-				echo '<button type="submit" name="webengineLogin_submit" value="submit" class="btn btn-primary">'.lang('login_txt_3').'</button>';
+				echo '<button type="submit" name="cabalengineLogin_submit" value="submit" class="btn btn-primary">'.lang('login_txt_3').'</button>';
 			echo '</form>';
 		echo '</div>';
 	echo '</div>';

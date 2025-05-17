@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.5
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2023 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -140,7 +139,7 @@ function templateLanguageSelector() {
 		$lang = config('language_default', true);
 	}
 	
-	echo '<ul class="webengine-language-switcher">';
+	echo '<ul class="cabalengine-language-switcher">';
 		echo '<li><a href="'.__BASE_URL__.'language/switch/to/'.strtolower($lang).'" title="'.$langList[$lang][0].'"><img src="'.getCountryFlag($langList[$lang][1]).'" /> '.strtoupper($lang).'</a></li> ';
 		foreach($langList as $language => $languageInfo) {
 			if($language == $lang) continue;

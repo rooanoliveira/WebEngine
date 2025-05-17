@@ -1,12 +1,11 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
- * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * CabalEngine CMS
+ *
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -21,7 +20,7 @@ function saveChanges() {
 			return;
 		}
 	}
-	
+
 	// PAYPAL
 	$xmlPath = __PATH_MODULE_CONFIGS__.'donation.paypal.xml';
 	$xml = simplexml_load_file($xmlPath);
@@ -35,7 +34,7 @@ function saveChanges() {
 	$xml->paypal_conversion_rate = $_POST['setting_9'];
 	$xml->credit_config = $_POST['setting_10'];
 	$save2 = $xml->asXML($xmlPath);
-	
+
 
 	if($save2) {
 		message('success','[PayPal] Settings successfully saved.');
@@ -74,7 +73,7 @@ $creditSystem = new CreditSystem();
 			</td>
 		</tr>
 		<tr>
-			<th>PayPal Donations Title<br/><span>Title of the PayPal donation. Example: "Donation for MU Credits".</span></th>
+			<th>PayPal Donations Title<br/><span>Title of the PayPal donation. Example: "Donation for eCoins Credits".</span></th>
 			<td>
 				<input class="input-xxlarge" type="text" name="setting_5" value="<?php echo mconfig('paypal_title'); ?>"/>
 			</td>
@@ -92,7 +91,7 @@ $creditSystem = new CreditSystem();
 			</td>
 		</tr>
 		<tr>
-			<th>IPN Notify URL<br/><span>URL of WebEngine's PayPal API.<br/><br/> By default it has to be in: <b>http://YOURWEBSITE.COM/api/paypal.php</b></span></th>
+			<th>IPN Notify URL<br/><span>URL of CabalEngine's PayPal API.<br/><br/> By default it has to be in: <b>http://YOURWEBSITE.COM/api/paypal.php</b></span></th>
 			<td>
 				<input class="input-xxlarge" type="text" name="setting_8" value="<?php echo mconfig('paypal_notify_url'); ?>"/>
 			</td>

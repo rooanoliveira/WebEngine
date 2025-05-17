@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.5
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2023 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -26,16 +25,16 @@ try {
 		throw new Exception(lang('error_19',true));
 	}
 	
-	if(isset($_POST['webenginePassword_submit'])) {
+	if(isset($_POST['cabalenginePassword_submit'])) {
 		try {
 			$Account = new Account();
 			
 			if(mconfig('change_password_email_verification')) {
 				# verification required
-				$Account->changePasswordProcess_verifyEmail($_SESSION['userid'], $_SESSION['username'], $_POST['webenginePassword_current'], $_POST['webenginePassword_new'], $_POST['webenginePassword_newconfirm'], $_SERVER['REMOTE_ADDR']);
+				$Account->changePasswordProcess_verifyEmail($_SESSION['userid'], $_SESSION['username'], $_POST['cabalenginePassword_current'], $_POST['cabalenginePassword_new'], $_POST['cabalenginePassword_newconfirm'], $_SERVER['REMOTE_ADDR']);
 			} else {
 				# no verification
-				$Account->changePasswordProcess($_SESSION['userid'], $_SESSION['username'], $_POST['webenginePassword_current'], $_POST['webenginePassword_new'], $_POST['webenginePassword_newconfirm']);
+				$Account->changePasswordProcess($_SESSION['userid'], $_SESSION['username'], $_POST['cabalenginePassword_current'], $_POST['cabalenginePassword_new'], $_POST['cabalenginePassword_newconfirm']);
 			}
 		} catch (Exception $ex) {
 			message('error', $ex->getMessage());
@@ -45,26 +44,26 @@ try {
 	echo '<div class="col-xs-8 col-xs-offset-2" style="margin-top:30px;">';
 		echo '<form class="form-horizontal" action="" method="post">';
 			echo '<div class="form-group">';
-				echo '<label for="webenginePassword" class="col-sm-4 control-label">'.lang('changepassword_txt_1',true).'</label>';
+				echo '<label for="cabalenginePassword" class="col-sm-4 control-label">'.lang('changepassword_txt_1',true).'</label>';
 				echo '<div class="col-sm-8">';
-					echo '<input type="password" class="form-control" id="webenginePassword" name="webenginePassword_current">';
+					echo '<input type="password" class="form-control" id="cabalenginePassword" name="cabalenginePassword_current">';
 				echo '</div>';
 			echo '</div>';
 			echo '<div class="form-group">';
-				echo '<label for="webenginePassword" class="col-sm-4 control-label">'.lang('changepassword_txt_2',true).'</label>';
+				echo '<label for="cabalenginePassword" class="col-sm-4 control-label">'.lang('changepassword_txt_2',true).'</label>';
 				echo '<div class="col-sm-8">';
-					echo '<input type="password" class="form-control" id="webenginePassword" name="webenginePassword_new">';
+					echo '<input type="password" class="form-control" id="cabalenginePassword" name="cabalenginePassword_new">';
 				echo '</div>';
 			echo '</div>';
 			echo '<div class="form-group">';
-				echo '<label for="webenginePassword" class="col-sm-4 control-label">'.lang('changepassword_txt_3',true).'</label>';
+				echo '<label for="cabalenginePassword" class="col-sm-4 control-label">'.lang('changepassword_txt_3',true).'</label>';
 				echo '<div class="col-sm-8">';
-					echo '<input type="password" class="form-control" id="webenginePassword" name="webenginePassword_newconfirm">';
+					echo '<input type="password" class="form-control" id="cabalenginePassword" name="cabalenginePassword_newconfirm">';
 				echo '</div>';
 			echo '</div>';
 			echo '<div class="form-group">';
 				echo '<div class="col-sm-offset-4 col-sm-8">';
-					echo '<button type="submit" name="webenginePassword_submit" value="submit" class="btn btn-primary">'.lang('changepassword_txt_4',true).'</button>';
+					echo '<button type="submit" name="cabalenginePassword_submit" value="submit" class="btn btn-primary">'.lang('changepassword_txt_4',true).'</button>';
 				echo '</div>';
 			echo '</div>';
 		echo '</form>';

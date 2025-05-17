@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -94,7 +93,7 @@ echo '<div class="list-group">';
 		echo '<span class="pull-right">'.$check_9.'</span>';
 	echo '</div>';
 	
-	$chk_10 = file_get_contents(__BASE_URL__ . 'includes/config/webengine.json');
+	$chk_10 = file_get_contents(__BASE_URL__ . 'includes/config/cabalengine.json');
 	$chk_10_code = explode(' ', $http_response_header[0]);
 	$chk_10 = ($chk_10_code[1] == '403' ? '<span class="label label-success">Ok</span>' : '(private directories can be accessed by everyone) <span class="label label-danger">Fix</span>');
 	echo '<div class="list-group-item">';

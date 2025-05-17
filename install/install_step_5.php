@@ -1,11 +1,10 @@
 <?php
 
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  *
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
  *
  * Licensed under the MIT license
@@ -34,39 +33,39 @@ if (isset($_POST['install_step_5_submit'])) {
 		if (!isset($_SESSION['install_sql_dsn'])) throw new Exception('Database connection info missing, restart installation process.');
 
 		# check for valid server files
-		if (!array_key_exists($_POST['install_step_5_7'], $webengine['file_compatibility'])) throw new Exception('The selected server files are not compatible with WebEngine CMS.');
+		if (!array_key_exists($_POST['install_step_5_7'], $cabalengine['file_compatibility'])) throw new Exception('The selected server files are not compatible with CabalEngine CMS.');
 
 		// Set Configs
-		$webengineDefaultConfig['admins'] = array($_POST['install_step_5_1'] => 100);
-		$webengineDefaultConfig['server_files'] = strtolower($_POST['install_step_5_7']);
-		$webengineDefaultConfig['SQL_DB_HOST'] = $_SESSION['install_sql_host'];
-		$webengineDefaultConfig['SQL_DB_WEB_NAME'] = $_SESSION['install_sql_cabalengine'];
-		$webengineDefaultConfig['SQL_DB_ACCOUNT_NAME'] = $_SESSION['install_sql_account'];
-		$webengineDefaultConfig['SQL_DB_CABALCASH_NAME'] = $_SESSION['install_sql_cabalcash'];
-		$webengineDefaultConfig['SQL_DB_CABALGUILD_NAME'] = $_SESSION['install_sql_cabalguild'];
-		$webengineDefaultConfig['SQL_DB_CABALCOUPON_NAME'] = $_SESSION['install_sql_cabalcoupon'];
-		$webengineDefaultConfig['SQL_DB_CABALEVENT_NAME'] = $_SESSION['install_sql_cabalevent'];
-		$webengineDefaultConfig['SQL_DB_CABALEVENTDATA_NAME'] = $_SESSION['install_sql_cabaleventdata'];
-		$webengineDefaultConfig['SQL_DB_CABALGAMESVC_NAME'] = $_SESSION['install_sql_cabalgamesvc'];
-		$webengineDefaultConfig['SQL_DB_CABALITEMSHOP_NAME'] = $_SESSION['install_sql_cabalitemshop'];
-		$webengineDefaultConfig['SQL_DB_CABALNETCAFEBILLING_NAME'] = $_SESSION['install_sql_cabalnetcafebilling'];
-		$webengineDefaultConfig['SQL_DB_CABALSERVER01_NAME'] = $_SESSION['install_sql_cabalserver01'];
-		$webengineDefaultConfig['SQL_DB_CABALTPOINTSHOP_NAME'] = $_SESSION['install_sql_cabaltpointshop'];
-		$webengineDefaultConfig['SQL_DB_USER'] = $_SESSION['install_sql_user'];
-		$webengineDefaultConfig['SQL_DB_PASS'] = $_SESSION['install_sql_pass'];
-		$webengineDefaultConfig['SQL_DB_PORT'] = $_SESSION['install_sql_port'];
-		$webengineDefaultConfig['SQL_PDO_DRIVER'] = $_SESSION['install_sql_dsn'];
-		$webengineDefaultConfig['webengine_cms_installed'] = true;
+		$cabalengineDefaultConfig['admins'] = array($_POST['install_step_5_1'] => 100);
+		$cabalengineDefaultConfig['server_files'] = strtolower($_POST['install_step_5_7']);
+		$cabalengineDefaultConfig['SQL_DB_HOST'] = $_SESSION['install_sql_host'];
+		$cabalengineDefaultConfig['SQL_DB_WEB_NAME'] = $_SESSION['install_sql_cabalengine'];
+		$cabalengineDefaultConfig['SQL_DB_ACCOUNT_NAME'] = $_SESSION['install_sql_account'];
+		$cabalengineDefaultConfig['SQL_DB_CABALCASH_NAME'] = $_SESSION['install_sql_cabalcash'];
+		$cabalengineDefaultConfig['SQL_DB_CABALGUILD_NAME'] = $_SESSION['install_sql_cabalguild'];
+		$cabalengineDefaultConfig['SQL_DB_CABALCOUPON_NAME'] = $_SESSION['install_sql_cabalcoupon'];
+		$cabalengineDefaultConfig['SQL_DB_CABALEVENT_NAME'] = $_SESSION['install_sql_cabalevent'];
+		$cabalengineDefaultConfig['SQL_DB_CABALEVENTDATA_NAME'] = $_SESSION['install_sql_cabaleventdata'];
+		$cabalengineDefaultConfig['SQL_DB_CABALGAMESVC_NAME'] = $_SESSION['install_sql_cabalgamesvc'];
+		$cabalengineDefaultConfig['SQL_DB_CABALITEMSHOP_NAME'] = $_SESSION['install_sql_cabalitemshop'];
+		$cabalengineDefaultConfig['SQL_DB_CABALNETCAFEBILLING_NAME'] = $_SESSION['install_sql_cabalnetcafebilling'];
+		$cabalengineDefaultConfig['SQL_DB_CABALSERVER01_NAME'] = $_SESSION['install_sql_cabalserver01'];
+		$cabalengineDefaultConfig['SQL_DB_CABALTPOINTSHOP_NAME'] = $_SESSION['install_sql_cabaltpointshop'];
+		$cabalengineDefaultConfig['SQL_DB_USER'] = $_SESSION['install_sql_user'];
+		$cabalengineDefaultConfig['SQL_DB_PASS'] = $_SESSION['install_sql_pass'];
+		$cabalengineDefaultConfig['SQL_DB_PORT'] = $_SESSION['install_sql_port'];
+		$cabalengineDefaultConfig['SQL_PDO_DRIVER'] = $_SESSION['install_sql_dsn'];
+		$cabalengineDefaultConfig['cabalengine_cms_installed'] = true;
 
 		# encode settings
-		$newWebengineConfigs = json_encode($webengineDefaultConfig, JSON_PRETTY_PRINT);
-		if ($newWebengineConfigs == false) throw new Exception('Could not encode WebEngine CMS configurations.');
+		$newWebengineConfigs = json_encode($cabalengineDefaultConfig, JSON_PRETTY_PRINT);
+		if ($newWebengineConfigs == false) throw new Exception('Could not encode CabalEngine CMS configurations.');
 
 		# save configurations
-		$cfgFile = fopen($webengineConfigsPath, 'w');
-		if (!$cfgFile) throw new Exception('Could not open WebEngine CMS Configurations file.');
+		$cfgFile = fopen($cabalengineConfigsPath, 'w');
+		if (!$cfgFile) throw new Exception('Could not open CabalEngine CMS Configurations file.');
 		$cfgUpdate = fwrite($cfgFile, $newWebengineConfigs);
-		if (!$cfgUpdate) throw new Exception('Could not save WebEngine CMS Configurations file.');
+		if (!$cfgUpdate) throw new Exception('Could not save CabalEngine CMS Configurations file.');
 		fclose($cfgFile);
 
 		# clear session data
@@ -93,7 +92,7 @@ if (isset($_POST['install_step_5_submit'])) {
 	<div class="form-group">
 		<label class="col-sm-3 control-label">Server Files</label>
 		<div class="col-sm-9">
-			<?php foreach ($webengine['file_compatibility'] as $serverFileValue => $serverFileInfo) { ?>
+			<?php foreach ($cabalengine['file_compatibility'] as $serverFileValue => $serverFileInfo) { ?>
 				<div class="radio">
 					<label>
 						<input type="radio" name="install_step_5_7" name="optionsRadios" value="<?php echo $serverFileValue; ?>">

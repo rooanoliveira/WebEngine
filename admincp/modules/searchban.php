@@ -1,12 +1,11 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
- * 
- * @version 1.2.6
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * CabalEngine CMS
+ *
+ * @version 1.0.0 / Based on WebEngine 1.2.6 by Lautaro Angelico <http://webenginecms.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2025 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
@@ -20,12 +19,12 @@
 </form>
 <br />
 <?php
-	$database = (config('SQL_USE_2_DB',true) ? $dB2 : $dB);
-	
+	$database = $web;
+
 	if(isset($_POST['search_request'])) {
 		try {
 			$searchRequest = '%'.$_POST['search_request'].'%';
-			$search = $database->query_fetch("SELECT TOP 25 * FROM ".WEBENGINE_BAN_LOG." WHERE account_id LIKE ?", array($searchRequest));
+			$search = $database->query_fetch("SELECT TOP 25 * FROM ".CABALENGINE_BAN_LOG." WHERE account_id LIKE ?", array($searchRequest));
 			if(is_array($search)) {
 				echo '<div class="row">';
 				echo '<div class="col-md-12">';

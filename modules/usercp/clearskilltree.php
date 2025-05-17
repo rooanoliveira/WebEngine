@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.5
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2023 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -56,7 +55,7 @@ try {
 					echo '<td>'.$characterData[_CLMN_CHR_NAME_].'</td>';
 					echo '<td>'.number_format($characterMLVLData[_CLMN_ML_LVL_]).'</td>';
 					echo '<td>'.number_format($characterMLVLData[_CLMN_ML_POINT_]).'</td>';
-					echo '<td>'.number_format($characterData[_CLMN_CHR_ZEN_]).'</td>';
+					echo '<td>'.number_format($characterData[_CLMN_CHR_ALZ_]).'</td>';
 					echo '<td><button name="submit" value="submit" class="btn btn-primary">'.lang('clearst_txt_4',true).'</button></td>';
 				echo '</tr>';
 			echo '</form>';
@@ -66,7 +65,7 @@ try {
 	echo '<div class="module-requirements text-center">';
 		if(mconfig('required_level') > 0) echo '<p>'.langf('clearst_txt_8', array(number_format(mconfig('required_level')))).'</p>';
 		if(mconfig('required_master_level') > 0) echo '<p>'.langf('clearst_txt_6', array(number_format(mconfig('required_master_level')))).'</p>';
-		if(mconfig('zen_cost') > 0) echo '<p>'.langf('clearst_txt_7', array(number_format(mconfig('zen_cost')))).'</p>';
+		if(mconfig('alz_cost') > 0) echo '<p>'.langf('clearst_txt_7', array(number_format(mconfig('alz_cost')))).'</p>';
 	echo '</div>';
 	
 } catch(Exception $ex) {

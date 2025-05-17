@@ -3,6 +3,7 @@ CREATE TABLE [dbo].[{TABLE_NAME}](
 	[log_config] [varchar](50) NOT NULL,
 	[log_identifier] [varchar](50) NOT NULL,
 	[log_credits] [int] NOT NULL,
+	[log_creditsbonus] [int] NOT NULL,
 	[log_transaction] [varchar](50) NOT NULL,
 	[log_date] [varchar](50) NOT NULL,
 	[log_inadmincp] [tinyint] NULL,

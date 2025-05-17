@@ -3,7 +3,7 @@
 	<active>0</active>
 	<paypal_enable_sandbox>0</paypal_enable_sandbox>
 	<paypal_email>seller@gmail.com</paypal_email>
-	<paypal_title>Donation for WCoinC</paypal_title>
+	<paypal_title>Donation for eCoins</paypal_title>
 	<paypal_currency>USD</paypal_currency>
 	<paypal_return_url>http://website.com/</paypal_return_url>
 	<paypal_notify_url>http://website.com/api/paypal.php</paypal_notify_url>

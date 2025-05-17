@@ -1,10 +1,9 @@
 <?php
 /**
- * WebEngine CMS
- * https://webenginecms.org/
+ * CabalEngine CMS
  * 
  * @version 1.2.2
- * @author Lautaro Angelico <http://lautaroangelico.com/>
+ * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2020 Lautaro Angelico, All Rights Reserved
  * 
  * Licensed under the MIT license
@@ -60,7 +59,7 @@ $lang['module_titles_txt_24'] = '隐私策略';
 $lang['module_titles_txt_25'] = '人物加点';
 $lang['module_titles_txt_26'] = '联系我们';
 $lang['module_titles_txt_27'] = '退款策略';
-$lang['module_titles_txt_28'] = '购买Zen（游戏内金）';
+$lang['module_titles_txt_28'] = '购买Alz（游戏内金）';
 $lang['module_titles_txt_29'] = '攻城信息';
 
 # usercp
@@ -75,7 +74,7 @@ $lang['usercp_menu_txt_7'] = 'V.I.P. 系统';
 $lang['usercp_menu_txt_8'] = '数值重置';
 $lang['usercp_menu_txt_9'] = '重置技能树';
 $lang['usercp_menu_txt_10'] = '加点';
-$lang['usercp_menu_txt_11'] = '购买Zen';
+$lang['usercp_menu_txt_11'] = '购买Alz';
 
 # success
 $lang['success_1'] = '你的账户已经成功创建！ 3秒钟后将会转移到登陆界面……';
@@ -98,7 +97,7 @@ $lang['success_17'] = '你的人物的升级点数已成功追加。';
 $lang['success_18'] = '验证链接已经发往你的电子邮箱，请查收以继续注册。';
 $lang['success_19'] = '请检查你的电邮地址以继续。';
 $lang['success_20'] = '账户电邮地址已经成功更改。';
-$lang['success_21'] = 'Zen（金） 购买成功。';
+$lang['success_21'] = 'Alz（金） 购买成功。';
 $lang['success_22'] = '感谢联系我们，我们将尽快回复。';
 
 # errors
@@ -484,13 +483,13 @@ $lang['castlesiege_time_4'] = '1分钟之内。';
 $lang['castlesiege_battle_duration'] = '%s 小时 %s 分钟';
 $lang['castlesiege_widget_title'] = '攻城战';
 
-# buy zen
-$lang['buyzen_txt_1'] = '购买金';
-$lang['buyzen_txt_2'] = ' 金 送往 ';
-$lang['buyzen_txt_3'] = '人物';
-$lang['buyzen_txt_4'] = '金';
-$lang['buyzen_txt_5'] = '购买';
-$lang['buyzen_txt_6'] = '点卷积分';
+# buy alz
+$lang['buyalz_txt_1'] = '购买金';
+$lang['buyalz_txt_2'] = ' 金 送往 ';
+$lang['buyalz_txt_3'] = '人物';
+$lang['buyalz_txt_4'] = '金';
+$lang['buyalz_txt_5'] = '购买';
+$lang['buyalz_txt_6'] = '点卷积分';
 
 # contact us
 $lang['contactus_txt_1'] = '电子邮件地址';
@@ -504,4 +503,4 @@ $lang['footer_refund'] = '退款策略';
 $lang['footer_info'] = '服务器信息';
 $lang['footer_contact'] = '联系我们';
 $lang['footer_copyright'] = '%s © %s, 保留所有权利。';
-$lang['footer_webzen_copyright'] = '本站点与 WebZen 公司没有任何关系。';
+$lang['footer_estsoft_copyright'] = '本站点与 ESTSoft 公司没有任何关系。';
