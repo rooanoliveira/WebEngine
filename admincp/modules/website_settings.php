@@ -40,7 +40,7 @@ $allowedSettings = array(
 	'social_link_facebook',
 	'social_link_instagram',
 	'social_link_discord',
-	'server_info_season',
+	'server_info_episode',
 	'server_info_exp',
 	'server_info_masterexp',
 	'server_info_drop',
@@ -173,7 +173,7 @@ if(isset($_POST['settings_submit'])) {
 		$setting['social_link_discord'] = $_POST['social_link_discord'];
 
 		# server info season
-		$setting['server_info_season'] = $_POST['server_info_season'];
+		$setting['server_info_episode'] = $_POST['server_info_episode'];
 
 		# server info exp
 		$setting['server_info_exp'] = $_POST['server_info_exp'];
@@ -590,7 +590,7 @@ echo '<div class="col-md-12">';
 					echo '<p class="setting-description">Leave empty to hide this information.</p>';
 				echo '</td>';
 				echo '<td>';
-					echo '<input type="text" class="form-control" name="server_info_season" value="'.config('server_info_season',true).'">';
+					echo '<input type="text" class="form-control" name="server_info_episode" value="'.config('server_info_episode',true).'">';
 				echo '</td>';
 			echo '</tr>';
 

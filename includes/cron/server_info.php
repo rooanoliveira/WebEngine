@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CabalEngine CMS
  *
@@ -14,37 +15,64 @@
 $file_name = basename(__FILE__);
 
 // load databases
-$web = Connection::Database('cabalengine');
-$account = Connection::Database('Account');
-$server01 = Connection::Database('Server01');
+$web       = Connection::Database('cabalengine');
+$account   = Connection::Database('Account');
+$server01  = Connection::Database('Server01');
 
-# total accounts
-$totalAccounts = 0;
-$countAccounts = $account->query_fetch_single("SELECT COUNT(*) as totalAccounts FROM "._TBL_MI_);
-if(is_array($countAccounts)) $totalAccounts = $countAccounts['totalAccounts'];
+$serverInfo = [];
+
+// total accounts
+$countAccounts = $account->query_fetch_single(
+	"SELECT COUNT(*) as totalAccounts FROM " . _TBL_MI_
+);
+$totalAccounts = is_array($countAccounts) ? (int)$countAccounts['totalAccounts'] : 0;
 $serverInfo[] = $totalAccounts;
 
-# total characters
-$totalCharacters = 0;
-$countCharacters = $server01->query_fetch_single("SELECT COUNT(*) as totalCharacters FROM "._TBL_CHR_);
-if(is_array($countCharacters)) $totalCharacters = $countCharacters['totalCharacters'];
+// total characters
+$countCharacters = $server01->query_fetch_single(
+	"SELECT COUNT(*) as totalCharacters FROM " . _TBL_CHR_
+);
+$totalCharacters = is_array($countCharacters) ? (int)$countCharacters['totalCharacters'] : 0;
 $serverInfo[] = $totalCharacters;
 
-# total guilds
-$totalGuilds = 0;
-$countGuilds = $server01->query_fetch_single("SELECT COUNT(*) as totalGuilds FROM "._TBL_GUILD_);
-if(is_array($countGuilds)) $totalGuilds = $countGuilds['totalGuilds'];
+// total guilds
+$countGuilds = $server01->query_fetch_single(
+	"SELECT COUNT(*) as totalGuilds FROM " . _TBL_GUILD_
+);
+$totalGuilds = is_array($countGuilds) ? (int)$countGuilds['totalGuilds'] : 0;
 $serverInfo[] = $totalGuilds;
 
-# total online
-$totalOnline = 0;
-$countOnline = $account->query_fetch_single("SELECT COUNT(*) as totalOnline FROM "._TBL_MS_." WHERE "._CLMN_CONNSTAT_." = 1");
-if(is_array($countOnline)) $totalOnline = $countOnline['totalOnline'];
+// total online
+$countOnline = $account->query_fetch_single(
+	"SELECT COUNT(*) as totalOnline FROM " . _TBL_MS_ . " WHERE " . _CLMN_CONNSTAT_ . " = 1"
+);
+$totalOnline = is_array($countOnline) ? (int)$countOnline['totalOnline'] : 0;
 $serverInfo[] = $totalOnline;
 
-if(is_array($serverInfo)) {
-	$cacheDATA = implode("|",$serverInfo);
-	UpdateCache('server_info.cache',$cacheDATA);
+// total by nation
+$countNation = $server01->query_fetch_single(
+	"SELECT
+        SUM(CASE WHEN " . _CLMN_CHR_NATION_ . " = 0 THEN 1 ELSE 0 END) AS NeutralCount,
+        SUM(CASE WHEN " . _CLMN_CHR_NATION_ . " = 1 THEN 1 ELSE 0 END) AS CapellaCount,
+        SUM(CASE WHEN " . _CLMN_CHR_NATION_ . " = 2 THEN 1 ELSE 0 END) AS ProcyonCount
+	FROM " . _TBL_CHR_ . "
+    "
+);
+if (is_array($countNation)) {
+	$totalNeutral  = (int)$countNation['NeutralCount'];
+	$totalCapella  = (int)$countNation['CapellaCount'];
+	$totalProcyon  = (int)$countNation['ProcyonCount'];
+} else {
+	$totalNeutral = $totalCapella = $totalProcyon = 0;
+}
+$serverInfo[] = $totalNeutral;
+$serverInfo[] = $totalCapella;
+$serverInfo[] = $totalProcyon;
+
+// write cache
+if (is_array($serverInfo)) {
+	$cacheDATA = implode("|", $serverInfo);
+	UpdateCache('server_info.cache', $cacheDATA);
 }
 
 // UPDATE CRON

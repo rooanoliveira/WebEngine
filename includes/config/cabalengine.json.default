@@ -28,7 +28,7 @@
   "SQL_DB_PASS": "",
   "SQL_DB_PORT": "1433",
   "SQL_PDO_DRIVER": "1",
-  "server_files": "igcn",
+  "server_files": "ep33",
   "language_switch_active": true,
   "language_default": "en",
   "language_debug": false,
@@ -47,10 +47,9 @@
   "social_link_facebook": "https://facebook.com/",
   "social_link_instagram": "https://instagram.com/",
   "social_link_discord": "https://discord.com/",
-  "server_info_season": "Season 20",
-  "server_info_exp": "500x",
+  "server_info_episode": "Episode 33",
+  "server_info_exp": "10x",
   "server_info_masterexp": "250x",
   "server_info_drop": "50%",
-  "maximum_online": "500",
-  "season_1_support": false
+  "maximum_online": "500"
 }

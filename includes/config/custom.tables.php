@@ -26,6 +26,7 @@ define('_TBL_MS_', 'cabal_auth_table');
 	define('_CLMN_MS_MEMBID_', 'ID');
 	define('_CLMN_MS_GS_', 'ChannelIdx');
 	define('_CLMN_MS_IP_', 'LastIp');
+	define('_CLMN_MS_PLAYTIME_', 'PlayTime');
 
 define('_TBL_CHINI_', 'cabal_gms_ini_table');
 	define('_CLMN_CH_ID_', 'Channel');
@@ -96,7 +97,8 @@ define('_TBL_GUILD_', 'Guild');
 
 define('_TBL_GUILD_LVL_', 'cabal_guild_level_table');
 	define('_CLMN_GUILD_LVL_ID_', 'guildNo');
-	define('_CLMN_GUILD_SCORE_', 'Point');
+	define('_CLMN_GUILD_LVL_LEVEL_', 'Level');
+	define('_CLMN_GUILD_LVL_SCORE_', 'Point');
 
 define('_TBL_GUILDMEMB_', 'GuildMember');
 	define('_CLMN_GUILDMEMB_ID_', 'GuildNo');

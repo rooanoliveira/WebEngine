@@ -1,17 +1,22 @@
 <?php
+
 /**
  * CabalEngine CMS
- * 
+ *
  * @version 1.2.1
  * @Mod author Rooan Oliveira / Original author Lautaro Angelico <http://lautaroangelico.com/>
  * @copyright (c) 2013-2020 Lautaro Angelico, All Rights Reserved
- * 
+ *
  * Licensed under the MIT license
  * http://opensource.org/licenses/MIT
  */
 
+$serverInfoCache = LoadCacheData('server_info.cache');
+if (is_array($serverInfoCache)) {
+	$srvInfo = explode("|", $serverInfoCache[1][0]);
+}
 // Module Title
-echo '<div class="page-title"><span>'.lang('module_titles_txt_17').'</span></div>';
+echo '<div class="page-title"><span>' . lang('module_titles_txt_17') . '</span></div>';
 
 ?>
 
@@ -25,27 +30,62 @@ echo '<div class="page-title"><span>'.lang('module_titles_txt_17').'</span></div
 	<tbody>
 		<tr>
 			<td style="width:50%;">Server Version</td>
-			<td style="width:50%;"><?php echo config('server_info_season'); ?></td>
+			<td style="width:50%;"><?php echo config('server_info_episode'); ?></td>
 		</tr>
 		<tr>
 			<td style="width:50%;">Experience</td>
 			<td style="width:50%;"><?php echo config('server_info_exp'); ?></td>
 		</tr>
 		<tr>
-			<td style="width:50%;">Master Experience</td>
-			<td style="width:50%;"><?php echo config('server_info_masterexp'); ?></td>
+			<td style="width:50%;"><?php echo lang('sidebar_srvinfo_txt_2'); ?></td>
+			<td style="width:50%;"><?php echo number_format($srvInfo[0]); ?></td>
 		</tr>
 		<tr>
-			<td style="width:50%;">Drop</td>
-			<td style="width:50%;"><?php echo config('server_info_drop'); ?></td>
+			<td style="width:50%;"><?php echo lang('sidebar_srvinfo_txt_3'); ?></td>
+			<td style="width:50%;"><?php echo number_format($srvInfo[1]); ?></td>
 		</tr>
+		<tr>
+			<td style="width:50%;"><?php echo lang('sidebar_srvinfo_txt_4'); ?></td>
+			<td style="width:50%;"><?php echo number_format($srvInfo[2]); ?></td>
+		</tr>
+		<?php if (check_value(config('maximum_online', true))) { ?>
+			<tr>
+				<td style="width:50%;"><?php echo lang('sidebar_srvinfo_txt_5'); ?></td>
+				<td style="width:50%;color:#00aa00;font-weight:bold;"><?php echo  number_format($onlinePlayers); ?></td>
+			</tr>
+		<?php } ?>
+		<?php if (isset($srvInfo) && is_array($srvInfo)) {
+
+			$totalCharacters = isset($srvInfo[1]) ? (int)$srvInfo[1] : 0;
+			$capella = isset($srvInfo[4]) ? (int)$srvInfo[4] : 0;
+			$procyon = isset($srvInfo[5]) ? (int)$srvInfo[5] : 0;
+			$neutral = isset($srvInfo[6]) ? (int)$srvInfo[6] : 0;
+
+			if ($totalCharacters > 0) {
+				$capellaPercent = ($capella * 100 / $totalCharacters);
+				$procyonPercent = ($procyon * 100 / $totalCharacters);
+				$neutralPercent = ($neutral * 100 / $totalCharacters); ?>
+				<tr>
+					<td style="width:50%;"><?php echo lang('rankings_txt_24'); ?></td>
+					<td style="width:100%; overflow: hidden; display: flex; flex-direction: column; justify-content: center;">
+						<div style="width: 100%; height: 20px;; display: flex; flex-direction: row; justify-content: center;">
+						<div style="width:<?php echo round($capellaPercent, 2) ?>%; background-color:#DF47FF;" title="Capella: <?php echo number_format($capella) ?>"></div>
+						<div style="width:<?php echo round($procyonPercent, 2) ?>%; background-color:#009BF4;" title="Procyon: <?php echo number_format($procyon) ?>"></div>
+						<div style="width:<?php echo round($neutralPercent, 2) ?>%; background-color:#CCCCCC;" title="Neutral: <?php echo number_format($neutral) ?>"></div>
+						</div>
+						<ul style="margin-top: 5px; list-style: none; padding-left: 0; width: 100%;">
+							<li style="font-size: 10px;"><span style="display:inline-block;width:10px;height:10px;background:#DF47FF;margin-right:5px;"></span>Capella: (<?php echo round($capellaPercent,1) ?>%) | <span style="display:inline-block;width:10px;height:10px;background:#009BF4;margin-right:5px;"></span>Procyon: (<?php echo round($procyonPercent,1) ?>%) | <span style="display:inline-block;width:10px;height:10px;background:#CCCCCC;margin-right:5px;"></span>Neutral: (<?php echo round($neutralPercent,1) ?>%)</li>
+						</ul>
+					</td>
+				</tr>
+			<?php } ?>
+		<?php } ?>
 	</tbody>
 </table>
 
 <br />
-
 <!-- CHAOS MACHINE RATES -->
-<h2>Chaos Machine</h2>
+<!-- <h2>Chaos Machine</h2>
 <table class="table table-condensed table-hover table-striped table-bordered">
 	<tbody>
 		<tr>
@@ -191,10 +231,10 @@ echo '<div class="page-title"><span>'.lang('module_titles_txt_17').'</span></div
 	</tbody>
 </table>
 
-<br />
+<br /> -->
 
 <!-- PARTY EXPERIENCE BONUS -->
-<h2>Party Bonus Experience</h2>
+<!-- <h2>Party Bonus Experience</h2>
 <table class="table table-condensed table-hover table-striped table-bordered">
 	<tbody>
 		<tr>
@@ -250,10 +290,10 @@ echo '<div class="page-title"><span>'.lang('module_titles_txt_17').'</span></div
 	</tbody>
 </table>
 
-<br />
+<br /> -->
 
 <!-- COMMANDS -->
-<h2>Commands</h2>
+<!-- <h2>Commands</h2>
 <table class="table table-condensed table-hover table-striped table-bordered">
 	<tbody>
 		<tr>
@@ -299,8 +339,8 @@ echo '<div class="page-title"><span>'.lang('module_titles_txt_17').'</span></div
 	</tbody>
 </table>
 
-<br />
+<br /> -->
 
 <!-- VIDEO -->
-<h2>Video</h2>
-<iframe width="636" height="357" src="https://www.youtube.com/embed/H5QQDvgU-hE?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- <h2>Video</h2>
+<iframe width="636" height="357" src="https://www.youtube.com/embed/H5QQDvgU-hE?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
