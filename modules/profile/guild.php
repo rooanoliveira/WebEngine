@@ -21,11 +21,12 @@ if(mconfig('active')) {
 			$weProfiles->setRequest($_GET['req']);
 			$guildData = $weProfiles->data();
 
-			$guildMembers = explode(",", $guildData[4]);
+			$guildMembers = explode(",", $guildData[5]);
 			$displayData = array(
 				'gname' => $guildData[1],
-				'gmaster' => $guildData[3],
-				'gscore' => $guildData[2],
+				'gmaster' => $guildData[4],
+				'gscore' => $guildData[3],
+				'glevel' => $guildData[2],
 				'gmembers' => count($guildMembers),
 			);
 
@@ -45,6 +46,10 @@ if(mconfig('active')) {
 							echo '<tr>';
 								echo '<td class="text-right">'.lang('profiles_txt_4',true).'</td>';
 								echo '<td class="text-left">'.number_format($displayData['gscore']).'</td>';
+							echo '</tr>';
+							echo '<tr>';
+								echo '<td class="text-right">'.lang('profiles_txt_7',true).'</td>';
+								echo '<td class="text-left">'.number_format($displayData['glevel']).'</td>';
 							echo '</tr>';
 							echo '<tr>';
 								echo '<td class="text-right">'.lang('profiles_txt_5',true).'</td>';

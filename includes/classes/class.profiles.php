@@ -139,6 +139,10 @@ private function cacheGuildData() {
 
 	$guildID = $guildData[_CLMN_GUILD_ID_];
 
+	// Guild Score
+	$guildScore = $this->dB->query_fetch_single("SELECT "._CLMN_GUILD_LVL_SCORE_.", "._CLMN_GUILD_LVL_LEVEL_." FROM "._TBL_GUILD_LVL_." WHERE "._CLMN_GUILDMEMB_ID_." = ?", [$guildID]);
+	if(!$guildScore) throw new Exception(lang('error_25', true));
+
 	// Members
 	$guildMembers = $this->dB->query_fetch("SELECT "._CLMN_GUILDMEMB_CHAR_." FROM "._TBL_GUILDMEMB_." WHERE "._CLMN_GUILDMEMB_ID_." = ?", [$guildID]);
 	if(!$guildMembers) throw new Exception(lang('error_25', true));
@@ -168,7 +172,8 @@ private function cacheGuildData() {
 	$data = array(
 		time(),
 		$guildData[_CLMN_GUILD_NAME_],
-		$guildData[_CLMN_GUILD_SCORE_],
+		$guildScore[_CLMN_GUILD_LVL_LEVEL_],
+		$guildScore[_CLMN_GUILD_LVL_SCORE_],
 		$guildMasterName,
 		$gmembers_str
 	);

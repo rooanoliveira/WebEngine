@@ -34,6 +34,7 @@ try {
 	}
 	echo '<td style="font-weight:bold;">'.lang('rankings_txt_17',true).'</td>';
 	echo '<td style="font-weight:bold;">'.lang('rankings_txt_18',true).'</td>';
+	echo '<td style="font-weight:bold;">'.lang('rankings_txt_12',true).'</td>';
 	echo '<td style="font-weight:bold;">'.lang('rankings_txt_19',true).'</td>';
 	echo '</tr>';
 	$i = 0;
@@ -47,6 +48,7 @@ try {
 			}
 			echo '<td>'.guildProfile($rdata[0]).'</td>';
 			echo '<td>'.playerProfile($rdata[1]).$onlineStatus.'</td>';
+			echo '<td>'.number_format($rdata[3]).'</td>';
 			echo '<td>'.number_format($rdata[2]).'</td>';
 			echo '</tr>';
 		}

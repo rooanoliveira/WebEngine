@@ -135,14 +135,15 @@ class Rankings
 		SELECT TOP " . $this->_results . "
 			g." . _CLMN_GUILD_NAME_ . ",
 			cc." . _CLMN_CHR_NAME_ . " AS GuildMaster,
-			gl." . _CLMN_GUILD_SCORE_ . " AS GuildPoints
+			gl." . _CLMN_GUILD_LVL_SCORE_ . " AS GuildPoints,
+			gl." . _CLMN_GUILD_LVL_LEVEL_ . " AS GuildLevel
 		FROM " . _TBL_GUILD_ . " g
 		INNER JOIN " . _TBL_GUILD_LVL_ . " gl ON g." . _CLMN_GUILD_ID_ . " = gl." . _CLMN_GUILD_LVL_ID_ . "
 		INNER JOIN " . _TBL_GUILDMEMB_ . " gm ON g." . _CLMN_GUILD_ID_ . " = gm." . _CLMN_GUILDMEMB_ID_ . " AND gm." . _CLMN_GUILDMEMB_TYPE_ . " = 1
 		INNER JOIN " . _TBL_CHR_ . " cc ON gm." . _CLMN_GUILDMEMB_CHAR_ . " = cc." . _CLMN_CHR_IDX_ . "
 		WHERE g." . _CLMN_GUILD_NAME_ . " NOT IN(" . $this->_rankingsExcludeGuilds() . ")
-		ORDER BY gl." . _CLMN_GUILD_SCORE_ . " DESC
-	";
+		ORDER BY gl." . _CLMN_GUILD_LVL_SCORE_ . " DESC
+		";
 
 		$result = $this->server01->query_fetch($query);
 		if (!is_array($result)) return;
@@ -150,7 +151,6 @@ class Rankings
 		$cache = BuildCacheData($result);
 		UpdateCache('rankings_guilds.cache', $cache);
 	}
-
 
 	private function _gensRanking()
 	{
@@ -293,12 +293,9 @@ class Rankings
 	{
 		$this->server01 = Connection::Database('Server01');
 
-		// level only (no master level)
-		if (!$combineMasterLevel) {
-			$result = $this->server01->query_fetch("SELECT TOP " . $this->_results . " " . _CLMN_CHR_NAME_ . "," . _CLMN_CHR_CLASS_ . "," . _CLMN_CHR_LVL_ . "," . _CLMN_CHR_MAP_ . "," . _CLMN_CHR_NATION_ . " FROM " . _TBL_CHR_ . " WHERE " . _CLMN_CHR_NAME_ . " NOT IN(" . $this->_rankingsExcludeChars() . ") ORDER BY " . _CLMN_CHR_LVL_ . " DESC");
-			if (!is_array($result)) return;
-			return $result;
-		}
+		$result = $this->server01->query_fetch("SELECT TOP " . $this->_results . " " . _CLMN_CHR_NAME_ . "," . _CLMN_CHR_CLASS_ . "," . _CLMN_CHR_LVL_ . "," . _CLMN_CHR_MAP_ . "," . _CLMN_CHR_NATION_ . " FROM " . _TBL_CHR_ . " WHERE " . _CLMN_CHR_NAME_ . " NOT IN(" . $this->_rankingsExcludeChars() . ") ORDER BY " . _CLMN_CHR_LVL_ . " DESC");
+		if (!is_array($result)) return;
+		return $result;
 	}
 
 	private function _getResetRankingData($combineMasterLevel = false)
@@ -340,9 +337,9 @@ class Rankings
 
 	private function _getOnlineRankingDataMembStatHours()
 	{
-		$this->server01 = Connection::Database('Server01');
+		$this->account = Connection::Database('Account');
 
-		$accounts = $this->server01->query_fetch("SELECT TOP " . $this->_results . " " . _CLMN_MS_MEMBID_ . ", " . _CLMN_MS_ONLINEHRS_ . " FROM " . _TBL_MS_ . " WHERE " . _CLMN_MS_ONLINEHRS_ . " > 0 ORDER BY " . _CLMN_MS_ONLINEHRS_ . " DESC");
+		$accounts = $this->server01->query_fetch("SELECT TOP " . $this->_results . " " . _CLMN_MS_MEMBID_ . ", " . _CLMN_MS_PLAYTIME_ . " FROM " . _TBL_MS_ . " WHERE " . _CLMN_MS_PLAYTIME_ . " > 0 ORDER BY " . _CLMN_MS_PLAYTIME_ . " DESC");
 		if (!is_array($accounts)) return;
 		$Character = new Character();
 		foreach ($accounts as $row) {
@@ -352,7 +349,7 @@ class Rankings
 			if (!is_array($platerData)) continue;
 			$result[] = array(
 				$playerIDC,
-				$row[_CLMN_MS_ONLINEHRS_] * 3600,
+				$row[_CLMN_MS_PLAYTIME_] / 24,
 				$platerData[_CLMN_CHR_CLASS_],
 				$platerData[_CLMN_CHR_MAP_]
 			);
